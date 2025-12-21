@@ -1,7 +1,0 @@
-{
-  "name": "KORA Aerospace",
-  "description": "Compact autonomous UAV research and AI engineering. High-performance flight stacks and hardware-first autonomy.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
-}
