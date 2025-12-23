@@ -1,13 +1,5 @@
 
 
-# Run and deploy your AI Studio app
+# repo for the kora aerospace website
 
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Website live at: https://www.kora-aerospace.org/
