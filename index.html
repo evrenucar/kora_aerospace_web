@@ -53,7 +53,7 @@
       </script>
       <link rel="stylesheet" href="styles.css" />
     </head>
-    <body class="bg-kora-bg grid-bg">
+    <body class="bg-kora-bg grid-bg overflow-x-hidden">
       <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-kora-bg py-8">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#" class="flex items-center group">
@@ -94,13 +94,18 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-6">
                   <a
                     href="#sponsors"
-                    class="bg-kora-cyan text-kora-bg px-10 py-5 sharp-edge font-black text-lg hover:bg-white transition-all uppercase tracking-tighter text-center"
+                    class="bg-kora-cyan text-kora-bg px-10 py-5 sharp-edge font-black text-lg hover:bg-white transition-all uppercase tracking-tighter text-center w-full sm:w-auto"
                     >
                     Sponsor the Team
                   </a>
-                  <button class="bg-kora-surface border border-slate-700 text-kora-offwhite px-10 py-5 sharp-edge font-black text-lg hover:border-kora-cyan transition-all uppercase tracking-tighter text-center">
-                    Download Sponsor Deck (PDF)
-                  </button>
+                  <a
+                    href="https://forms.gle/SHqMc7veWDYyEdcb9"
+                    class="bg-kora-surface border border-slate-700 text-kora-offwhite px-10 py-5 sharp-edge font-black text-lg hover:border-kora-cyan transition-all uppercase tracking-tighter text-center w-full sm:w-auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    Request Sponsor Deck (PDF)
+                  </a>
                 </div>
                 <p class="text-xs text-slate-200 font-bold uppercase tracking-widest">
                   With professional hardware/embedded design experience. 
@@ -264,21 +269,33 @@
                 <div class="relative overflow-hidden sharp-edge border border-slate-800 bg-kora-surface">
                   <div class="aspect-[4/3] relative">
                     <div data-carousel-slide class="absolute inset-0">
-                      <img src="media/PHOTO-2025-08-22-11-43-52.jpg" alt="Flight test" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
+                      <img src="media\PHOTO-2025-10-14-23-58-30.jpg" alt="Alpha_Flight Model" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
                       <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">
-                        Flight test - field
+                        Alpha_Flight Model
                       </div>
                     </div>
                     <div data-carousel-slide class="absolute inset-0 hidden">
                       <img src="media/PCB_final_image(1).png" alt="PCB design" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
                       <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">
-                        Avionics stack
+                        Custom Avionics stack
                       </div>
                     </div>
                     <div data-carousel-slide class="absolute inset-0 hidden">
-                      <img src="media/teknofest_karabag.jpg" alt="Competition day" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
+                      <img src="media\PHOTO-2025-09-10-13-23-40.jpg" alt="Competition day" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
                       <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">
-                        Competition stage
+                        Modular frame development
+                      </div>
+                    </div>
+                    <div data-carousel-slide class="absolute inset-0 hidden">
+                      <img src="media\pcb_routing.png" alt="VTOL test" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
+                      <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">
+                        Custom avionics-compute PCB routing 
+                      </div>
+                    </div>
+                    <div data-carousel-slide class="absolute inset-0 hidden">
+                      <img src="media\launch.png" alt="Field prep" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
+                      <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">
+                        Flight
                       </div>
                     </div>
                   </div>
@@ -296,6 +313,8 @@
                     <button type="button" data-carousel-dot="0" class="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-kora-cyan transition-colors"></button>
                     <button type="button" data-carousel-dot="1" class="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-kora-cyan transition-colors"></button>
                     <button type="button" data-carousel-dot="2" class="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-kora-cyan transition-colors"></button>
+                    <button type="button" data-carousel-dot="3" class="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-kora-cyan transition-colors"></button>
+                    <button type="button" data-carousel-dot="4" class="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-kora-cyan transition-colors"></button>
                   </div>
                 </div>
               </div>
@@ -407,7 +426,7 @@
                   </div>
                   <div class="p-8">
                     <div class="text-xs font-mono text-kora-cyan mb-2 uppercase tracking-widest">Flight Systems Developer</div>
-                    <h3 class="text-2xl font-black text-kora-offwhite mb-4 uppercase tracking-tighter">Ceren</h3>
+                    <h3 class="text-2xl font-black text-kora-offwhite mb-4 uppercase tracking-tighter">Ceren Eren</h3>
                     <p class="text-slate-100 text-sm leading-relaxed mb-6 font-light">
                       Specializes in aerodynamic structural design and rapid physical prototyping. Leads the end-to-end assembly process.
                     </p>
@@ -443,7 +462,7 @@
                   </div>
                   <div class="p-8">
                     <div class="text-xs font-mono text-kora-cyan mb-2 uppercase tracking-widest">Flight Dynamics & Software</div>
-                    <h3 class="text-2xl font-black text-kora-offwhite mb-4 uppercase tracking-tighter">Nursena</h3>
+                    <h3 class="text-2xl font-black text-kora-offwhite mb-4 uppercase tracking-tighter">Nursena Gürlek</h3>
                     <p class="text-slate-100 text-sm leading-relaxed mb-6 font-light">
                       Experienced in computational aerodynamic analysis and flight control software.
                     </p>
@@ -470,7 +489,7 @@
                       BEKO "Hack the Normal" Global Hackathon
                     </h3>
                     <p class="text-slate-100 leading-relaxed font-light">
-                      Developed novel hardware-software integration for real-world reliability.
+                      Developed novel cleaning solution and demonstrated its viability.
                     </p>
                   </div>
                   <div class="relative space-y-3">
@@ -484,7 +503,7 @@
                       Baku Smart Karabakh Hackathon, Teknofest
                     </h3>
                     <p class="text-slate-100 leading-relaxed font-light">
-                      Validated autonomous perception stack in high-pressure competition environment.
+                      Developed a agricultural VTOL and the infrastructure to support operations with wide coverage.
                     </p>
                   </div>
                   <div class="relative space-y-3">
@@ -497,7 +516,7 @@
                     <h3 class="text-2xl font-black text-kora-offwhite uppercase tracking-tight leading-tight">
                       Teknofest "Ulasimda Yapay Zeka"
                     </h3>
-                    <p class="text-slate-100 leading-relaxed font-light">Demonstrated AI-driven navigation capabilities.</p>
+                    <p class="text-slate-100 leading-relaxed font-light">Utilized self trained vision models to detect and classify vehicles from drone images.</p>
                   </div>
                   <div class="relative space-y-3">
                     <div class="absolute -left-6 top-2 w-2 h-2 bg-kora-cyan sharp-edge">
@@ -766,9 +785,12 @@
                     Fill in our interest form to schedule a meeting
                   </a>
                 </div>
-                <div class="bg-kora-surface p-1 sharp-edge h-fit border border-slate-800 rotate-1">
+                <div class="bg-kora-surface p-1 sharp-edge h-fit border border-slate-800">
                   <div class="bg-kora-bg p-12 sharp-edge border border-slate-800">
                     <div class="text-kora-cyan font-mono text-[10px] uppercase tracking-[0.5em] mb-8 font-bold">// WHY WE NEED YOUR SUPPORT</div>
+                    <div class="aspect-video mb-6 overflow-hidden sharp-edge border border-slate-800">
+                      <img src="media/launch.png" alt="Launch prep" class="w-full h-full object-cover" />
+                    </div>
                     <p class="text-kora-offwhite text-lg font-light leading-relaxed mb-6 italic">
                       "For us to move as fast we need funds, fabrication and field access. We partner with labs and manufacturers who want
                       to see their technologies validated or just want to support our progress"
@@ -787,12 +809,10 @@
           <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-12 gap-16 mb-24">
               <div class="lg:col-span-6">
-                <div class="flex items-center gap-5 mb-8">
-                  <img src="media/fulll_logo.svg" alt="KORA Aerospace logo" class="w-28 h-28 object-contain" />
-                </div>
-                <div class="flex items-center gap-4 mb-10">
-                  <img src="media/odtu_logo.png" alt="ODTU logo" class="h-10 w-auto object-contain" />
-                  <img src="media/.png_TuDelft_logo_white_rgb.png" alt="TU Delft logo" class="h-10 w-auto object-contain" />
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-10">
+                  <img src="media/fulll_logo.svg" alt="KORA Aerospace logo" class="h-14 w-auto object-contain" />
+                  <img src="media/odtu_logo.png" alt="ODTU logo" class="h-14 w-auto object-contain" />
+                  <img src="media/png_TuDelft_logo_white_rgb.png" alt="TU Delft logo" class="h-14 w-auto object-contain" />
                 </div>
                 <div class="grid sm:grid-cols-2 gap-12 font-mono text-xs uppercase tracking-widest mt-12">
                   <div>

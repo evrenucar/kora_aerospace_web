@@ -5,6 +5,11 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .sharp-edge {
   border-radius: 0px !important;
 }
