@@ -37,3 +37,62 @@ if (chatClose) {
 if (currentYear) {
   currentYear.textContent = new Date().getFullYear().toString();
 }
+
+const setupCarousel = (root, intervalMs = 5000) => {
+  if (!root) return;
+  const slides = Array.from(root.querySelectorAll('[data-carousel-slide]'));
+  const dots = Array.from(root.querySelectorAll('[data-carousel-dot]'));
+  const prevBtn = root.querySelector('[data-carousel-prev]');
+  const nextBtn = root.querySelector('[data-carousel-next]');
+
+  if (!slides.length) return;
+  let index = 0;
+  let timer;
+
+  const show = (i) => {
+    index = (i + slides.length) % slides.length;
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('hidden', idx !== index);
+    });
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('bg-kora-cyan', idx === index);
+      dot.classList.toggle('bg-slate-600', idx !== index);
+    });
+  };
+
+  const next = (delta = 1) => {
+    show(index + delta);
+  };
+
+  const start = () => {
+    timer = setInterval(() => next(1), intervalMs);
+  };
+
+  const reset = () => {
+    if (timer) clearInterval(timer);
+    start();
+  };
+
+  prevBtn?.addEventListener('click', () => {
+    next(-1);
+    reset();
+  });
+  nextBtn?.addEventListener('click', () => {
+    next(1);
+    reset();
+  });
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      show(idx);
+      reset();
+    });
+  });
+
+  root.addEventListener('mouseenter', () => timer && clearInterval(timer));
+  root.addEventListener('mouseleave', reset);
+
+  show(0);
+  start();
+};
+
+setupCarousel(document.getElementById('work-carousel'));
