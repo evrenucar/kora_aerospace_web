@@ -73,14 +73,7 @@ const applyTranslations = (translations) => {
   });
 };
 
-const getInlineTranslations = (lang) => {
-  return window.KORA_LOCALES?.[lang] ?? null;
-};
-
 const loadTranslations = async (lang) => {
-  const inline = getInlineTranslations(lang);
-  if (inline) return inline;
-
   const response = await fetch(`locales/${lang}.json`, { cache: 'no-store' });
   if (!response.ok) {
     throw new Error(`Missing locale: ${lang}`);
