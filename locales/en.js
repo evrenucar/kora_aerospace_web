@@ -1,4 +1,5 @@
-{
+window.KORA_LOCALES = window.KORA_LOCALES || {};
+window.KORA_LOCALES.en = {
   "meta.title": "KORA Aerospace | Smallest AI-Enabled Fixed-Wing UAV",
   "meta.description": "Competition team from METU and TU Delft building the smallest AI-enabled fixed-wing UAV with an onboard Jetson. Sponsor us to help us win.",
   "alt.logo_kora": "KORA Aerospace logo",
@@ -193,4 +194,4 @@
   "footer.page_index.sponsors": "Sponsors",
   "footer.rights": "KORA AEROSPACE. ALL_RIGHTS_RESERVED.",
   "footer.last_update": "LAST UPDATE 23-12-2025"
-}
+};
