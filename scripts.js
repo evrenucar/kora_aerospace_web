@@ -3,6 +3,11 @@ const chatToggle = document.getElementById('chat-toggle');
 const chatPanel = document.getElementById('chat-panel');
 const chatClose = document.getElementById('chat-close');
 const currentYear = document.getElementById('current-year');
+const langToggle = document.getElementById('lang-toggle');
+const langMenu = document.getElementById('lang-menu');
+
+const supportedLangs = ['en', 'tr', 'nl'];
+const langStorageKey = 'kora_lang';
 
 const updateNavbar = () => {
   if (!navbar) return;
@@ -37,6 +42,116 @@ if (chatClose) {
 if (currentYear) {
   currentYear.textContent = new Date().getFullYear().toString();
 }
+
+const getStoredLang = () => {
+  const stored = window.localStorage.getItem(langStorageKey);
+  if (stored && supportedLangs.includes(stored)) return stored;
+  return 'en';
+};
+
+const setActiveLangFlag = (lang) => {
+  document.querySelectorAll('[data-lang-flag]').forEach((flag) => {
+    flag.classList.toggle('hidden', flag.dataset.langFlag !== lang);
+  });
+
+  document.querySelectorAll('[data-lang-option]').forEach((option) => {
+    option.classList.toggle('hidden', option.dataset.langOption === lang);
+  });
+};
+
+const applyTranslations = (translations) => {
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.dataset.i18n;
+    const attr = el.dataset.i18nAttr;
+    const value = translations[key];
+    if (value === undefined || value === '') return;
+    if (attr) {
+      el.setAttribute(attr, value);
+    } else {
+      el.innerHTML = value;
+    }
+  });
+};
+
+const loadTranslations = async (lang) => {
+  const response = await fetch(`/locales/${lang}.json`, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`Missing locale: ${lang}`);
+  }
+  return response.json();
+};
+
+const setLanguage = async (lang) => {
+  if (!supportedLangs.includes(lang)) return;
+  window.localStorage.setItem(langStorageKey, lang);
+  document.documentElement.lang = lang;
+  setActiveLangFlag(lang);
+
+  try {
+    const translations = await loadTranslations(lang);
+    applyTranslations(translations);
+  } catch (error) {
+    if (lang !== 'en') {
+      try {
+        const translations = await loadTranslations('en');
+        applyTranslations(translations);
+      } catch {
+        return;
+      }
+    }
+  }
+};
+
+const initLanguage = async () => {
+  const lang = getStoredLang();
+  await setLanguage(lang);
+};
+
+const setupLangMenu = () => {
+  if (!langToggle || !langMenu) return;
+
+  const openMenu = () => {
+    langMenu.classList.remove('hidden');
+    langToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeMenu = () => {
+    langMenu.classList.add('hidden');
+    langToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  langToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    if (langMenu.classList.contains('hidden')) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  langMenu.addEventListener('click', closeMenu);
+
+  document.addEventListener('click', (event) => {
+    if (langMenu.contains(event.target) || langToggle.contains(event.target)) {
+      return;
+    }
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+  });
+
+  langMenu.querySelectorAll('[data-lang-option]').forEach((option) => {
+    option.addEventListener('click', async () => {
+      const lang = option.dataset.langOption;
+      await setLanguage(lang);
+      closeMenu();
+    });
+  });
+};
 
 const setupCarousel = (root, intervalMs = 5000) => {
   if (!root) return;
@@ -96,3 +211,5 @@ const setupCarousel = (root, intervalMs = 5000) => {
 };
 
 setupCarousel(document.getElementById('work-carousel'));
+setupLangMenu();
+initLanguage();
