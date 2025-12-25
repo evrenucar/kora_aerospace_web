@@ -68,13 +68,13 @@ const applyTranslations = (translations) => {
     if (attr) {
       el.setAttribute(attr, value);
     } else {
-      el.innerHTML = value;
+      el.textContent = value;
     }
   });
 };
 
 const loadTranslations = async (lang) => {
-  const response = await fetch(`locales/${lang}.json`, { cache: 'no-store' });
+  const response = await fetch(`locales/${lang}.json`, { cache: 'no-cache' });
   if (!response.ok) {
     throw new Error(`Missing locale: ${lang}`);
   }
@@ -91,12 +91,13 @@ const setLanguage = async (lang) => {
     const translations = await loadTranslations(lang);
     applyTranslations(translations);
   } catch (error) {
+    console.error(`Failed to load translations for language "${lang}"`, error);
     if (lang !== 'en') {
       try {
         const translations = await loadTranslations('en');
         applyTranslations(translations);
-      } catch {
-        return;
+      } catch (fallbackError) {
+        console.error('Failed to load fallback English translations', fallbackError);
       }
     }
   }
@@ -212,4 +213,6 @@ const setupCarousel = (root, intervalMs = 5000) => {
 
 setupCarousel(document.getElementById('work-carousel'));
 setupLangMenu();
-initLanguage();
+(async () => {
+  await initLanguage();
+})();
