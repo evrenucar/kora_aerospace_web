@@ -68,7 +68,7 @@ const applyTranslations = (translations) => {
     if (attr) {
       el.setAttribute(attr, value);
     } else {
-      el.textContent = value;
+      el.innerHTML = value;
     }
   });
 };
