@@ -1,0 +1,52 @@
+site:
+  title: "Kora Aerospace"
+  description:
+    en: "Pioneering the future of autonomous flight."
+    tr: "Otonom uçuşun geleceğine öncülük ediyoruz."
+
+navigation:
+  items:
+    - label:
+        en: "About"
+        tr: "Hakkında"
+      dropdown:
+        - label:
+            en: "Team"
+            tr: "Takım"
+          href: "/team.html"
+        - label:
+            en: "Achievements"
+            tr: "Başarılar"
+          href: "/achievements.html"
+    - label:
+        en: "This Year"
+        tr: "Bu Yıl"
+      dropdown:
+        - label:
+            en: "Vehicle"
+            tr: "Araç"
+          href: "/vehicle.html"
+        - label:
+            en: "Competitions"
+            tr: "Yarışmalar"
+          href: "/competitions.html"
+    - label:
+        en: "Media"
+        tr: "Medya"
+      href: "/media.html"
+    - label:
+        en: "Blog"
+        tr: "Blog"
+      href: "/blog.html"
+    - label:
+        en: "Contact"
+        tr: "İletişim"
+      href: "/contact.html"
+
+footer:
+  copyright: "© 2024 Kora Aerospace. All rights reserved."
+  social:
+    - platform: "LinkedIn"
+      url: "#"
+    - platform: "Instagram"
+      url: "#"

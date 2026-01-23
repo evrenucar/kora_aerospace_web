@@ -1,0 +1,11 @@
+posts:
+  - slug: "hello-world"
+    date: "2024-01-23"
+    title:
+      en: "Hello World: Welcome to our new site"
+      tr: "Merhaba Dünya: Yeni sitemize hoş geldiniz"
+    summary:
+      en: "We have revamped our website with a new design and architecture."
+      tr: "Web sitemizi yeni bir tasarım ve mimari ile yeniledik."
+    category: "General"
+    image: "/assets/images/blog-1.jpg"
