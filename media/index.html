@@ -101,6 +101,7 @@
     <script src="/js/component-loader.js"></script>
     <script src="/js/main.js"></script>
     <script>
+        let mediaContent = null;
         let allItems = [];
         let currentType = 'all';
         let currentCategory = 'all';
@@ -156,32 +157,37 @@
         `).join('');
         };
 
-        document.addEventListener('app-ready', async () => {
-            const content = await contentLoader.loadContent('media-gallery');
-            if (!content) return;
-
+        const renderMediaPage = () => {
+            if (!mediaContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
-            document.getElementById('page-title').textContent = l(content.page?.title) || 'Media';
-            document.getElementById('page-subtitle').textContent = l(content.page?.subtitle) || '';
+            document.getElementById('page-title').textContent = l(mediaContent.page?.title) || 'Media';
+            document.getElementById('page-subtitle').textContent = l(mediaContent.page?.subtitle) || '';
 
             // Update filter labels
-            if (content.filters) {
-                document.getElementById('filter-all').textContent = l(content.filters.all);
-                document.getElementById('filter-photos').textContent = l(content.filters.photos);
-                document.getElementById('filter-videos').textContent = l(content.filters.videos);
-                document.getElementById('filter-press').textContent = l(content.filters.press_kit);
+            if (mediaContent.filters) {
+                document.getElementById('filter-all').textContent = l(mediaContent.filters.all);
+                document.getElementById('filter-photos').textContent = l(mediaContent.filters.photos);
+                document.getElementById('filter-videos').textContent = l(mediaContent.filters.videos);
+                document.getElementById('filter-press').textContent = l(mediaContent.filters.press_kit);
             }
 
-            if (content.categories) {
-                document.getElementById('cat-vehicle').textContent = l(content.categories.vehicle);
-                document.getElementById('cat-testing').textContent = l(content.categories.testing);
-                document.getElementById('cat-competition').textContent = l(content.categories.competition);
-                document.getElementById('cat-team').textContent = l(content.categories.team);
+            if (mediaContent.categories) {
+                document.getElementById('cat-vehicle').textContent = l(mediaContent.categories.vehicle);
+                document.getElementById('cat-testing').textContent = l(mediaContent.categories.testing);
+                document.getElementById('cat-competition').textContent = l(mediaContent.categories.competition);
+                document.getElementById('cat-team').textContent = l(mediaContent.categories.team);
             }
 
-            allItems = content.items || [];
             renderGallery();
+        };
+
+        document.addEventListener('app-ready', async () => {
+            mediaContent = await contentLoader.loadContent('media-gallery');
+            if (mediaContent) {
+                allItems = mediaContent.items || [];
+                renderMediaPage();
+            }
 
             // Type filter handlers
             document.querySelectorAll('[data-type]').forEach(btn => {
@@ -206,6 +212,10 @@
                     renderGallery();
                 });
             });
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderMediaPage();
         });
     </script>
 </body>

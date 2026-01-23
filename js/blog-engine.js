@@ -66,6 +66,14 @@ class BlogEngine {
      * @returns {Object} Parsed post with frontmatter and HTML content
      */
     parsePost(markdown, slug) {
+        // Remove BOM if present
+        if (markdown.charCodeAt(0) === 0xFEFF) {
+            markdown = markdown.slice(1);
+        }
+
+        // Normalize line endings to \n for easier parsing
+        markdown = markdown.replace(/\r\n/g, '\n');
+
         const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
         const match = markdown.match(frontmatterRegex);
 
@@ -78,6 +86,20 @@ class BlogEngine {
                 content = match[2].trim();
             } catch (e) {
                 console.error('Error parsing frontmatter:', e);
+            }
+        } else {
+            // Fallback: Check if file starts with --- but regex failed (maybe slightly different format)
+            if (markdown.startsWith('---')) {
+                const endOfFrontmatter = markdown.indexOf('\n---', 3);
+                if (endOfFrontmatter !== -1) {
+                    const yamlStr = markdown.substring(3, endOfFrontmatter);
+                    try {
+                        frontmatter = jsyaml.load(yamlStr);
+                        content = markdown.substring(endOfFrontmatter + 4).trim(); // +4 for \n---
+                        // Check if content starts with newline (it likely does)
+                        if (content.startsWith('\n')) content = content.substring(1).trim();
+                    } catch (e) { console.error('Fallback frontmatter parsing failed', e); }
+                }
             }
         }
 
@@ -119,6 +141,7 @@ class BlogEngine {
      * @returns {string} Localized value
      */
     getLocalizedMeta(frontmatter, key, lang = 'en') {
+        if (!frontmatter) return '';
         const langKey = lang === 'en' ? key : `${key}_${lang}`;
         return frontmatter[langKey] || frontmatter[key] || '';
     }
@@ -130,13 +153,23 @@ class BlogEngine {
      * @returns {string} HTML for blog card
      */
     renderBlogCard(post, lang = 'en') {
-        const title = this.getLocalizedMeta(post, 'title', lang);
+        const title = this.getLocalizedMeta(post, 'title', lang) || 'Untitled Scan';
         const excerpt = this.getLocalizedMeta(post, 'excerpt', lang);
-        const date = new Date(post.date).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+
+        // Safely parse date
+        let dateStr = '';
+        try {
+            if (post.date) {
+                const dateObj = new Date(post.date);
+                if (!isNaN(dateObj.getTime())) {
+                    dateStr = dateObj.toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }
+            }
+        } catch (e) { console.error('Date parsing error', e); }
 
         return `
       <article class="blog-card bg-kora-surface border border-slate-800 sharp-edge overflow-hidden group hover:border-kora-cyan transition-all">
@@ -149,7 +182,7 @@ class BlogEngine {
           <div class="p-6">
             <div class="flex items-center gap-4 mb-4">
               <span class="text-xs font-mono text-kora-cyan uppercase tracking-widest">${post.category || 'General'}</span>
-              <span class="text-xs text-slate-400">${date}</span>
+              <span class="text-xs text-slate-400">${dateStr}</span>
             </div>
             <h3 class="text-xl font-black text-kora-offwhite uppercase tracking-tight mb-3 group-hover:text-kora-cyan transition-colors">${title}</h3>
             <p class="text-slate-300 text-sm font-light line-clamp-2">${excerpt}</p>
@@ -167,18 +200,28 @@ class BlogEngine {
      */
     renderBlogPost(post, lang = 'en') {
         const title = this.getLocalizedMeta(post.frontmatter, 'title', lang);
-        const date = new Date(post.frontmatter.date).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+
+        // Safely parse date
+        let dateStr = '';
+        try {
+            if (post.frontmatter.date) {
+                const dateObj = new Date(post.frontmatter.date);
+                if (!isNaN(dateObj.getTime())) {
+                    dateStr = dateObj.toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }
+            }
+        } catch (e) { console.error('Date parsing error', e); }
 
         return `
       <article class="blog-post max-w-3xl mx-auto">
         <header class="mb-12">
           <div class="flex items-center gap-4 mb-6">
             <span class="text-xs font-mono text-kora-cyan uppercase tracking-widest">${post.frontmatter.category || 'General'}</span>
-            <span class="text-xs text-slate-400">${date}</span>
+            <span class="text-xs text-slate-400">${dateStr}</span>
           </div>
           <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite uppercase tracking-tight mb-6">${title}</h1>
           ${post.frontmatter.featured_image ? `

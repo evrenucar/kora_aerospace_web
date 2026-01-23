@@ -99,6 +99,7 @@
     <script src="/js/blog-engine.js"></script>
     <script src="/js/main.js"></script>
     <script>
+        let blogContent = null;
         let allPosts = [];
         let currentFilter = 'all';
 
@@ -138,43 +139,45 @@
         const showListing = () => {
             document.getElementById('blog-listing').classList.remove('hidden');
             document.getElementById('blog-post').classList.add('hidden');
+            document.getElementById('post-content').innerHTML = ''; // Clear content
             history.pushState({}, '', '/blog/');
+            renderPosts(allPosts); // Re-render to update language
         };
 
-        document.addEventListener('app-ready', async () => {
-            const blogContent = await contentLoader.loadContent('blog');
+        const renderBlogPage = () => {
+            if (!blogContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
             // Update UI text
-            if (blogContent) {
-                document.getElementById('page-title').textContent = l(blogContent.page?.title) || 'Development Blog';
-                document.getElementById('page-subtitle').textContent = l(blogContent.page?.subtitle) || '';
-                document.getElementById('back-text').textContent = l(blogContent.ui?.back_to_blog) || '← Back to Blog';
-                document.getElementById('no-posts-text').textContent = l(blogContent.ui?.no_posts) || 'No posts found.';
+            document.getElementById('page-title').textContent = l(blogContent.page?.title) || 'Development Blog';
+            document.getElementById('page-subtitle').textContent = l(blogContent.page?.subtitle) || '';
+            document.getElementById('back-text').textContent = l(blogContent.ui?.back_to_blog) || '← Back to Blog';
+            document.getElementById('no-posts-text').textContent = l(blogContent.ui?.no_posts) || 'No posts found.';
 
-                // Update filter buttons
-                if (blogContent.categories) {
-                    document.getElementById('filter-all').textContent = l(blogContent.categories.all);
-                    document.getElementById('filter-mechanical').textContent = l(blogContent.categories.mechanical);
-                    document.getElementById('filter-avionics').textContent = l(blogContent.categories.avionics);
-                    document.getElementById('filter-software').textContent = l(blogContent.categories.software);
-                    document.getElementById('filter-testing').textContent = l(blogContent.categories.testing);
-                }
+            // Update filter buttons
+            if (blogContent.categories) {
+                document.getElementById('filter-all').textContent = l(blogContent.categories.all);
+                document.getElementById('filter-mechanical').textContent = l(blogContent.categories.mechanical);
+                document.getElementById('filter-avionics').textContent = l(blogContent.categories.avionics);
+                document.getElementById('filter-software').textContent = l(blogContent.categories.software);
+                document.getElementById('filter-testing').textContent = l(blogContent.categories.testing);
             }
 
-            // Load posts
-            allPosts = await blogEngine.loadIndex();
-            allPosts = blogEngine.sortByDate(allPosts);
-
-            // Check for post parameter
-            const params = new URLSearchParams(window.location.search);
-            const postSlug = params.get('post');
-
-            if (postSlug) {
-                await loadPost(postSlug);
-            } else {
+            // Re-render posts if we have them
+            if (allPosts.length > 0) {
                 renderPosts(allPosts);
             }
+
+            // Re-render current post if viewing one
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+            if (postSlug) {
+                loadPost(postSlug);
+            }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            blogContent = await contentLoader.loadContent('blog');
 
             // Filter button handlers
             document.querySelectorAll('[data-category]').forEach(btn => {
@@ -191,6 +194,26 @@
                 e.preventDefault();
                 showListing();
             });
+
+            renderBlogPage();
+
+            // Load posts
+            allPosts = await blogEngine.loadIndex();
+            allPosts = blogEngine.sortByDate(allPosts);
+
+            // Check for post parameter
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+
+            if (postSlug) {
+                await loadPost(postSlug);
+            } else {
+                renderPosts(allPosts);
+            }
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderBlogPage();
         });
 
         // Handle browser back/forward

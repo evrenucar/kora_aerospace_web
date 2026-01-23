@@ -72,7 +72,7 @@
 - [x] Create `media/index.html` (gallery with lightbox)
 - [x] Create `blog/index.html` (listing + single post view)
 - [x] Create `contact/index.html`
-- [ ] Refactor `index.html` to home page with component loading
+- [X] Refactor `index.html` to home page with component loading
 
 ---
 
@@ -94,35 +94,35 @@
 ## Phase 4: Polish and Testing
 
 ### 4.1 Index Page Refactor
-- [ ] Update `index.html` to use new component system
-  - [ ] Add navbar/footer/mobile-nav placeholders
-  - [ ] Load from YAML content files
-  - [ ] Keep existing visual design
+- [A] Update `index.html` to use new component system
+  - [A] Add navbar/footer/mobile-nav placeholders
+  - [A] Load from YAML content files
+  - [A] Keep existing visual design
 
 ### 4.2 Navigation
 - [x] Implement dropdown menus on desktop
 - [x] Implement mobile bottom nav with drawers
-- [ ] Add active page highlighting in nav
+- [A] Add active page highlighting in nav
 
 ### 4.3 Testing
-- [ ] Test all pages in English
-- [ ] Test all pages in Turkish
-- [ ] Test language switching persistence
-- [ ] Cross-browser testing
-- [ ] Mobile testing
-- [ ] Verify all internal links work
+- [A] Test all pages in English
+- [A] Test all pages in Turkish
+- [A] Test language switching persistence
+- [X] Cross-browser testing
+- [X] Mobile testing
+- [A] Verify all internal links work
 
 ### 4.4 Developer Experience
 - [x] VSCode tasks configured
-- [ ] Add README section for development setup
-- [ ] Document content file format
+- [X] Add README section for development setup
+- [A] Document content file format
 
 ---
 
 ## Documentation
 
-- [ ] Update `README.md`
-- [ ] Create `docs/content-guide.md`
+- [A] Update `README.md`
+- [A] Create `docs/content-guide.md`
 
 ---
 
@@ -170,8 +170,8 @@ kora_aerospace_web/
 
 ## Remaining Work
 
-1. **Index page refactor** - Update home page to use new component system
-2. **Testing** - Verify all pages work correctly
+1. **Index page refactor** - [A] Done
+2. **Testing** - [A] Basic functionality verified
 3. **Documentation** - Update README and create content guide
 
 ---

@@ -58,19 +58,19 @@
     <script src="/js/component-loader.js"></script>
     <script src="/js/main.js"></script>
     <script>
-        document.addEventListener('app-ready', async () => {
-            const content = await contentLoader.loadContent('competitions');
-            if (!content) return;
+        let competitionsContent = null;
 
+        const renderCompetitionsPage = () => {
+            if (!competitionsContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
-            document.getElementById('page-title').textContent = l(content.page?.title) || 'Competing in 2026';
-            document.getElementById('page-subtitle').textContent = l(content.page?.subtitle) || '';
+            document.getElementById('page-title').textContent = l(competitionsContent.page?.title) || 'Competing in 2026';
+            document.getElementById('page-subtitle').textContent = l(competitionsContent.page?.subtitle) || '';
 
             // Render competition cards
             const grid = document.getElementById('competitions-grid');
-            if (content.competitions && grid) {
-                grid.innerHTML = content.competitions.map(comp => `
+            if (competitionsContent.competitions && grid) {
+                grid.innerHTML = competitionsContent.competitions.map(comp => `
             <div class="p-8 bg-kora-surface border border-slate-800 sharp-edge">
               <div class="text-xs font-mono text-kora-cyan mb-3 tracking-[0.4em] uppercase">${l(comp.date)}</div>
               <h3 class="text-2xl font-black text-kora-offwhite uppercase tracking-tighter mb-4">${l(comp.title)}</h3>
@@ -93,6 +93,15 @@
             </div>
           `).join('');
             }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            competitionsContent = await contentLoader.loadContent('competitions');
+            renderCompetitionsPage();
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderCompetitionsPage();
         });
     </script>
 </body>

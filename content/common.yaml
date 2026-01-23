@@ -33,7 +33,7 @@ nav:
     tr: "Medya"
   blog:
     en: "Dev Blog"
-    tr: "Geliştirme Blogu"
+    tr: "Blog"
   contact:
     en: "Contact"
     tr: "İletişim"
@@ -56,13 +56,13 @@ lang:
     tr: "Dil"
   english:
     en: "English"
-    tr: "İngilizce"
+    tr: "English"
   turkish:
-    en: "Turkish"
+    en: "Türkçe"
     tr: "Türkçe"
   dutch:
-    en: "Dutch"
-    tr: "Hollandaca"
+    en: "Nederlands"
+    tr: "Nederlands"
 
 cta:
   sponsor_team:

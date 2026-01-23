@@ -197,10 +197,20 @@ const applyTranslations = async (lang) => {
 
 const setLanguage = async (lang) => {
     if (!supportedLangs.includes(lang)) return;
+    const previousLang = localStorage.getItem(langStorageKey);
     localStorage.setItem(langStorageKey, lang);
     document.documentElement.lang = lang;
     setActiveLangFlag(lang);
     await applyTranslations(lang);
+    highlightActiveNav();
+
+    // Show the body now that translations are applied
+    document.body.classList.add('translations-ready');
+
+    // Dispatch event for page-specific scripts to re-apply content
+    if (previousLang && previousLang !== lang) {
+        document.dispatchEvent(new CustomEvent('language-changed', { detail: { lang, previousLang } }));
+    }
 };
 
 const initLanguage = async () => {
@@ -214,6 +224,10 @@ const initLangMenu = () => {
 
     if (!langToggle || !langMenu) return;
 
+    // Prevent duplicate initialization
+    if (langToggle.dataset.initialized === 'true') return;
+    langToggle.dataset.initialized = 'true';
+
     const openMenu = () => {
         langMenu.classList.remove('hidden');
         langToggle.setAttribute('aria-expanded', 'true');
@@ -225,6 +239,7 @@ const initLangMenu = () => {
     };
 
     langToggle.addEventListener('click', (event) => {
+        event.preventDefault();
         event.stopPropagation();
         if (langMenu.classList.contains('hidden')) {
             openMenu();
@@ -304,20 +319,47 @@ const initCarousel = (root, intervalMs = 5000) => {
 
 // ============================================================================
 // ACTIVE NAV HIGHLIGHTING
-// ============================================================================
+//============================================================================
 
 const highlightActiveNav = () => {
     const currentPath = window.location.pathname;
 
     document.querySelectorAll('[data-nav-item]').forEach(item => {
-        const href = item.getAttribute('href');
-        if (!href) return;
+        const navItem = item.getAttribute('data-nav-item');
+        let isActive = false;
 
-        const isActive = currentPath === href ||
-            currentPath.startsWith(href) && href !== '/';
+        // Check different nav item types
+        if (navItem === 'home') {
+            isActive = currentPath === '/';
+        } else if (navItem === 'about') {
+            // Highlight if on any /about/* page
+            isActive = currentPath.startsWith('/about/');
+        } else if (navItem === 'thisyear') {
+            // Highlight if on any /this-year/* page
+            isActive = currentPath.startsWith('/this-year/');
+        } else if (navItem === 'media') {
+            isActive = currentPath.startsWith('/media/');
+        } else if (navItem === 'blog') {
+            isActive = currentPath.startsWith('/blog/');
+        } else if (navItem === 'contact') {
+            isActive = currentPath.startsWith('/contact/');
+        } else {
+            // Fallback: check href attribute for links
+            const href = item.getAttribute('href');
+            if (href) {
+                isActive = currentPath === href ||
+                    (currentPath.startsWith(href) && href !== '/');
+            }
+        }
 
-        item.classList.toggle('text-kora-cyan', isActive);
-        item.classList.toggle('text-slate-400', !isActive);
+        // Apply active styles
+        if (isActive) {
+            item.classList.remove('text-slate-400');
+            item.classList.add('text-kora-cyan');
+        } else {
+            item.classList.remove('text-kora-cyan');
+            item.classList.add('text-slate-400');
+        }
     });
 };
 
@@ -345,6 +387,18 @@ const loadComponents = async () => {
     if (mobileNavPlaceholder) {
         await componentLoader.injectComponent('mobile-nav', mobileNavPlaceholder);
     }
+
+    // Wait for DOM to be fully updated
+    await new Promise(resolve => requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+    }));
+
+    // Initialize component-dependent features after components are loaded
+    initNavbarScroll();
+    initMobileMenu();
+    initDrawers();
+    initLangMenu();
+    highlightActiveNav();
 };
 
 // ============================================================================
@@ -352,17 +406,10 @@ const loadComponents = async () => {
 // ============================================================================
 
 const init = async () => {
-    // Load components first
+    // Load components first (includes initialization of component-dependent features)
     await loadComponents();
 
-    // Initialize all features
-    initNavbarScroll();
-    initMobileMenu();
-    initDrawers();
-    initLangMenu();
-    highlightActiveNav();
-
-    // Initialize carousels
+    // Initialize page-specific features
     initCarousel(document.getElementById('work-carousel'));
     initCarousel(document.getElementById('hero-carousel'));
 

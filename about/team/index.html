@@ -102,22 +102,21 @@
     <script src="/js/main.js"></script>
     <script>
         // Load team page content
-        document.addEventListener('app-ready', async () => {
-            const content = await contentLoader.loadContent('team');
-            if (!content) return;
+        let teamContent = null;
 
-            const lang = contentLoader.currentLang;
+        const renderTeamPage = () => {
+            if (!teamContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
             // Update page text
-            document.getElementById('team-label').textContent = l(content.page?.label) || '// Members';
-            document.getElementById('team-title').textContent = l(content.page?.title) || 'Our Team';
-            document.getElementById('team-subtitle').textContent = l(content.page?.subtitle) || '';
+            document.getElementById('team-label').textContent = l(teamContent.page?.label) || '// Members';
+            document.getElementById('team-title').textContent = l(teamContent.page?.title) || 'Our Team';
+            document.getElementById('team-subtitle').textContent = l(teamContent.page?.subtitle) || '';
 
             // Render team members
             const grid = document.getElementById('team-grid');
-            if (content.members && grid) {
-                grid.innerHTML = content.members.map(member => `
+            if (teamContent.members && grid) {
+                grid.innerHTML = teamContent.members.map(member => `
             <div class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
               <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
                 <img
@@ -135,6 +134,16 @@
             </div>
           `).join('');
             }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            teamContent = await contentLoader.loadContent('team');
+            renderTeamPage();
+        });
+
+        // Re-apply on language change
+        document.addEventListener('language-changed', () => {
+            renderTeamPage();
         });
     </script>
 </body>

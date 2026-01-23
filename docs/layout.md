@@ -55,7 +55,7 @@ Home icon, About icon (opens drawer), This Year icon (opens drawer), Media icon,
 - Lightbox viewing
 - Download options for press kit assets
 
-**Geliştirme Blogu (Dev Blog)**
+**Blog (Dev Blog)**
 - Infinite scroll article feed
 - Each entry shows: featured image, title, date, category tag, excerpt
 - Category filter tabs (Mechanical, Avionics, Software, Testing, etc.)

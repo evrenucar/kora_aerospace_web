@@ -61,18 +61,18 @@
     <script src="/js/component-loader.js"></script>
     <script src="/js/main.js"></script>
     <script>
-        document.addEventListener('app-ready', async () => {
-            const content = await contentLoader.loadContent('achievements');
-            if (!content) return;
+        let achievementsContent = null;
 
+        const renderAchievementsPage = () => {
+            if (!achievementsContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
-            document.getElementById('page-title').textContent = l(content.page?.title) || 'Track Record';
+            document.getElementById('page-title').textContent = l(achievementsContent.page?.title) || 'Track Record';
 
             // Render timeline entries
             const timeline = document.getElementById('timeline');
-            if (content.entries && timeline) {
-                timeline.innerHTML = content.entries.map(entry => `
+            if (achievementsContent.entries && timeline) {
+                timeline.innerHTML = achievementsContent.entries.map(entry => `
             <div class="relative space-y-3">
               <div class="absolute -left-6 top-2 w-2 h-2 bg-kora-cyan sharp-edge"></div>
               <div class="text-kora-cyan font-black text-2xl leading-tight">${l(entry.date)}</div>
@@ -87,8 +87,8 @@
 
             // Render media
             const mediaGrid = document.getElementById('media-grid');
-            if (content.media && mediaGrid) {
-                mediaGrid.innerHTML = content.media.map((item, i) => `
+            if (achievementsContent.media && mediaGrid) {
+                mediaGrid.innerHTML = achievementsContent.media.map((item, i) => `
             <div class="${i === 0 ? 'col-span-2 aspect-video' : 'aspect-square'} bg-kora-surface sharp-edge border border-slate-800 overflow-hidden relative group">
               <img
                 src="${item.image}"
@@ -99,6 +99,15 @@
             </div>
           `).join('');
             }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            achievementsContent = await contentLoader.loadContent('achievements');
+            renderAchievementsPage();
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderAchievementsPage();
         });
     </script>
 </body>

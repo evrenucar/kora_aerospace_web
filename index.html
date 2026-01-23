@@ -736,6 +736,136 @@
   <script src="/js/content-loader.js"></script>
   <script src="/js/component-loader.js"></script>
   <script src="/js/main.js"></script>
+  <script>
+    // Load home page content from multiple YAML files
+    document.addEventListener('app-ready', async () => {
+      const lang = contentLoader.currentLang;
+      const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+      // Helper function to convert array to indexed object (e.g., items[0] -> item_01)
+      const arrayToIndexedObject = (arr, prefix = 'item') => {
+        const obj = {};
+        arr.forEach((item, index) => {
+          const key = `${prefix}_${String(index + 1).padStart(2, '0')}`;
+          obj[key] = item;
+        });
+        return obj;
+      };
+
+      // Load all content files
+      const [homeContent, competitionsContent, vehicleContent, teamContent, achievementsContent] = await Promise.all([
+        contentLoader.loadContent('home'),
+        contentLoader.loadContent('competitions'),
+        contentLoader.loadContent('vehicle'),
+        contentLoader.loadContent('team'),
+        contentLoader.loadContent('achievements')
+      ]);
+
+      // Merge and transform content
+      const mergedContent = {
+        ...homeContent,
+        // Transform what_we_do cards array to card_01, card_02, card_03
+        what_we_do: {
+          title: homeContent.what_we_do.title,
+          ...arrayToIndexedObject(homeContent.what_we_do.cards, 'card')
+        },
+        // Transform milestones items array to item_01, item_02, etc.
+        milestones: {
+          title: homeContent.milestones.title,
+          subtitle: homeContent.milestones.subtitle,
+          label: homeContent.milestones.label,
+          ...arrayToIndexedObject(homeContent.milestones.items, 'item')
+        },
+        // Transform sponsorship_enables items array
+        sponsorship_enables: {
+          title: homeContent.sponsorship_enables.title,
+          ...arrayToIndexedObject(homeContent.sponsorship_enables.items, 'item')
+        },
+        // Transform sponsor benefits items array
+        sponsors: {
+          ...homeContent.sponsors,
+          benefits: {
+            title: homeContent.sponsors.benefits.title,
+            label: homeContent.sponsors.benefits.label,
+            ...arrayToIndexedObject(homeContent.sponsors.benefits.items, 'item')
+          }
+        },
+        // Transform get_involved options array
+        get_involved: {
+          ...homeContent.get_involved,
+          ...arrayToIndexedObject(homeContent.get_involved.options, 'option')
+        },
+        // Add competitions data
+        competitions: {
+          title: competitionsContent?.page?.title || { en: 'Competing in 2026', tr: '2026\'da Yarışıyoruz' },
+          subtitle: competitionsContent?.page?.subtitle || { en: '', tr: '' },
+          ...arrayToIndexedObject(competitionsContent?.competitions || [], 'card')
+        },
+        // Add work/vehicle data
+        work: {
+          title: vehicleContent?.page?.title || { en: 'What we\'re working on', tr: 'Şu anda ne üzerinde çalışıyoruz' },
+          subtitle: vehicleContent?.page?.subtitle || { en: '', tr: '' },
+          ...arrayToIndexedObject(vehicleContent?.focus_areas || [], 'focus'),
+          carousel: vehicleContent?.carousel || { prev: { en: 'Prev', tr: 'Önceki' }, next: { en: 'Next', tr: 'Sonraki' } },
+          ...vehicleContent?.gallery?.reduce((acc, item, index) => {
+            const key = `slide_${String(index + 1).padStart(2, '0')}`;
+            acc[key] = item;
+            return acc;
+          }, {})
+        },
+        // Add team data
+        team: {
+          label: teamContent?.page?.label || { en: '// Members', tr: '// ÜYELER' },
+          title: teamContent?.page?.title || { en: 'Our Team', tr: 'Takımımız' },
+          subtitle: teamContent?.page?.subtitle || { en: '', tr: '' },
+          ...arrayToIndexedObject(teamContent?.members || [], 'member')
+        },
+        // Add track_record data
+        track_record: {
+          title: achievementsContent?.page?.title || { en: 'Track record', tr: 'Başarı Geçmişi' },
+          ...arrayToIndexedObject(achievementsContent?.entries || [], 'entry'),
+          ...achievementsContent?.media?.reduce((acc, item, index) => {
+            const key = `media_${String(index + 1).padStart(2, '0')}`;
+            acc[key] = item;
+            return acc;
+          }, {})
+        }
+      };
+
+      // Apply all data-i18n attributes
+      const applyPageContent = (content) => {
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.dataset.i18n;
+          const attr = el.dataset.i18nAttr;
+
+          // Skip if this is from common.yaml (already loaded by main.js)
+          if (key.startsWith('nav.') || key.startsWith('footer.') || key.startsWith('cta.') || key.startsWith('meta.') || key.startsWith('lang.') || key.startsWith('alt.')) {
+            return;
+          }
+
+          const value = contentLoader.getNestedValue(content, key);
+          if (value === undefined) return;
+
+          const localizedValue = contentLoader.getLocalizedValue(value);
+          if (!localizedValue) return;
+
+          if (attr) {
+            el.setAttribute(attr, localizedValue);
+          } else {
+            el.innerHTML = localizedValue;
+          }
+        });
+      };
+
+      // Apply content initially
+      applyPageContent(mergedContent);
+
+      // Re-apply content when language changes
+      document.addEventListener('language-changed', () => {
+        applyPageContent(mergedContent);
+      });
+    });
+  </script>
 </body>
 
 </html>

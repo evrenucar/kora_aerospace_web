@@ -88,19 +88,19 @@
     <script src="/js/component-loader.js"></script>
     <script src="/js/main.js"></script>
     <script>
-        document.addEventListener('app-ready', async () => {
-            const content = await contentLoader.loadContent('vehicle');
-            if (!content) return;
+        let vehicleContent = null;
 
+        const renderVehiclePage = () => {
+            if (!vehicleContent) return;
             const l = (obj) => contentLoader.getLocalizedValue(obj);
 
-            document.getElementById('page-title').textContent = l(content.page?.title) || "What we're working on";
-            document.getElementById('page-subtitle').textContent = l(content.page?.subtitle) || '';
+            document.getElementById('page-title').textContent = l(vehicleContent.page?.title) || "What we're working on";
+            document.getElementById('page-subtitle').textContent = l(vehicleContent.page?.subtitle) || '';
 
             // Render focus areas
             const focusAreas = document.getElementById('focus-areas');
-            if (content.focus_areas && focusAreas) {
-                focusAreas.innerHTML = content.focus_areas.map(area => `
+            if (vehicleContent.focus_areas && focusAreas) {
+                focusAreas.innerHTML = vehicleContent.focus_areas.map(area => `
             <div class="flex items-start gap-3">
               <span class="w-2 h-2 bg-kora-cyan mt-1.5 sharp-edge shrink-0"></span>
               <div>
@@ -114,21 +114,21 @@
             // Render carousel
             const slidesContainer = document.getElementById('carousel-slides');
             const dotsContainer = document.getElementById('carousel-dots');
-            if (content.gallery && slidesContainer && dotsContainer) {
-                slidesContainer.innerHTML = content.gallery.map((item, i) => `
+            if (vehicleContent.gallery && slidesContainer && dotsContainer) {
+                slidesContainer.innerHTML = vehicleContent.gallery.map((item, i) => `
             <div data-carousel-slide class="absolute inset-0 ${i > 0 ? 'hidden' : ''}">
               <img src="${item.image}" alt="${l(item.alt)}" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
               <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">${l(item.label)}</div>
             </div>
           `).join('');
 
-                dotsContainer.innerHTML = content.gallery.map((_, i) => `
+                dotsContainer.innerHTML = vehicleContent.gallery.map((_, i) => `
             <button type="button" data-carousel-dot="${i}" class="w-2.5 h-2.5 rounded-full ${i === 0 ? 'bg-kora-cyan' : 'bg-slate-600'} hover:bg-kora-cyan transition-colors"></button>
           `).join('');
 
                 // Update button text
-                document.getElementById('carousel-prev').textContent = l(content.carousel?.prev) || 'Prev';
-                document.getElementById('carousel-next').textContent = l(content.carousel?.next) || 'Next';
+                document.getElementById('carousel-prev').textContent = l(vehicleContent.carousel?.prev) || 'Prev';
+                document.getElementById('carousel-next').textContent = l(vehicleContent.carousel?.next) || 'Next';
 
                 // Initialize carousel
                 if (window.KoraApp) {
@@ -138,14 +138,23 @@
 
             // Render specs
             const specsGrid = document.getElementById('specs-grid');
-            if (content.specs && specsGrid) {
-                specsGrid.innerHTML = Object.entries(content.specs).map(([key, spec]) => `
+            if (vehicleContent.specs && specsGrid) {
+                specsGrid.innerHTML = Object.entries(vehicleContent.specs).map(([key, spec]) => `
             <div class="p-6 bg-kora-surface border border-slate-800 sharp-edge">
               <div class="text-xs font-mono text-kora-cyan mb-2 uppercase tracking-widest">${l(spec.label)}</div>
               <div class="text-2xl font-black text-kora-offwhite uppercase tracking-tight">${spec.value}</div>
             </div>
           `).join('');
             }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            vehicleContent = await contentLoader.loadContent('vehicle');
+            renderVehiclePage();
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderVehiclePage();
         });
     </script>
 </body>

@@ -1,13 +1,15 @@
 ---
 title: "Welcome to Our Development Blog"
-title_tr: "Geliştirme Blogumuza Hoş Geldiniz"
-date: 2026-01-15
+title_tr: "Blogmuza Hoş Geldiniz"
+date: "2026-01-15"
 category: software
-featured_image: ./images/hero.jpg
+featured_image: "/media/before_launch.png"
 excerpt: "This is our first blog post where we introduce our development blog and share our vision for the project."
-excerpt_tr: "Bu, geliştirme blogumuzu tanıttığımız ve proje vizyonumuzu paylaştığımız ilk blog yazımız."
+excerpt_tr: "Bu, Blogmuzu tanıttığımız ve proje vizyonumuzu paylaştığımız ilk blog yazımız."
 author: "KORA Team"
 ---
+
+<div lang="en">
 
 # Welcome to Our Development Blog
 
@@ -28,11 +30,13 @@ KORA Aerospace is a competition team from METU and TU Delft. We're building some
 
 Stay tuned for more updates!
 
----
+</div>
 
-# Geliştirme Blogumuza Hoş Geldiniz
+<div lang="tr">
 
-Geliştirme blogumuzu başlattığımız için heyecanlıyız! Burada, üzerinde Jetson bulunan en küçük otonom sabit kanat İHA'yı inşa etme yolculuğumuzdaki güncellemeleri paylaşacağız.
+# Blogmuza Hoş Geldiniz
+
+Blogmuzu başlattığımız için heyecanlıyız! Burada, üzerinde Jetson bulunan en küçük otonom sabit kanat İHA'yı inşa etme yolculuğumuzdaki güncellemeleri paylaşacağız.
 
 ## Neler Beklenmeli
 
@@ -48,3 +52,5 @@ Blogumuz şunları kapsayacak:
 KORA Aerospace, ODTÜ ve TU Delft'ten bir yarışma takımıdır. Daha önce hiç yapılmamış bir şey inşa ediyoruz: tam bir otonomi yığınını küçük bir uçan kanat platformuna sığdırmak.
 
 Daha fazla güncelleme için bizi takip edin!
+
+</div>
