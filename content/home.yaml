@@ -5,8 +5,8 @@ hero:
     en: 'We are building the smallest <span class="text-kora-cyan">AI-enabled fixed-wing</span> UAV with an onboard Jetson.'
     tr: 'Üzerinde Jetson bulunan en küçük <span class="text-kora-cyan">otonom sabit kanat</span> İHA''yı geliştiriyoruz.'
   subtitle:
-    en: 'We are a competition team from METU and TU Delft. We build fast, fly often, and compete with obsessive attention to detail: <span class="text-kora-offwhite font-bold"> airframe, avionics, embedded, and autonomy.</span>'
-    tr: 'METU ve TU Delft''ten bir yarışma takımıyız. Hızlı geliştirir, sık uçar ve saplantılı bir detaycılıkla yarışırız: <span class="text-kora-offwhite font-bold"> gövde, aviyonik, gömülü ve otonomi.</span>'
+    en: 'We are a competition team from METU and TU Delft. We bring cutting edge technology to every aspect of our design: <span class="text-kora-offwhite font-bold"> airframe, avionics, embedded, and autonomy.</span>'
+    tr: 'METU ve TU Delft öğrencilerinden olulşan bir yarışma takımıyız. Her yönüyle en ileri teknolojiyi yarışmaya taşıyoruz: <span class="text-kora-offwhite font-bold"> gövde, aviyonik, gömülü ve otonomi.</span>'
   tagline:
     en: "Competition-tested engineers. Built with passion."
     tr: "Daha Küçük. Daha Hızlı. Daha Akıllı."
@@ -51,10 +51,10 @@ milestones:
         tr: "Otonomiye hazır aviyonik PCB"
       body:
         en: "Power + compute + sensing integrated for compact form factors."
-        tr: "Kompakt form faktörleri için güç + hesaplama + algı entegrasyonu."
+        tr: "Küçük forma yönelik güç + aviyonik + görüntü işleme entegrasyonu."
     - title:
         en: "Perception + mission pipeline"
-        tr: "Algı + görev hattı"
+        tr: "Görüntü işleme + Görev hattı"
       body:
         en: "Running fully onboard for real-time rapid decisions."
         tr: "Gerçek zamanlı hızlı kararlar için tamamen yerleşik çalışıyor."
@@ -134,8 +134,8 @@ sponsors:
         en: "Copper"
         tr: "Bakır"
       subtitle:
-        en: "€10+ <br> Buy us a coffee or a meal to fuel our journey"
-        tr: "€10+ <br> Bir kahve ya da yemek ısmarlayarak destek olun"
+        en: "€10+ <br> Buy us a coffee to fuel our journey"
+        tr: "€10+ <br> Bir kahve ısmarlayarak destek olun"
   benefits:
     title:
       en: "What our sponsors get"
@@ -195,7 +195,7 @@ get_involved:
   options:
     - title:
         en: "Sponsor development"
-        tr: "Geliştirmeyi destekleyin"
+        tr: "Ar-Ge'yi Destekleyin"
       body:
         en: "cash or in-kind support"
         tr: "nakit veya ayni destek"
@@ -203,8 +203,8 @@ get_involved:
         en: "Provide equipment or fabrication"
         tr: "Ekipman veya üretim desteği"
       body:
-        en: "PCB assembly, manufacturing, materials, sensors, compute"
-        tr: "PCB montajı, üretim, malzemeler, sensörler, hesaplama"
+        en: "PCB assembly, manufacturing, materials, sensors, electronics"
+        tr: "PCB montajı, üretim, materyal, sensörler, elektronik"
     - title:
         en: "Enable testing"
         tr: "Test imkânı sağlayın"
@@ -213,7 +213,7 @@ get_involved:
         tr: "güvenli test alanı erişimi, saha koşulları, mentorluk"
   cta:
     en: "Fill in our sponsor form to start a conversation"
-    tr: "Sponsor formumuzu doldurun, konuşmaya başlayalım"
+    tr: "Sponsor formumuzu doldurun, iletişime geçelim"
   support_label:
     en: "// WHY YOUR SUPPORT MATTERS"
     tr: "// DESTEĞİNİZ NEDEN ÖNEMLİ"
