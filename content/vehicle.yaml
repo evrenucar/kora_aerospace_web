@@ -1,0 +1,97 @@
+# Vehicle Page Content
+
+page:
+  title:
+    en: "What we're working on"
+    tr: "Şu anda ne üzerinde çalışıyoruz"
+  subtitle:
+    en: "We are shrinking fixed-wing autonomy into a Jetson-powered platform: flight testing, vision pipelines, and tight integration between avionics, power, and sensing."
+    tr: "Jetson destekli bir platforma sabit kanat otonomisini sığdırıyoruz: uçuş testleri, görüş hatları ve aviyonik, güç ve algı arasında sıkı entegrasyon."
+
+focus_areas:
+  - title:
+      en: "Unique platform"
+      tr: "Özgün platform"
+    body:
+      en: "Tiny lightweight flying wing airframe."
+      tr: "Minik, hafif uçan kanat gövde."
+  - title:
+      en: "Sub 5 ms latency vision to actuator pipeline"
+      tr: "5 ms altı gecikmeli görüş hattı"
+    body:
+      en: "Custom electronics that enable image frame -> inference -> control decision in under a 2-5 ms."
+      tr: "Kamera Karesi -> inference -> kontrol kararı akışını 2-5 ms altında sağlayan özel geliştirilmiş elektronik sistem."
+  - title:
+      en: "Custom-compact avionics"
+      tr: "Özel-kompakt aviyonik"
+    body:
+      en: "Custom Flight controller based on Pixhawk v6x, onboard 3x3 5ghz MIMO comms, NVME ssd storage, Jetson compute and power electronics"
+      tr: "Pixhawk v6x tabanlı özel uçuş kontrolcüsü, yerleşik 3x3 5GHz MIMO haberleşme, NVMe SSD depolama, Gömülü Nvidia Jetson ve güç elektroniği"
+
+gallery:
+  - image: "/media/PHOTO-2025-10-14-23-58-30.jpg"
+    label:
+      en: "Alpha Flight Model"
+      tr: "Alpha uçuş modeli"
+    alt:
+      en: "Alpha Flight Model"
+      tr: "Alpha uçuş modeli"
+  - image: "/media/pcb_back.png"
+    label:
+      en: "Custom Flight Controller PCB"
+      tr: "Özel uçuş kontrolcüsü Devre Kartı"
+    alt:
+      en: "PCB design"
+      tr: "PCB tasarımı"
+  - image: "/media/PHOTO-2025-09-10-13-23-40.jpg"
+    label:
+      en: "Modular frame development"
+      tr: "Modüler gövde geliştirme"
+    alt:
+      en: "Competition day"
+      tr: "Yarışma günü"
+  - image: "/media/pcb_routing.png"
+    label:
+      en: "Custom avionics-compute PCB routing"
+      tr: "Özel aviyonik PCB Tasarımı"
+    alt:
+      en: "VTOL test"
+      tr: "VTOL testi"
+  - image: "/media/launch.png"
+    label:
+      en: "Flight"
+      tr: "Uçuş"
+    alt:
+      en: "Field prep"
+      tr: "Saha hazırlığı"
+
+carousel:
+  prev:
+    en: "Prev"
+    tr: "Önceki"
+  next:
+    en: "Next"
+    tr: "Sonraki"
+
+# Vehicle specs (can be extended)
+specs:
+  wingspan:
+    label:
+      en: "Wingspan"
+      tr: "Kanat Açıklığı"
+    value: "~600mm"
+  weight:
+    label:
+      en: "Weight"
+      tr: "Ağırlık"
+    value: "< 1kg"
+  compute:
+    label:
+      en: "Compute"
+      tr: "İşlemci"
+    value: "Jetson Orin Nano"
+  flight_controller:
+    label:
+      en: "Flight Controller"
+      tr: "Uçuş Kontrolcüsü"
+    value: "Custom Pixhawk v6x"

@@ -1,0 +1,102 @@
+posts:
+- slug: "2026-01-sample-post"
+  title: "Welcome to Our Development Blog"
+  title_tr: "Blogmuza Hoş Geldiniz"
+  date: "2026-01-15"
+  category: "software"
+  featured_image: "/media/before_launch.png"
+  excerpt: "This is our first blog post where we introduce our development blog and share our vision for the project."
+  excerpt_tr: "Bu, Blogmuzu tanıttığımız ve proje vizyonumuzu paylaştığımız ilk blog yazımız."
+  author: "KORA Team"
+- slug: 2025-09-aerodynamic-optimization
+  title: Optimizing Airfoil Efficiency for Micro-UAVs
+  title_tr: Mikro-İHA'lar için Kanat Profili Verimliliğinin Optimizasyonu
+  date: '2025-08-01'
+  category: mechanical
+  featured_image: /media/PCB_final_image(1).png
+  excerpt: How we achieved a 15% increase in lift-to-drag ratio using CFD simulations.
+  excerpt_tr: CFD simülasyonları kullanarak kaldırma-sürükleme oranında %15 artış
+    nasıl sağladık.
+  author: KORA Team
+- slug: 2025-10-jetson-integration
+  title: Integrating Jetson Orin Nano on a 1kg UAV
+  title_tr: 1kg İHA üzerine Jetson Orin Nano Entegrasyonu
+  date: '2025-08-16'
+  category: avionics
+  featured_image: /media/PHOTO-2025-07-14-17-53-25.jpg
+  excerpt: Challenges of power management and thermal cooling in a confined fuselage.
+  excerpt_tr: Sıkışık bir gövdede güç yönetimi ve termal soğutma zorlukları.
+  author: KORA Team
+- slug: 2025-11-vision-pipeline
+  title: Real-time Object Detection at 30 FPS
+  title_tr: 30 FPS'de Gerçek Zamanlı Nesne Tespiti
+  date: '2025-08-31'
+  category: software
+  featured_image: /media/PHOTO-2025-09-10-13-23-40.jpg
+  excerpt: Optimizing YOLOv8 models with TensorRT for onboard inference.
+  excerpt_tr: YOLOv8 modellerinin yerleşik çıkarım için TensorRT ile optimizasyonu.
+  author: KORA Team
+- slug: 2026-01-flight-test-results
+  title: Successful Field Tests in Windy Conditions
+  title_tr: Rüzgarlı Koşullarda Başarılı Saha Testleri
+  date: '2025-09-15'
+  category: testing
+  featured_image: /media/PHOTO-2025-10-14-23-58-30.jpg
+  excerpt: Validating our control loops in 10 m/s wind gusts.
+  excerpt_tr: Kontrol döngülerimizin 10 m/s rüzgar hamlelerinde doğrulanması.
+  author: KORA Team
+- slug: 2025-12-pcb-design
+  title: Designing a Custom Carrier Board
+  title_tr: Özel Taşıyıcı Kart Tasarımı
+  date: '2025-09-30'
+  category: avionics
+  featured_image: /media/before_launch.png
+  excerpt: Reducing weight and cabling by integrating peripherals onto a single PCB.
+  excerpt_tr: Çevre birimlerini tek bir PCB'de birleştirerek ağırlık ve kablolamayı
+    azaltmak.
+  author: KORA Team
+- slug: 2025-08-team-kickoff
+  title: Kicking Off the New Season
+  title_tr: Yeni Sezonun Başlangıcı
+  date: '2025-10-15'
+  category: team
+  featured_image: /media/launch.png
+  excerpt: Defining our goals for the 2026 competition season.
+  excerpt_tr: 2026 yarışma sezonu için hedeflerimizin belirlenmesi.
+  author: KORA Team
+- slug: 2025-10-manufacturing
+  title: Composite Manufacturing Techniques
+  title_tr: Kompozit Üretim Teknikleri
+  date: '2025-10-30'
+  category: mechanical
+  featured_image: /media/pcb_back.png
+  excerpt: Moving from 3D printed molds to carbon fiber layups.
+  excerpt_tr: 3D baskı kalıplardan karbon fiber serimlerine geçiş.
+  author: KORA Team
+- slug: 2026-01-simulation
+  title: Hardware-in-the-Loop Simulation
+  title_tr: Donanım Döngüde Simülasyon
+  date: '2025-11-14'
+  category: software
+  featured_image: /media/pcb_routing.png
+  excerpt: Testing our flight code without risking the airframe.
+  excerpt_tr: Uçuş kodumuzu gövdeyi riske atmadan test etmek.
+  author: KORA Team
+- slug: 2025-11-sponsors
+  title: Welcoming Our New Platinum Sponsors
+  title_tr: Yeni Platin Sponsorlarımıza Hoş Geldiniz
+  date: '2025-11-29'
+  category: team
+  featured_image: /media/sina_drone.png
+  excerpt: A huge thank you to our partners enabling this R&D.
+  excerpt_tr: Bu Ar-Ge'yi mümkün kılan ortaklarımıza büyük teşekkürler.
+  author: KORA Team
+- slug: 2026-02-future-plans
+  title: 'Looking Ahead: Swarm Capabilities'
+  title_tr: 'Geleceğe Bakış: Sürü Yetenekleri'
+  date: '2025-12-14'
+  category: team
+  featured_image: /media/teknofest_karabag.jpg
+  excerpt: Exploring multi-agent coordination for future iterations.
+  excerpt_tr: Gelecek iterasyonlar için çoklu ajan koordinasyonunun keşfi.
+  author: KORA Team

@@ -1,0 +1,71 @@
+# Team Page Content
+
+page:
+  title:
+    en: "Our Team"
+    tr: "Takımımız"
+  label:
+    en: "// Members"
+    tr: "// ÜYELER"
+  subtitle:
+    en: "We are a compact competition team of multidisciplinary specialists who love building and flying fast."
+    tr: "Hızlı üretmeyi ve hızlı uçmayı seven, çok disiplinli küçük bir yarışma takımıyız."
+
+members:
+  - name: "Yiğit Kılıçarslan"
+    role:
+      en: "Embedded Systems Engineer"
+      tr: "Gömülü Sistemler Mühendisi"
+    bio:
+      en: "Specializes in PCB and firmware development. Freelances as a full-stack hardware dev."
+      tr: "Odtü AEE 4. Sınıf Öğrencisi. PCB ve gömülü yazılım geliştirmede uzman. Aynı zamanda full-stack donanım geliştiricisi olarak çalışıyor."
+    image: "/media/yigit.png"
+    alt:
+      en: "Yiğit Kılıçarslan"
+      tr: "Yiğit Kılıçarslan"
+
+  - name: "Ceren Eren"
+    role:
+      en: "Flight Systems Developer"
+      tr: "Uçuş Sistemleri Geliştiricisi"
+    bio:
+      en: "Specializes in aerodynamic structural design and rapid physical prototyping. Leads the end-to-end assembly process."
+      tr: "Odtü AEE 4. Sınıf Öğrencisi. Aerodinamik yapısal tasarım ve hızlı fiziksel prototiplemede uzman. Uçtan uca montaj sürecini yönetiyor. Tusaş'ta aday mühendis."
+    image: "/media/ceren.jpeg"
+    alt:
+      en: "Ceren"
+      tr: "Ceren"
+
+  - name: "Evren Uçar"
+    role:
+      en: "Design Engineer"
+      tr: "Tasarım Mühendisi"
+    bio:
+      en: "Focused on integration of airframe, electrical and software. Works as a design engineer offering full-stack product development."
+      tr: "Odtü Mezunu, TU Delft'te yüksek lisans öğrencisi. Gövde, elektrik ve yazılım entegrasyonuna odaklı. Full-stack ürün geliştirme sunan bir tasarım mühendisi olarak çalışıyor."
+    image: "/media/evren.jpg"
+    alt:
+      en: "Evren Uçar"
+      tr: "Evren Uçar"
+
+  - name: "Nursena Gürlek"
+    role:
+      en: "Flight Dynamics & Software"
+      tr: "Uçuş Dinamiği ve Yazılım"
+    bio:
+      en: "Experienced in computational aerodynamic analysis and flight control software."
+      tr: "Odtü AEE 4. Sınıf Öğrencisi. Hesaplamalı aerodinamik analiz ve uçuş kontrol yazılımında deneyimli. Tusaş'ta aday mühendis."
+    image: "/media/nursena.png"
+    alt:
+      en: "Nursena"
+      tr: "Nursena"
+
+universities:
+  - name: "METU"
+    name_tr: "ODTÜ"
+    logo: "/media/odtu_logo.png"
+    url: "https://www.metu.edu.tr"
+  - name: "TU Delft"
+    name_tr: "TU Delft"
+    logo: "/media/png_TuDelft_logo_white_rgb.png"
+    url: "https://www.tudelft.nl"

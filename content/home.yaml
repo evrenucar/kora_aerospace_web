@@ -1,0 +1,237 @@
+# Home Page Content
+
+hero:
+  title:
+    en: 'We are building the smallest <span class="text-kora-cyan">AI-enabled fixed-wing</span> UAV with an onboard Jetson.'
+    tr: 'Üzerinde Jetson bulunan en küçük <span class="text-kora-cyan">otonom sabit kanat</span> İHA''yı geliştiriyoruz.'
+  subtitle:
+    en: 'We are a competition team from METU and TU Delft. We bring cutting edge technology to every aspect of our design: <span class="text-kora-offwhite font-bold"> airframe, avionics, embedded, and autonomy.</span>'
+    tr: 'METU ve TU Delft öğrencilerinden olulşan bir yarışma takımıyız. Her yönüyle en ileri teknolojiyi yarışmaya taşıyoruz: <span class="text-kora-offwhite font-bold"> gövde, aviyonik, gömülü ve otonomi.</span>'
+  tagline:
+    en: "Competition-tested engineers. Built with passion."
+    tr: "Daha Küçük. Daha Hızlı. Daha Akıllı."
+
+what_we_do:
+  title:
+    en: "What we do differently"
+    tr: "Farkımız"
+  cards:
+    - title:
+        en: "Here to win, not to compete"
+        tr: "Yarışmak için değil, kazanmak için buradayız"
+      body:
+        en: "We are not here just to participate. We are here to win by pushing the boundaries on every aspect of our design."
+        tr: "Sadece katılmak için burada değiliz. Tasarımımızın her yönünde sınırları zorlayarak kazanmaya geliyoruz."
+    - title:
+        en: "All systems tailored for the competition"
+        tr: "Tüm sistemler yarışmaya özel geliştirildi"
+      body:
+        en: "State of the art vision pipeline, custom electronics, custom airframe. No corners cut. No stone unturned. No team has ever done this level of customisation and integration"
+        tr: "En ileri görüş hattı, özel elektronikler, özel gövde. Her şeyin en iyisini yapıyoruz. Hiçbir takım bu seviyede özelleştirme ve entegrasyon yapmadı."
+    - title:
+        en: "Smallest Fixed wing UAV with onboard Jetson ever"
+        tr: "Jetson'lu en küçük sabit kanat İHA"
+      body:
+        en: "The design we are building will be the smallest fixed-wing UAV with an onboard Jetson ever flown. Not just in competitions, but in general."
+        tr: "Geliştirdiğimiz tasarım, Jetson taşıyan en küçük sabit kanat İHA olacak. Sadece yarışmalarda değil, genel olarak."
+
+milestones:
+  title:
+    en: "Milestones"
+    tr: "Kilometre Taşları"
+  subtitle:
+    en: "We're building a platform step by step."
+    tr: "Adım adım bir platform inşa ediyoruz."
+  label:
+    en: "// NEAR_TERM_MILESTONES"
+    tr: "// YAKIN VADE KİLOMETRE TAŞLARI"
+  items:
+    - title:
+        en: "Autonomy-ready avionics PCB"
+        tr: "Otonomiye hazır aviyonik PCB"
+      body:
+        en: "Power + compute + sensing integrated for compact form factors."
+        tr: "Küçük forma yönelik güç + aviyonik + görüntü işleme entegrasyonu."
+    - title:
+        en: "Perception + mission pipeline"
+        tr: "Görüntü işleme + Görev hattı"
+      body:
+        en: "Running fully onboard for real-time rapid decisions."
+        tr: "Gerçek zamanlı hızlı kararlar için tamamen yerleşik çalışıyor."
+    - title:
+        en: "Airframe Flight validation"
+        tr: "Gövde uçuş doğrulaması"
+      body:
+        en: "Consistent logging + repeatable test routes in field conditions."
+        tr: "Saha koşullarında tutarlı kayıtlar + tekrarlanabilir test rotaları."
+    - title:
+        en: "Competition demonstration"
+        tr: "Yarışma gösterimi"
+      body:
+        en: "Systems validated in multi-vehicle tests and finally demonstrated at SUAS and Teknofest."
+        tr: "Sistemler çoklu araç testlerinde doğrulanıyor ve sonunda SUAS ve Teknofest'te gösteriliyor."
+
+sponsorship_enables:
+  title:
+    en: "What sponsorship directly enables"
+    tr: "Sponsorluk doğrudan şunları sağlar"
+  items:
+    - en: "PCB fabrication + assembly spins"
+      tr: "PCB üretimi + montaj revizyonları"
+    - en: "Sensor and compute hardware"
+      tr: "Sensör ve hesaplama donanımı"
+    - en: "Airframe prototyping materials and tooling"
+      tr: "Gövde prototipleme malzemeleri ve takım"
+    - en: "Batteries, RF/telemetry gear, and test equipment"
+      tr: "Bataryalar, RF/telemetri ekipmanları ve test cihazları"
+    - en: "Field testing logistics and competition travel"
+      tr: "Saha test lojistiği ve yarışma seyahati"
+
+sponsors:
+  title:
+    en: "Sponsors"
+    tr: "Sponsorlar"
+  subtitle:
+    en: "We're funded by sponsors who want to see us win and keep pushing the smallest AI-enabled fixed-wing UAV."
+    tr: "En küçük otonom sabit kanat İHA'yı zorlamaya devam edebilmemiz ve kazanmamız için sponsorlarımızla finanse oluyoruz."
+  cta:
+    en: "Become a sponsor"
+    tr: "Sponsor Ol"
+  cta_subtitle:
+    en: "Tell us how you want to support the team"
+    tr: "Takımı nasıl desteklemek istediğini söyle"
+  tiers:
+    platinum:
+      title:
+        en: "Platinum"
+        tr: "Platin"
+      subtitle:
+        en: "€12k+ <br> Fund most of our development and event access"
+        tr: "€12k+ <br> Geliştirmenin ve etkinlik erişiminin çoğunu finanse edin"
+    gold:
+      title:
+        en: "Gold"
+        tr: "Altın"
+      subtitle:
+        en: "€6k+ <br> Support our development and event access"
+        tr: "€6k+ <br> Geliştirme ve etkinlik erişimini destekleyin"
+    silver:
+      title:
+        en: "Silver"
+        tr: "Gümüş"
+      subtitle:
+        en: "€3k+ <br> Enable our access to equipment and manufacture"
+        tr: "€3k+ <br> Ekipman ve üretime erişimimizi mümkün kılın"
+    bronze:
+      title:
+        en: "Bronze"
+        tr: "Bronz"
+      subtitle:
+        en: "€1k+ <br> Support us and become a part of our journey"
+        tr: "€1k+ <br> Bizi destekleyin ve yolculuğumuzun parçası olun"
+    copper:
+      title:
+        en: "Copper"
+        tr: "Bakır"
+      subtitle:
+        en: "€10+ <br> Buy us a coffee to fuel our journey"
+        tr: "€10+ <br> Bir kahve ısmarlayarak destek olun"
+  benefits:
+    title:
+      en: "What our sponsors get"
+      tr: "Sponsorlarımız ne kazanır"
+    label:
+      en: "// SUPPORT OUR PROGRESS"
+      tr: "// İLERLEMEMİZİ DESTEKLEYİN"
+    items:
+      - title:
+          en: "Visibility"
+          tr: "Görünürlük"
+        body:
+          en: "Logo on vehicle, website, posters, and demo content."
+          tr: "Araçta, web sitesinde, posterlerde ve demo içeriklerinde logo."
+      - title:
+          en: "Technical Consulting"
+          tr: "Teknik Danışmanlık"
+        body:
+          en: "We'd love to chat about your projects. You can reach us anytime."
+          tr: "Projeleriniz hakkında sohbet etmeyi isteriz. İstediğiniz zaman bize ulaşabilirsiniz."
+      - title:
+          en: "R&D TRANSPARENCY"
+          tr: "Ar-Ge Şeffaflığı"
+        body:
+          en: "Periodic progress updates, test results summary of hardware developed."
+          tr: "Düzenli ilerleme güncellemeleri, geliştirilen donanımın test sonuçları özeti."
+      - title:
+          en: "Demos"
+          tr: "Demo"
+        body:
+          en: "Sponsor showcase flight/test session when feasible."
+          tr: "Mümkün olduğunda sponsor gösterim uçuşu/test oturumu."
+  current:
+    title:
+      en: "Current Sponsors"
+      tr: "Mevcut Sponsorlar"
+    platinum:
+      en: "Platinum: (Open)"
+      tr: "Platin: (Boş)"
+    gold:
+      en: "Gold: (Open)"
+      tr: "Altın: (Boş)"
+    silver:
+      en: "Silver: (Open)"
+      tr: "Gümüş: (Boş)"
+    bronze:
+      en: "Bronze: (Open)"
+      tr: "Bronz: (Boş)"
+
+get_involved:
+  title:
+    en: "Back the team"
+    tr: "Takımı Destekle"
+  subtitle:
+    en: "If you want us to win and keep flying, there are three ways to help:"
+    tr: "Kazanıp uçmaya devam etmemizi istiyorsanız, desteklemenin üç yolu var:"
+  options:
+    - title:
+        en: "Sponsor development"
+        tr: "Ar-Ge'yi Destekleyin"
+      body:
+        en: "cash or in-kind support"
+        tr: "nakit veya ayni destek"
+    - title:
+        en: "Provide equipment or fabrication"
+        tr: "Ekipman veya üretim desteği"
+      body:
+        en: "PCB assembly, manufacturing, materials, sensors, electronics"
+        tr: "PCB montajı, üretim, materyal, sensörler, elektronik"
+    - title:
+        en: "Enable testing"
+        tr: "Test imkânı sağlayın"
+      body:
+        en: "safe test site access, field conditions, mentorship"
+        tr: "güvenli test alanı erişimi, saha koşulları, mentorluk"
+  cta:
+    en: "Fill in our sponsor form to start a conversation"
+    tr: "Sponsor formumuzu doldurun, iletişime geçelim"
+  support_label:
+    en: "// WHY YOUR SUPPORT MATTERS"
+    tr: "// DESTEĞİNİZ NEDEN ÖNEMLİ"
+  quote:
+    en: '"We move fastest with funding, fabrication, and field access. Sponsors help us validate performance, iterate quickly, and show up ready on competition day."'
+    tr: '"Fonlama, üretim ve saha erişimiyle en hızlı ilerliyoruz. Sponsorlar performansı doğrulamamıza, hızlı iterasyon yapmamıza ve yarışma gününe hazır çıkmamıza yardımcı olur."'
+
+# Hero section images alt text
+alt:
+  hero_drone_flight:
+    en: "Drone flight"
+    tr: "İHA uçuşu"
+  hero_pcb_engineering:
+    en: "PCB engineering"
+    tr: "PCB mühendisliği"
+  hero_flight_still:
+    en: "Flight still"
+    tr: "Uçuş görüntüsü"
+  get_involved_launch:
+    en: "Launch prep"
+    tr: "Fırlatma hazırlığı"

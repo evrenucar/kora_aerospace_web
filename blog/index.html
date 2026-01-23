@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Blog</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: { bg: '#222222', surface: '#2d2d2d', cyan: '#00f0ff', cyanDark: '#008b94', offwhite: '#f5f5f5' },
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Blog Listing View -->
+            <div id="blog-listing">
+                <!-- Page Header -->
+                <div class="mb-12 lg:mb-16">
+                    <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite mb-6 uppercase tracking-tighter"
+                        id="page-title">Development Blog</h1>
+                    <p class="text-xl text-slate-100 leading-relaxed font-light max-w-2xl" id="page-subtitle"></p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mb-12" id="category-filters">
+                    <button type="button"
+                        class="filter-btn active px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 sharp-edge"
+                        data-category="all" id="filter-all">All</button>
+                    <button type="button"
+                        class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                        data-category="mechanical" id="filter-mechanical">Mechanical</button>
+                    <button type="button"
+                        class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                        data-category="avionics" id="filter-avionics">Avionics</button>
+                    <button type="button"
+                        class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                        data-category="software" id="filter-software">Software</button>
+                    <button type="button"
+                        class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                        data-category="testing" id="filter-testing">Testing</button>
+                </div>
+
+                <!-- Blog Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-grid">
+                    <!-- Posts loaded dynamically -->
+                </div>
+
+                <!-- No Posts Message -->
+                <div id="no-posts" class="hidden text-center py-16">
+                    <p class="text-slate-400 text-lg" id="no-posts-text">No posts found.</p>
+                </div>
+            </div>
+
+            <!-- Single Post View -->
+            <div id="blog-post" class="hidden">
+                <a href="/blog/"
+                    class="inline-flex items-center gap-2 text-kora-cyan hover:text-white transition-colors mb-8 text-sm uppercase tracking-widest"
+                    id="back-link">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <span id="back-text">Back to Blog</span>
+                </a>
+                <article id="post-content" class="max-w-3xl">
+                    <!-- Post content loaded dynamically -->
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/blog-engine.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        let blogContent = null;
+        let allPosts = [];
+        let currentFilter = 'all';
+
+        const renderPosts = (posts) => {
+            const grid = document.getElementById('blog-grid');
+            const noPosts = document.getElementById('no-posts');
+            const lang = contentLoader.currentLang;
+
+            const filtered = currentFilter === 'all'
+                ? posts
+                : posts.filter(p => p.category?.toLowerCase() === currentFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noPosts.classList.remove('hidden');
+                return;
+            }
+
+            noPosts.classList.add('hidden');
+            grid.innerHTML = filtered.map(post => blogEngine.renderBlogCard(post, lang)).join('');
+        };
+
+        const loadPost = async (slug) => {
+            document.getElementById('blog-listing').classList.add('hidden');
+            document.getElementById('blog-post').classList.remove('hidden');
+
+            const post = await blogEngine.loadPost(slug);
+            if (!post) {
+                document.getElementById('post-content').innerHTML = '<p class="text-slate-400">Post not found.</p>';
+                return;
+            }
+
+            const lang = contentLoader.currentLang;
+            document.getElementById('post-content').innerHTML = blogEngine.renderBlogPost(post, lang);
+        };
+
+        const showListing = () => {
+            document.getElementById('blog-listing').classList.remove('hidden');
+            document.getElementById('blog-post').classList.add('hidden');
+            document.getElementById('post-content').innerHTML = ''; // Clear content
+            history.pushState({}, '', '/blog/');
+            renderPosts(allPosts); // Re-render to update language
+        };
+
+        const renderBlogPage = () => {
+            if (!blogContent) return;
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            // Update UI text
+            document.getElementById('page-title').textContent = l(blogContent.page?.title) || 'Development Blog';
+            document.getElementById('page-subtitle').textContent = l(blogContent.page?.subtitle) || '';
+            document.getElementById('back-text').textContent = l(blogContent.ui?.back_to_blog) || '← Back to Blog';
+            document.getElementById('no-posts-text').textContent = l(blogContent.ui?.no_posts) || 'No posts found.';
+
+            // Update filter buttons
+            if (blogContent.categories) {
+                document.getElementById('filter-all').textContent = l(blogContent.categories.all);
+                document.getElementById('filter-mechanical').textContent = l(blogContent.categories.mechanical);
+                document.getElementById('filter-avionics').textContent = l(blogContent.categories.avionics);
+                document.getElementById('filter-software').textContent = l(blogContent.categories.software);
+                document.getElementById('filter-testing').textContent = l(blogContent.categories.testing);
+            }
+
+            // Re-render posts if we have them
+            if (allPosts.length > 0) {
+                renderPosts(allPosts);
+            }
+
+            // Re-render current post if viewing one
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+            if (postSlug) {
+                loadPost(postSlug);
+            }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            blogContent = await contentLoader.loadContent('blog');
+
+            // Filter button handlers
+            document.querySelectorAll('[data-category]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentFilter = btn.dataset.category;
+                    document.querySelectorAll('[data-category]').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderPosts(allPosts);
+                });
+            });
+
+            // Back link handler
+            document.getElementById('back-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                showListing();
+            });
+
+            renderBlogPage();
+
+            // Load posts
+            allPosts = await blogEngine.loadIndex();
+            allPosts = blogEngine.sortByDate(allPosts);
+
+            // Check for post parameter
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+
+            if (postSlug) {
+                await loadPost(postSlug);
+            } else {
+                renderPosts(allPosts);
+            }
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderBlogPage();
+        });
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postSlug = params.get('post');
+            if (postSlug) {
+                loadPost(postSlug);
+            } else {
+                showListing();
+            }
+        });
+    </script>
+</body>
+
+</html>

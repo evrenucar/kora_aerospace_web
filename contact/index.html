@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Contact</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: { bg: '#222222', surface: '#2d2d2d', cyan: '#00f0ff', cyanDark: '#008b94', offwhite: '#f5f5f5' },
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="mb-12 lg:mb-16">
+                <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite mb-6 uppercase tracking-tighter"
+                    id="page-title">Contact Us</h1>
+                <p class="text-xl text-slate-100 leading-relaxed font-light max-w-2xl" id="page-subtitle"></p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-2xl font-black text-kora-offwhite mb-8 uppercase tracking-tight" id="form-title">
+                        Send us a message</h2>
+                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/your-form-id"
+                        method="POST">
+                        <div>
+                            <label for="name"
+                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
+                                id="label-name">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors"
+                                placeholder="Your name" />
+                        </div>
+                        <div>
+                            <label for="email"
+                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
+                                id="label-email">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors"
+                                placeholder="your@email.com" />
+                        </div>
+                        <div>
+                            <label for="subject"
+                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
+                                id="label-subject">Subject</label>
+                            <select id="subject" name="subject"
+                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors">
+                                <option value="sponsorship" id="opt-sponsorship">Sponsorship Inquiry</option>
+                                <option value="collaboration" id="opt-collaboration">Collaboration</option>
+                                <option value="media" id="opt-media">Media/Press</option>
+                                <option value="general" id="opt-general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message"
+                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
+                                id="label-message">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors resize-none"
+                                placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-kora-cyan text-kora-bg px-8 py-4 sharp-edge font-black text-lg hover:bg-white transition-all uppercase tracking-tighter w-full lg:w-auto"
+                            id="btn-submit">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-2xl font-black text-kora-offwhite mb-8 uppercase tracking-tight" id="info-title">
+                        Contact Information</h2>
+
+                    <!-- Email & Social -->
+                    <div class="mb-10">
+                        <div class="text-xs font-mono text-kora-cyan mb-4 uppercase tracking-widest">// Email</div>
+                        <a href="mailto:kora.aerospace@gmail.com"
+                            class="text-xl text-kora-offwhite hover:text-kora-cyan transition-colors font-bold">kora.aerospace@gmail.com</a>
+
+                        <div class="text-xs font-mono text-kora-cyan mt-8 mb-4 uppercase tracking-widest">// Social
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://linkedin.com/company/kora-aerospace" target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center gap-2 text-slate-300 hover:text-kora-cyan transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://instagram.com/kora.aerospace" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-2 text-slate-300 hover:text-kora-cyan transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                                Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Locations -->
+                    <div>
+                        <div class="text-xs font-mono text-kora-cyan mb-4 uppercase tracking-widest"
+                            id="locations-title">// Our Locations</div>
+                        <div class="space-y-6" id="locations-list">
+                            <!-- Loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- University Logos -->
+                    <div class="mt-12 pt-8 border-t border-slate-800">
+                        <div class="flex gap-8">
+                            <a href="https://www.metu.edu.tr" target="_blank" rel="noopener noreferrer">
+                                <img src="/media/odtu_logo.png" alt="ODTU"
+                                    class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                            </a>
+                            <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+                                <img src="/media/png_TuDelft_logo_white_rgb.png" alt="TU Delft"
+                                    class="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        let contactContent = null;
+
+        const renderContactPage = () => {
+            if (!contactContent) return;
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            document.getElementById('page-title').textContent = l(contactContent.page?.title) || 'Contact Us';
+            document.getElementById('page-subtitle').textContent = l(contactContent.page?.subtitle) || '';
+            document.getElementById('form-title').textContent = l(contactContent.form?.title) || 'Send us a message';
+            document.getElementById('info-title').textContent = l(contactContent.contact_info?.title) || 'Contact Information';
+
+            // Locations Title
+            const locTitle = document.getElementById('locations-title');
+            if (locTitle) locTitle.textContent = l(contactContent.locations?.title) || '// Our Locations';
+
+            // Form labels and placeholders
+            if (contactContent.form) {
+                document.getElementById('label-name').textContent = l(contactContent.form.name?.label);
+                document.getElementById('name').placeholder = l(contactContent.form.name?.placeholder);
+                document.getElementById('label-email').textContent = l(contactContent.form.email?.label);
+                document.getElementById('email').placeholder = l(contactContent.form.email?.placeholder);
+                document.getElementById('label-subject').textContent = l(contactContent.form.subject?.label);
+                document.getElementById('label-message').textContent = l(contactContent.form.message?.label);
+                document.getElementById('message').placeholder = l(contactContent.form.message?.placeholder);
+                document.getElementById('btn-submit').textContent = l(contactContent.form.submit);
+
+                if (contactContent.form.subject?.options) {
+                    document.getElementById('opt-sponsorship').textContent = l(contactContent.form.subject.options.sponsorship);
+                    document.getElementById('opt-collaboration').textContent = l(contactContent.form.subject.options.collaboration);
+                    document.getElementById('opt-media').textContent = l(contactContent.form.subject.options.media);
+                    document.getElementById('opt-general').textContent = l(contactContent.form.subject.options.general);
+                }
+            }
+
+            // Locations
+            const locationsList = document.getElementById('locations-list');
+            if (contactContent.locations?.items && locationsList) {
+                locationsList.innerHTML = contactContent.locations.items.map(loc => `
+            <div class="p-4 bg-kora-surface border border-slate-800 sharp-edge">
+              <div class="font-black text-kora-offwhite uppercase tracking-tight mb-1">${l(loc.city)}</div>
+              <div class="text-sm text-slate-300">${l(loc.university)}</div>
+              <div class="text-xs text-slate-400 mt-1">${l(loc.address)}</div>
+            </div>
+          `).join('');
+            }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            contactContent = await contentLoader.loadContent('contact');
+            renderContactPage();
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderContactPage();
+        });
+    </script>
+</body>
+
+</html>

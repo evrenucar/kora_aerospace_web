@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Competitions</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: { bg: '#222222', surface: '#2d2d2d', cyan: '#00f0ff', cyanDark: '#008b94', offwhite: '#f5f5f5' },
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12 mb-12 lg:mb-16">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite mb-6 uppercase tracking-tighter"
+                        id="page-title">Competing in 2026</h1>
+                    <p class="text-xl text-slate-100 leading-relaxed font-light" id="page-subtitle"></p>
+                </div>
+                <div class="h-0.5 w-16 bg-kora-cyan"></div>
+            </div>
+
+            <!-- Competition Cards -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto" id="competitions-grid">
+                <!-- Loaded dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        let competitionsContent = null;
+
+        const renderCompetitionsPage = () => {
+            if (!competitionsContent) return;
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            document.getElementById('page-title').textContent = l(competitionsContent.page?.title) || 'Competing in 2026';
+            document.getElementById('page-subtitle').textContent = l(competitionsContent.page?.subtitle) || '';
+
+            // Render competition cards
+            const grid = document.getElementById('competitions-grid');
+            if (competitionsContent.competitions && grid) {
+                grid.innerHTML = competitionsContent.competitions.map(comp => `
+            <div class="p-8 bg-kora-surface border border-slate-800 sharp-edge">
+              <div class="text-xs font-mono text-kora-cyan mb-3 tracking-[0.4em] uppercase">${l(comp.date)}</div>
+              <h3 class="text-2xl font-black text-kora-offwhite uppercase tracking-tighter mb-4">${l(comp.title)}</h3>
+              <p class="text-slate-100 text-sm font-light leading-relaxed mb-4">${l(comp.body)}</p>
+              ${comp.bullets ? `
+                <ul class="text-xs text-slate-200 space-y-2 uppercase tracking-widest">
+                  ${comp.bullets.map(bullet => `
+                    <li class="flex items-center gap-3">
+                      <span class="w-2 h-0.5 bg-kora-cyan"></span>
+                      <span>${l(bullet)}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              ` : ''}
+              ${comp.location ? `
+                <div class="mt-6 pt-4 border-t border-slate-700">
+                  <div class="text-xs font-mono text-slate-400 uppercase tracking-widest">${comp.location}</div>
+                </div>
+              ` : ''}
+            </div>
+          `).join('');
+            }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            competitionsContent = await contentLoader.loadContent('competitions');
+            renderCompetitionsPage();
+        });
+
+        document.addEventListener('language-changed', () => {
+            renderCompetitionsPage();
+        });
+    </script>
+</body>
+
+</html>

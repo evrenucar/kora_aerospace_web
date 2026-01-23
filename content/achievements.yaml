@@ -1,0 +1,82 @@
+# Achievements / Track Record Page Content
+
+page:
+  title:
+    en: "Track record"
+    tr: "Başarı Geçmişi"
+
+entries:
+  - date:
+      en: "Apr 2022"
+      tr: "Nis 2022"
+    place:
+      en: "1st Place"
+      tr: "1.'lik"
+    title:
+      en: 'BEKO "Hack the Normal" Global Hackathon'
+      tr: 'BEKO "Hack the Normal" Global Hackathon'
+    body:
+      en: "Developed novel cleaning solution and demonstrated its viability."
+      tr: "Yeni bir temizlik çözümü geliştirdi ve uygulanabilirliğini gösterdi."
+
+  - date:
+      en: "Apr 2022"
+      tr: "Nis 2022"
+    place:
+      en: "2nd Place"
+      tr: "2.'lik"
+    title:
+      en: "Baku Smart Karabakh Hackathon, Teknofest"
+      tr: "Baku Smart Karabakh Hackathon, Teknofest"
+    body:
+      en: "Developed a agricultural VTOL and the infrastructure to support operations with wide coverage."
+      tr: "Tarımsal bir VTOL geliştirdi ve geniş kapsama için operasyon altyapısını kurdu."
+
+  - date:
+      en: "Sep 2021"
+      tr: "Eyl 2021"
+    place:
+      en: "5th Place"
+      tr: "5.'lik"
+    title:
+      en: 'Teknofest "Ulasimda Yapay Zeka"'
+      tr: 'Teknofest "Ulasimda Yapay Zeka"'
+    body:
+      en: "Utilized self trained vision models to detect and classify vehicles from drone images."
+      tr: "Drone görüntülerinden araçları tespit ve sınıflandırmak için kendi eğittiği görüş modellerini kullandı."
+
+  - date:
+      en: "Sep 2020"
+      tr: "Eyl 2020"
+    place:
+      en: "4th Place + Best Scientists Award"
+      tr: "4.'lük + En İyi Bilim İnsanları Ödülü"
+    title:
+      en: "European Rover Challenge"
+      tr: "European Rover Challenge"
+    body:
+      en: "Kielce, Poland. Recognized for rigorous engineering and scientific methodology."
+      tr: "Kielce, Polonya. Titiz mühendislik ve bilimsel metodolojiyle ödüllendirildi."
+
+media:
+  - image: "/media/teknofest_karabag.jpg"
+    label:
+      en: "TEKNOFEST 2021"
+      tr: "TEKNOFEST 2021"
+    alt:
+      en: "teknofest_2021"
+      tr: "TEKNOFEST 2021"
+  - image: "/media/sina_drone.png"
+    label:
+      en: "Sina VTOL system"
+      tr: "Sina VTOL sistemi"
+    alt:
+      en: "sina_drone"
+      tr: "Sina VTOL"
+  - image: "/media/ozoner.png"
+    label:
+      en: "BEKO Hackhathon & startup-accerelator"
+      tr: "BEKO Hackathon & startup accelerator"
+    alt:
+      en: "BEKO Hackhathon & startup-accerelator"
+      tr: "BEKO Hackathon & startup accelerator"

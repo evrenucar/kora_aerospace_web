@@ -1,0 +1,55 @@
+# Blog Page Content (UI strings)
+
+page:
+  title:
+    en: "Development Blog"
+    tr: "Blog"
+  subtitle:
+    en: "Follow our journey as we build the smallest AI-enabled fixed-wing UAV."
+    tr: "En küçük yapay zekalı sabit kanat İHA'yı inşa ederken yolculuğumuzu takip edin."
+
+categories:
+  all:
+    en: "All"
+    tr: "Tümü"
+  mechanical:
+    en: "Mechanical"
+    tr: "Mekanik"
+  avionics:
+    en: "Avionics"
+    tr: "Aviyonik"
+  software:
+    en: "Software"
+    tr: "Yazılım"
+  testing:
+    en: "Testing"
+    tr: "Test"
+  competition:
+    en: "Competition"
+    tr: "Yarışma"
+
+ui:
+  read_more:
+    en: "Read More"
+    tr: "Devamını Oku"
+  back_to_blog:
+    en: "← Back to Blog"
+    tr: "← Bloga Dön"
+  loading:
+    en: "Loading..."
+    tr: "Yükleniyor..."
+  no_posts:
+    en: "No posts found."
+    tr: "Gönderi bulunamadı."
+  published:
+    en: "Published"
+    tr: "Yayınlandı"
+  category:
+    en: "Category"
+    tr: "Kategori"
+  share:
+    en: "Share"
+    tr: "Paylaş"
+  related_posts:
+    en: "Related Posts"
+    tr: "İlgili Gönderiler"

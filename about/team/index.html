@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Team</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://www.kora-aerospace.org/about/team/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="" data-i18n="meta.title" data-i18n-attr="content">
+    <meta property="og:description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <meta property="og:image" content="/media/fulll_logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: {
+                            bg: '#222222',
+                            surface: '#2d2d2d',
+                            cyan: '#00f0ff',
+                            cyanDark: '#008b94',
+                            offwhite: '#f5f5f5',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css" />
+    <!-- js-yaml for content loading -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-20 gap-8">
+                <div class="max-w-xl">
+                    <div class="text-xs font-mono font-black text-kora-cyan mb-4 tracking-[0.4em] uppercase"
+                        id="team-label">// Members</div>
+                    <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite uppercase tracking-tighter"
+                        id="team-title">Our Team</h1>
+                </div>
+                <p class="text-slate-100 max-w-xs text-sm font-mono leading-relaxed" id="team-subtitle"></p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4" id="team-grid">
+                <!-- Team members will be loaded dynamically -->
+            </div>
+
+            <!-- University Affiliation -->
+            <div class="mt-20 lg:mt-24 pt-16 border-t border-slate-800">
+                <h2 class="text-xs font-mono font-black text-kora-cyan mb-8 tracking-[0.4em] uppercase">// University
+                    Partners</h2>
+                <div class="flex flex-wrap items-center gap-8 lg:gap-12">
+                    <a href="https://www.metu.edu.tr" target="_blank" rel="noopener noreferrer" class="group">
+                        <img src="/media/odtu_logo.png" alt="ODTU"
+                            class="h-16 lg:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                    <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer" class="group">
+                        <img src="/media/png_TuDelft_logo_white_rgb.png" alt="TU Delft"
+                            class="h-16 lg:h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Mobile Nav Placeholder -->
+    <div id="mobile-nav-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        // Load team page content
+        let teamContent = null;
+
+        const renderTeamPage = () => {
+            if (!teamContent) return;
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            // Update page text
+            document.getElementById('team-label').textContent = l(teamContent.page?.label) || '// Members';
+            document.getElementById('team-title').textContent = l(teamContent.page?.title) || 'Our Team';
+            document.getElementById('team-subtitle').textContent = l(teamContent.page?.subtitle) || '';
+
+            // Render team members
+            const grid = document.getElementById('team-grid');
+            if (teamContent.members && grid) {
+                grid.innerHTML = teamContent.members.map(member => `
+            <div class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
+              <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
+                <img
+                  src="${member.image}"
+                  alt="${l(member.alt)}"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              <div class="p-6 lg:p-8">
+                <div class="text-xs font-mono text-kora-cyan mb-2 uppercase tracking-widest">${l(member.role)}</div>
+                <h3 class="text-xl lg:text-2xl font-black text-kora-offwhite mb-3 lg:mb-4 uppercase tracking-tighter">${member.name}</h3>
+                <p class="text-slate-100 text-sm leading-relaxed mb-4 lg:mb-6 font-light">${l(member.bio)}</p>
+                <div class="h-0.5 w-8 bg-slate-700 group-hover:w-full group-hover:bg-kora-cyan transition-all duration-500"></div>
+              </div>
+            </div>
+          `).join('');
+            }
+        };
+
+        document.addEventListener('app-ready', async () => {
+            teamContent = await contentLoader.loadContent('team');
+            renderTeamPage();
+        });
+
+        // Re-apply on language change
+        document.addEventListener('language-changed', () => {
+            renderTeamPage();
+        });
+    </script>
+</body>
+
+</html>

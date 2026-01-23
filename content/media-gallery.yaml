@@ -1,0 +1,118 @@
+# Media Gallery Page Content
+
+page:
+  title:
+    en: "Media"
+    tr: "Medya"
+  subtitle:
+    en: "Photos, videos, and press materials from our development and competition journey."
+    tr: "Geliştirme ve yarışma sürecimizden fotoğraflar, videolar ve basın materyalleri."
+
+filters:
+  all:
+    en: "All"
+    tr: "Tümü"
+  photos:
+    en: "Photos"
+    tr: "Fotoğraflar"
+  videos:
+    en: "Videos"
+    tr: "Videolar"
+  press_kit:
+    en: "Press Kit"
+    tr: "Basın Kiti"
+
+categories:
+  vehicle:
+    en: "Vehicle"
+    tr: "Araç"
+  testing:
+    en: "Testing"
+    tr: "Test"
+  competition:
+    en: "Competition"
+    tr: "Yarışma"
+  team:
+    en: "Team"
+    tr: "Takım"
+
+lightbox:
+  close:
+    en: "Close"
+    tr: "Kapat"
+  prev:
+    en: "Previous"
+    tr: "Önceki"
+  next:
+    en: "Next"
+    tr: "Sonraki"
+  download:
+    en: "Download"
+    tr: "İndir"
+
+press_kit:
+  title:
+    en: "Press Kit"
+    tr: "Basın Kiti"
+  description:
+    en: "Download our logos, photos, and brand assets for press and media use."
+    tr: "Basın ve medya kullanımı için logolarımızı, fotoğraflarımızı ve marka varlıklarımızı indirin."
+  download_all:
+    en: "Download All Assets"
+    tr: "Tüm Varlıkları İndir"
+
+# Gallery items - can be extended
+items:
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PHOTO-2025-10-14-23-58-30.jpg"
+    thumbnail: "/media/PHOTO-2025-10-14-23-58-30.jpg"
+    title:
+      en: "Alpha Flight Model"
+      tr: "Alpha Uçuş Modeli"
+    date: "2025-10-14"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/pcb_front.png"
+    thumbnail: "/media/pcb_front.png"
+    title:
+      en: "Custom PCB Front"
+      tr: "Özel PCB Ön Yüz"
+    date: "2025-08-22"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/pcb_back.png"
+    thumbnail: "/media/pcb_back.png"
+    title:
+      en: "Custom PCB Back"
+      tr: "Özel PCB Arka Yüz"
+    date: "2025-08-22"
+
+  - type: "photo"
+    category: "testing"
+    src: "/media/launch.png"
+    thumbnail: "/media/launch.png"
+    title:
+      en: "Flight Test"
+      tr: "Uçuş Testi"
+    date: "2025-09-10"
+
+  - type: "photo"
+    category: "competition"
+    src: "/media/teknofest_karabag.jpg"
+    thumbnail: "/media/teknofest_karabag.jpg"
+    title:
+      en: "Teknofest 2021"
+      tr: "Teknofest 2021"
+    date: "2021-09-01"
+
+  - type: "photo"
+    category: "team"
+    src: "/media/yigit.png"
+    thumbnail: "/media/yigit.png"
+    title:
+      en: "Team Member - Yiğit"
+      tr: "Takım Üyesi - Yiğit"
+    date: "2025-01-01"

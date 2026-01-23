@@ -1,0 +1,106 @@
+<!-- Footer Component -->
+<footer class="bg-kora-bg pt-24 lg:pt-32 pb-12 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-16 lg:mb-24">
+            <!-- Logo and Contact -->
+            <div class="lg:col-span-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-10">
+                    <a href="/">
+                        <img src="/media/fulll_logo.svg" alt="" class="h-14 w-auto object-contain"
+                            data-i18n="alt.footer_logo_kora" data-i18n-attr="alt" />
+                    </a>
+                    <a href="https://www.metu.edu.tr" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/odtu_logo.png" alt="" class="h-14 w-auto object-contain"
+                            data-i18n="alt.footer_logo_odtu" data-i18n-attr="alt" />
+                    </a>
+                    <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/png_TuDelft_logo_white_rgb.png" alt="" class="h-14 w-auto object-contain"
+                            data-i18n="alt.footer_logo_tudelft" data-i18n-attr="alt" />
+                    </a>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-8 lg:gap-12 font-mono text-xs uppercase tracking-widest mt-12">
+                    <div>
+                        <div class="text-slate-300 mb-2" data-i18n="footer.contact.label">// CONTACT</div>
+                        <div class="text-kora-offwhite font-bold" data-i18n="footer.contact.name">Evren Uçar</div>
+                        <a href="mailto:kora.aerospace@gmail.com" class="text-kora-cyan mt-1 block hover:underline"
+                            data-i18n="footer.contact.email">kora.aerospace@gmail.com</a>
+                        <a href="https://linkedin.com/company/kora-aerospace" target="_blank" rel="noopener noreferrer"
+                            class="text-slate-100 mt-1 block hover:text-kora-cyan transition-colors"
+                            data-i18n="footer.contact.social">LinkedIn</a>
+                    </div>
+                    <div>
+                        <div class="text-slate-300 mb-2" data-i18n="footer.location.label">// LOCATION</div>
+                        <div class="text-kora-offwhite" data-i18n="footer.location.city_01">Ankara/Turkey</div>
+                        <div class="text-kora-offwhite" data-i18n="footer.location.city_02">Delft/Netherlands</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Kit -->
+            <div class="lg:col-span-3">
+                <h4 class="text-[10px] font-mono font-black text-slate-300 mb-6 lg:mb-8 tracking-widest uppercase"
+                    data-i18n="footer.media_kit.label">// MEDIA_KIT</h4>
+                <ul class="space-y-3 lg:space-y-4 text-sm font-bold text-slate-100">
+                    <li>
+                        <a href="/media/" class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.media_kit.item_01">Logos & Photos</a>
+                    </li>
+                    <li>
+                        <a href="https://forms.gle/SHqMc7veWDYyEdcb9" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.media_kit.item_02">One-Page PDF</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/kora-aerospace" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.media_kit.item_03">Git_Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Page Index -->
+            <div class="lg:col-span-3">
+                <h4 class="text-[10px] font-mono font-black text-slate-300 mb-6 lg:mb-8 tracking-widest uppercase"
+                    data-i18n="footer.page_index.label">// PAGE INDEX</h4>
+                <ul class="space-y-3 lg:space-y-4 text-sm font-bold text-slate-100">
+                    <li>
+                        <a href="/about/team/" class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.page_index.about">About</a>
+                    </li>
+                    <li>
+                        <a href="/this-year/vehicle/"
+                            class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.page_index.research">Milestones</a>
+                    </li>
+                    <li>
+                        <a href="/about/achievements/"
+                            class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.page_index.track_record">Track Record</a>
+                    </li>
+                    <li>
+                        <a href="/#sponsors" class="hover:text-kora-cyan uppercase tracking-tighter transition-colors"
+                            data-i18n="footer.page_index.sponsors">Sponsors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+            class="pt-8 lg:pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 lg:gap-8">
+            <p class="text-slate-600 text-[10px] font-mono uppercase tracking-[0.2em]">
+                © <span id="current-year"></span> <span data-i18n="footer.rights">KORA AEROSPACE.
+                    ALL_RIGHTS_RESERVED.</span>
+            </p>
+            <div class="flex gap-8 text-[10px] font-mono uppercase tracking-widest text-slate-600">
+                <span data-i18n="footer.last_update">LAST UPDATE 23-01-2026</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Set current year
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>

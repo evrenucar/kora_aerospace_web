@@ -1,0 +1,105 @@
+# Contact Page Content
+
+page:
+  title:
+    en: "Contact Us"
+    tr: "İletişim"
+  subtitle:
+    en: "Get in touch with the KORA team."
+    tr: "KORA takımıyla iletişime geçin."
+
+form:
+  title:
+    en: "Send us a message"
+    tr: "Bize mesaj gönderin"
+  name:
+    label:
+      en: "Name"
+      tr: "İsim"
+    placeholder:
+      en: "Your name"
+      tr: "Adınız"
+  email:
+    label:
+      en: "Email"
+      tr: "E-posta"
+    placeholder:
+      en: "your@email.com"
+      tr: "email@adresiniz.com"
+  subject:
+    label:
+      en: "Subject"
+      tr: "Konu"
+    placeholder:
+      en: "What is this about?"
+      tr: "Ne hakkında?"
+    options:
+      sponsorship:
+        en: "Sponsorship Inquiry"
+        tr: "Sponsorluk Talebi"
+      collaboration:
+        en: "Collaboration"
+        tr: "İşbirliği"
+      media:
+        en: "Media/Press"
+        tr: "Medya/Basın"
+      general:
+        en: "General Inquiry"
+        tr: "Genel Soru"
+  message:
+    label:
+      en: "Message"
+      tr: "Mesaj"
+    placeholder:
+      en: "Tell us more..."
+      tr: "Bize daha fazla anlatın..."
+  submit:
+    en: "Send Message"
+    tr: "Mesaj Gönder"
+  success:
+    en: "Thank you! We'll get back to you soon."
+    tr: "Teşekkürler! En kısa sürede size döneceğiz."
+
+contact_info:
+  title:
+    en: "Contact Information"
+    tr: "İletişim Bilgileri"
+  email:
+    label:
+      en: "Email"
+      tr: "E-posta"
+    value: "kora.aerospace@gmail.com"
+  social:
+    label:
+      en: "Social"
+      tr: "Sosyal Medya"
+    linkedin:
+      url: "https://linkedin.com/company/kora-aerospace"
+      label: "LinkedIn"
+    instagram:
+      url: "https://instagram.com/kora.aerospace"
+      label: "Instagram"
+
+locations:
+  title:
+    en: "Our Locations"
+    tr: "Konumlarımız"
+  items:
+    - city:
+        en: "Ankara, Turkey"
+        tr: "Ankara, Türkiye"
+      university:
+        en: "Middle East Technical University (METU)"
+        tr: "Orta Doğu Teknik Üniversitesi (ODTÜ)"
+      address:
+        en: "Aerospace Engineering Department"
+        tr: "Havacılık ve Uzay Mühendisliği Bölümü"
+    - city:
+        en: "Delft, Netherlands"
+        tr: "Delft, Hollanda"
+      university:
+        en: "Delft University of Technology (TU Delft)"
+        tr: "Delft Teknik Üniversitesi (TU Delft)"
+      address:
+        en: "Faculty of Aerospace Engineering"
+        tr: "Havacılık ve Uzay Mühendisliği Fakültesi"

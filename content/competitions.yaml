@@ -1,0 +1,46 @@
+# Competitions Page Content
+
+page:
+  title:
+    en: "Competing in 2026"
+    tr: "2026'da Yarışıyoruz"
+  subtitle:
+    en: "Our 2026 competition plan is built around events that stress-test autonomy, avionics, and reliability under real constraints."
+    tr: "2026 yarışma planımız, otonomi, aviyonik ve güvenilirliği gerçek kısıtlarla zorlayan etkinliklere odaklı."
+
+competitions:
+  - id: "suas"
+    date:
+      en: "// Q2 2026"
+      tr: "// 2026 Q2"
+    title:
+      en: "SUAS 2026 (USA)"
+      tr: "SUAS 2026 (ABD)"
+    body:
+      en: "Most prestigious international UAV competition. Autonomous search, target detection, and precision drop - focused on onboard perception and navigation."
+      tr: "En prestijli uluslararası İHA yarışması. Otonom arama, hedef tespiti ve hassas bırakma — yerleşik algı ve navigasyona odaklı."
+    bullets:
+      - en: "Objectives: Autonomus mapping & Object detection"
+        tr: "Hedefler: Otonom haritalama ve nesne tespiti"
+      - en: "Bonus points: Endurance, Small form factor, Low operational overhead"
+        tr: "Bonus puanlar: Dayanıklılık, küçük form faktörü, düşük operasyonel yük"
+    image: null
+    location: "Maryland, USA"
+
+  - id: "teknofest"
+    date:
+      en: "// Q3 2026"
+      tr: "// 2026 Q3"
+    title:
+      en: "Teknofest Fighter UAV 2026 (Turkey)"
+      tr: "Teknofest Savaşan İHA 2026 (Türkiye)"
+    body:
+      en: "Most prestigious UAV competition in Turkey. Air-to-air target detection and engagement - focused on real-time targeting, resilient comms, and agile flight performance."
+      tr: "Türkiye'nin en prestijli İHA yarışması. Havadan havaya it dalaşı — gerçek zamanlı hedefleme, dayanıklı haberleşme ve çevik uçuş performansına odaklı."
+    bullets:
+      - en: "Objectives: Autonomus operation, Target Engagement & Evasion"
+        tr: "Hedefler: Otonom operasyon, hedef angajmanı ve kaçış"
+      - en: "Bonus points: Unique airframe, Fully autonomus operation"
+        tr: "Bonus puanlar: Özgün gövde, tamamen otonom operasyon"
+    image: null
+    location: "Turkey"
