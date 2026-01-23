@@ -1,0 +1,13 @@
+# Blog Index - Lists all blog posts with metadata
+# The blog engine uses this to render the blog listing page
+
+posts:
+  - slug: "2026-01-sample-post"
+    title: "Welcome to Our Development Blog"
+    title_tr: "Geliştirme Blogumuza Hoş Geldiniz"
+    date: "2026-01-15"
+    category: "software"
+    featured_image: "/content/blog/2026-01-sample-post/images/hero.jpg"
+    excerpt: "This is our first blog post where we introduce our development blog and share our vision for the project."
+    excerpt_tr: "Bu, geliştirme blogumuzu tanıttığımız ve proje vizyonumuzu paylaştığımız ilk blog yazımız."
+    author: "KORA Team"

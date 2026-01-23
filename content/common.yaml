@@ -1,0 +1,153 @@
+# Common UI Strings - Shared across all pages
+# Format: key with nested en/tr translations
+
+meta:
+  title:
+    en: "KORA Aerospace | Smallest AI-Enabled Fixed-Wing UAV"
+    tr: "KORA Aerospace | Otonom Sabit Kanat İHA"
+  description:
+    en: "Competition team from METU and TU Delft building the smallest AI-enabled fixed-wing UAV with an onboard Jetson. Sponsor us to help us win."
+    tr: "METU ve TU Delft öğrencilerinin işbirliğiyle kurulan yarışma takımı olarak, üzerinde Jetson bulunan en küçük otonom sabit kanat İHA'yı geliştiriyoruz."
+
+nav:
+  about:
+    en: "About"
+    tr: "Hakkında"
+  team:
+    en: "Team"
+    tr: "Takım"
+  achievements:
+    en: "Achievements"
+    tr: "Başarılar"
+  this_year:
+    en: "This Year"
+    tr: "Bu Yıl"
+  vehicle:
+    en: "Vehicle"
+    tr: "Araç"
+  competitions:
+    en: "Competitions"
+    tr: "Yarışmalar"
+  media:
+    en: "Media"
+    tr: "Medya"
+  blog:
+    en: "Dev Blog"
+    tr: "Geliştirme Blogu"
+  contact:
+    en: "Contact"
+    tr: "İletişim"
+  research:
+    en: "Milestones"
+    tr: "Kilometre Taşları"
+  track_record:
+    en: "Track Record"
+    tr: "Başarılar"
+  sponsors:
+    en: "Sponsors"
+    tr: "Sponsorlar"
+  message_us:
+    en: "Message Us"
+    tr: "Bize Ulaşın"
+
+lang:
+  selector_label:
+    en: "Language"
+    tr: "Dil"
+  english:
+    en: "English"
+    tr: "İngilizce"
+  turkish:
+    en: "Turkish"
+    tr: "Türkçe"
+  dutch:
+    en: "Dutch"
+    tr: "Hollandaca"
+
+cta:
+  sponsor_team:
+    en: "Sponsor the Team"
+    tr: "Takımı Destekle"
+  request_sponsor_deck:
+    en: "Request Sponsor Deck (PDF)"
+    tr: "Sponsor Sunumunu İste (PDF)"
+  reach_us:
+    en: "Reach Us"
+    tr: "Bize Ulaşın"
+  support_us:
+    en: "Support Us"
+    tr: "Bizi Destekle"
+
+alt:
+  logo_kora:
+    en: "KORA Aerospace logo"
+    tr: "KORA Aerospace logosu"
+  footer_logo_kora:
+    en: "KORA Aerospace logo"
+    tr: "KORA Aerospace logosu"
+  footer_logo_odtu:
+    en: "ODTU logo"
+    tr: "ODTÜ logosu"
+  footer_logo_tudelft:
+    en: "TU Delft logo"
+    tr: "TU Delft logosu"
+
+footer:
+  contact:
+    label:
+      en: "// CONTACT"
+      tr: "// İLETİŞİM"
+    name:
+      en: "Evren Uçar"
+      tr: "Evren Uçar"
+    email:
+      en: "kora.aerospace@gmail.com"
+      tr: "kora.aerospace@gmail.com"
+    social:
+      en: "LinkedIn"
+      tr: "LinkedIn"
+  location:
+    label:
+      en: "// LOCATION"
+      tr: "// KONUM"
+    city_01:
+      en: "Ankara/Turkey"
+      tr: "Ankara/Türkiye"
+    city_02:
+      en: "Delft/Netherlands"
+      tr: "Delft/Hollanda"
+  media_kit:
+    label:
+      en: "// MEDIA_KIT"
+      tr: "// MEDYA_KİTİ"
+    item_01:
+      en: "Logos & Photos"
+      tr: "Logolar ve Fotoğraflar"
+    item_02:
+      en: "One-Page PDF"
+      tr: "Tek Sayfa PDF"
+    item_03:
+      en: "Git_Portfolio"
+      tr: "Git_Portfolio"
+  page_index:
+    label:
+      en: "// PAGE INDEX"
+      tr: "// SAYFA İNDEKSİ"
+    about:
+      en: "About"
+      tr: "Hakkımızda"
+    research:
+      en: "Milestones"
+      tr: "Kilometre Taşları"
+    track_record:
+      en: "Track Record"
+      tr: "Başarılar"
+    sponsors:
+      en: "Sponsors"
+      tr: "Sponsorlar"
+  rights:
+    en: "KORA AEROSPACE. ALL_RIGHTS_RESERVED."
+    tr: "KORA AEROSPACE. TÜM_HAKLARI_SAKLIDIR."
+  last_update:
+    en: "LAST UPDATE 23-01-2026"
+    tr: "SON GÜNCELLEME 23-01-2026"
