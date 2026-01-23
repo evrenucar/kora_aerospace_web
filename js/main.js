@@ -145,7 +145,7 @@ const setActiveLangFlag = (lang) => {
 };
 
 const applyTranslations = async (lang) => {
-    // Try loading from YAML content files first
+    // Load translations from YAML content files
     if (typeof contentLoader !== 'undefined') {
         try {
             contentLoader.setLang(lang);
@@ -169,29 +169,10 @@ const applyTranslations = async (lang) => {
                 return;
             }
         } catch (e) {
-            console.warn('Failed to load YAML translations, falling back to JSON', e);
+            console.error('Failed to load YAML translations', e);
         }
-    }
-
-    // Fallback to JSON translations
-    try {
-        const response = await fetch(`/locales/${lang}.json`, { cache: 'no-cache' });
-        if (!response.ok) throw new Error(`Missing locale: ${lang}`);
-        const translations = await response.json();
-
-        document.querySelectorAll('[data-i18n]').forEach((el) => {
-            const key = el.dataset.i18n;
-            const attr = el.dataset.i18nAttr;
-            const value = translations[key];
-            if (value === undefined || value === '') return;
-            if (attr) {
-                el.setAttribute(attr, value);
-            } else {
-                el.innerHTML = value;
-            }
-        });
-    } catch (error) {
-        console.error(`Failed to load translations for language "${lang}"`, error);
+    } else {
+        console.error('Content loader not available');
     }
 };
 
