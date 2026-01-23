@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Kora Aerospace</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <section class="section container" style="margin-top: 80px;">
+        <h1 id="page-title">Achievements</h1>
+
+        <div style="margin-top: 2rem;" id="achievements-list">
+            <!-- Injected -->
+            <p>Loading...</p>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="vendor/js-yaml.min.js"></script>
+    <script src="js/content-loader.js"></script>
+    <script src="js/component-loader.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        window.addEventListener('contentReady', () => {
+            const data = window.siteData || siteData;
+            if (data && data.achievements) {
+                const lang = localStorage.getItem('kora_lang') || 'en';
+
+                document.getElementById('page-title').textContent = data.achievements.title[lang];
+
+                const list = document.getElementById('achievements-list');
+                list.innerHTML = data.achievements.items.map(item => {
+                    return `
+                        <div class="card" style="margin-bottom: 1.5rem; display: flex; gap: 1.5rem; align-items: flex-start;">
+                            <div style="background: var(--kora-cyan); color: var(--kora-dark); padding: 1rem; border-radius: 0.5rem; text-align: center; min-width: 100px;">
+                                <div style="font-weight: bold; font-size: 1.2rem;">${item.place[lang]}</div>
+                                <div style="font-size: 0.8rem;">${item.date}</div>
+                            </div>
+                            <div>
+                                <h2 style="margin: 0;">${item.title[lang]}</h2>
+                                <p style="color: var(--kora-gray); margin-top: 0.5rem;">${item.description[lang]}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+:root {
+    /* Colors */
+    --kora-dark: #0f172a;
+    /* Slate 900 */
+    --kora-dark-lighter: #1e293b;
+    /* Slate 800 */
+    --kora-cyan: #06b6d4;
+    /* Cyan 500 */
+    --kora-cyan-hover: #0891b2;
+    /* Cyan 600 */
+    --kora-white: #f8fafc;
+    /* Slate 50 */
+    --kora-gray: #94a3b8;
+    /* Slate 400 */
+
+    /* Fonts */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Spacing */
+    --container-width: 1200px;
+    --header-height: 80px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--kora-dark);
+    color: var(--kora-white);
+    line-height: 1.6;
+    margin: 0;
+}

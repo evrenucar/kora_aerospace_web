@@ -1,0 +1,39 @@
+<nav class="bottom-bar">
+    <a href="/" class="bottom-nav-item">
+        <span class="icon">🏠</span>
+        <span class="label">Home</span>
+    </a>
+    <a href="team.html" class="bottom-nav-item">
+        <span class="icon">👥</span>
+        <span class="label">Team</span>
+    </a>
+    <a href="vehicle.html" class="bottom-nav-item">
+        <span class="icon">✈️</span>
+        <span class="label">Vehicle</span>
+    </a>
+    <a href="blog.html" class="bottom-nav-item">
+        <span class="icon">📰</span>
+        <span class="label">Blog</span>
+    </a>
+    <a href="#" class="bottom-nav-item"
+        onclick="document.getElementById('mobile-menu-drawer').classList.toggle('open')">
+        <span class="icon">☰</span>
+        <span class="label">More</span>
+    </a>
+</nav>
+
+<div id="mobile-menu-drawer" class="mobile-drawer">
+    <button class="close-drawer"
+        onclick="document.getElementById('mobile-menu-drawer').classList.remove('open')">×</button>
+    <ul class="drawer-links">
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1rem;">
+            <button
+                onclick="const current = localStorage.getItem('kora_lang') || 'en'; setLang(current === 'en' ? 'tr' : 'en')"
+                class="btn btn-outline" style="width: 100%;">
+                Switch Language (TR/EN)
+            </button>
+        </li>
+    </ul>
+</div>

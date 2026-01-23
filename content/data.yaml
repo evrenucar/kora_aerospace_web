@@ -13,11 +13,11 @@ navigation:
         - label:
             en: "Team"
             tr: "Takım"
-          href: "/team.html"
+          href: "team.html"
         - label:
             en: "Achievements"
             tr: "Başarılar"
-          href: "/achievements.html"
+          href: "achievements.html"
     - label:
         en: "This Year"
         tr: "Bu Yıl"
@@ -25,28 +25,198 @@ navigation:
         - label:
             en: "Vehicle"
             tr: "Araç"
-          href: "/vehicle.html"
+          href: "vehicle.html"
         - label:
             en: "Competitions"
             tr: "Yarışmalar"
-          href: "/competitions.html"
+          href: "competitions.html"
     - label:
         en: "Media"
         tr: "Medya"
-      href: "/media.html"
+      href: "media.html"
     - label:
         en: "Blog"
         tr: "Blog"
-      href: "/blog.html"
+      href: "blog.html"
     - label:
         en: "Contact"
         tr: "İletişim"
-      href: "/contact.html"
+      href: "contact.html"
+
+hero:
+  title:
+    en: 'We are building the smallest <span class="text-kora-cyan">AI-enabled fixed-wing</span> UAV with an onboard Jetson.'
+    tr: 'Jetson taşıyan <span class="text-kora-cyan">en küçük yapay zeka destekli sabit kanat</span> İHA''yı geliştiriyoruz.'
+  subtitle:
+    en: 'We are a competition team from METU and TU Delft. We build fast, fly often, and compete with obsessive attention to detail: <span class="text-kora-offwhite font-bold">airframe, avionics, embedded, and autonomy.</span>'
+    tr: 'ODTÜ ve TU Delft öğrencilerinden oluşan bir yarışma takımıyız. Tutkuyla tasarlıyor, üretiyor ve uçuyoruz: <span class="text-kora-offwhite font-bold">gövde, aviyonik, gömülü sistemler ve otonomi.</span>'
+  buttons:
+    primary:
+      label:
+        en: "Our Vehicle"
+        tr: "Aracımız"
+      href: "vehicle.html"
+    secondary:
+      label:
+        en: "Meet the Team"
+        tr: "Takımla Tanışın"
+      href: "team.html"
+
+team:
+  title:
+    en: "Our Team"
+    tr: "Ekibimiz"
+  subtitle:
+    en: "We are a compact competition team of multidisciplinary specialists who love building and flying fast."
+    tr: "Hızlı uçmayı ve üretmeyi seven multidisipliner uzmanlardan oluşan kompakt bir yarışma takımıyız."
+  members:
+    - name: "Yiğit Kılıçarslan"
+      role:
+        en: "Embedded Systems Engineer"
+        tr: "Gömülü Sistemler Mühendisi"
+      bio:
+        en: "Specializes in PCB and firmware development. Freelances as a full-stack hardware dev."
+        tr: "PCB ve gömülü yazılım geliştirme üzerine uzman. Full-stack donanım geliştiricisi olarak çalışıyor."
+      image: "assets/images/team-1.svg"
+    - name: "Ceren Eren"
+      role:
+        en: "Flight Systems Developer"
+        tr: "Uçuş Sistemleri Geliştiricisi"
+      bio:
+        en: "Specializes in aerodynamic structural design and rapid physical prototyping. Leads the end-to-end assembly process."
+        tr: "Aerodinamik yapısal tasarım ve hızlı prototipleme uzmanı. Uçtan uca montaj sürecini yönetiyor."
+      image: "assets/images/team-2.svg"
+    - name: "Evren Uçar"
+      role:
+        en: "Design Engineer"
+        tr: "Tasarım Mühendisi"
+      bio:
+        en: "Focused on integration of airframe, electrical and software. Works as a design engineer offering full-stack product development."
+        tr: "Gövde, elektrik ve yazılım entegrasyonuna odaklı. Full-stack ürün geliştirme sunan bir tasarım mühendisi."
+      image: "assets/images/team-3.svg"
+    - name: "Nursena Gürlek"
+      role:
+        en: "Flight Dynamics & Software"
+        tr: "Uçuş Dinamiği ve Yazılım"
+      bio:
+        en: "Experienced in computational aerodynamic analysis and flight control software."
+        tr: "Hesaplamalı aerodinamik analiz ve uçuş kontrol yazılımları konusunda deneyimli."
+      image: "assets/images/team-4.svg"
+
+achievements:
+  title:
+    en: "Track Record"
+    tr: "Başarılarımız"
+  items:
+    - date: "Apr 2022"
+      place:
+        en: "1st Place"
+        tr: "1.lik Ödülü"
+      title:
+        en: 'BEKO "Hack the Normal" Global Hackathon'
+        tr: 'BEKO "Hack the Normal" Global Hackathon'
+      description:
+        en: "Developed novel cleaning solution and demonstrated its viability."
+        tr: "Yenilikçi bir temizlik çözümü geliştirdik ve uygulanabilirliğini kanıtladık."
+    - date: "Apr 2022"
+      place:
+        en: "2nd Place"
+        tr: "2.lik Ödülü"
+      title:
+        en: "Baku Smart Karabakh Hackathon, Teknofest"
+        tr: "Bakü Smart Karabakh Hackathon, Teknofest"
+      description:
+        en: "Developed a agricultural VTOL and the infrastructure to support operations with wide coverage."
+        tr: "Tarımsal VTOL ve geniş kapsama alanına sahip operasyonları destekleyen altyapı geliştirdik."
+    - date: "Sep 2021"
+      place:
+        en: "5th Place"
+        tr: "5.lik Derecesi"
+      title:
+        en: 'Teknofest "Ulasimda Yapay Zeka"'
+        tr: 'Teknofest "Ulaşımda Yapay Zeka"'
+      description:
+        en: "Utilized self trained vision models to detect and classify vehicles from drone images."
+        tr: "Drone görüntülerinden araç tespiti ve sınıflandırması yapan özgün yapay zeka modelleri kullandık."
+    - date: "Sep 2020"
+      place:
+        en: "4th Place + Best Scientists Award"
+        tr: "4.lük + En İyi Bilim İnsanı Ödülü"
+      title:
+        en: "European Rover Challenge"
+        tr: "European Rover Challenge"
+      description:
+        en: "Kielce, Poland. Recognized for rigorous engineering and scientific methodology."
+        tr: "Kielce, Polonya. Titiz mühendislik ve bilimsel metodolojimizle takdir edildik."
+
+competitions:
+  title:
+    en: "Competing in 2026"
+    tr: "2026 Hedeflerimiz"
+  subtitle:
+    en: "Our 2026 competition plan is built around events that stress-test autonomy, avionics, and reliability under real constraints."
+    tr: "2026 yarışma planımız, otonomi, aviyonik ve güvenilirliği gerçek kısıtlamalar altında zorlayan etkinlikler üzerine kuruludur."
+  items:
+    - date: "// Q2 2026"
+      title: "SUAS 2026 (USA)"
+      description:
+        en: "Most prestigious international UAV competition. Autonomous search, target detection, and precision drop."
+        tr: "En prestijli uluslararası İHA yarışması. Otonom arama, hedef tespiti ve hassas bırakma."
+      objectives:
+        en: "Autonomous mapping & Object detection"
+        tr: "Otonom haritalama & Nesne tespiti"
+    - date: "// Q3 2026"
+      title: "Teknofest Fighter UAV 2026 (Turkey)"
+      description:
+        en: "Air-to-air target detection and engagement - focused on real-time targeting and agile flight."
+        tr: "Havadan havaya hedef tespiti ve angajman - gerçek zamanlı hedefleme ve çevik uçuş odaklı."
+      objectives:
+        en: "Autonomous operation, Target Engagement"
+        tr: "Otonom operasyon, Hedef Angajmanı"
+
+vehicle:
+  specs:
+    - label:
+        en: "Wingspan"
+        tr: "Kanat Açıklığı"
+      value: "2.4m"
+    - label:
+        en: "MTOW"
+        tr: "Maks. Kalkış Ağırlığı"
+      value: "12kg"
+    - label:
+        en: "Endurance"
+        tr: "Uçuş Süresi"
+      value: "90 min"
+    - label:
+        en: "Payload"
+        tr: "Faydalı Yük"
+      value: "2kg"
+
+sponsors:
+  title:
+    en: "Sponsors"
+    tr: "Sponsorlar"
+  subtitle:
+    en: "We’re funded by sponsors who want to see us win and keep pushing the smallest AI-enabled fixed-wing UAV."
+    tr: "Kazanmamızı ve en küçük yapay zeka destekli sabit kanat İHA'yı geliştirmemizi destekleyen sponsorlar tarafından finanse ediliyoruz."
+  tiers:
+    - name: "Platinum"
+      price: "€12k+"
+      benefits:
+        en: ["Largest logo placement", "Featured mention"]
+        tr: ["En büyük logo yerleşimi", "Öne çıkan teşekkür"]
+    - name: "Gold"
+      price: "€6k+"
+      benefits:
+        en: ["Medium logo placement", "Demo day invite"]
+        tr: ["Orta boy logo yerleşimi", "Demo günü davetiyesi"]
 
 footer:
-  copyright: "© 2024 Kora Aerospace. All rights reserved."
-  social:
-    - platform: "LinkedIn"
-      url: "#"
-    - platform: "Instagram"
-      url: "#"
+  copyright: "© 2026 Kora Aerospace. All rights reserved."
+  address:
+    - "Ankara/Turkey"
+    - "Delft/Netherlands"
+  contact:
+    name: "Evren Uçar"
+    email: "kora.aerospace@gmail.com"

@@ -1,0 +1,78 @@
+<div class="navbar container">
+    <!-- Left: Team Logo -->
+    <a href="/" class="logo-link">
+        <img src="assets/images/logo_kora.png" alt="Kora Aerospace" style="height: 40px;"
+            onerror="this.src='https://placehold.co/150x50?text=KORA'">
+    </a>
+
+    <!-- Center: Navigation -->
+    <ul class="nav-links" id="nav-links-container">
+        <!-- Links injected by JS -->
+    </ul>
+
+    <!-- Right: Controls & Logos -->
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+        <!-- University Logos -->
+        <div class="uni-logos"
+            style="display: flex; gap: 0.5rem; margin-right: 1rem; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 1rem;">
+            <img src="assets/images/logo_odtu.png" alt="ODTÜ" style="height: 30px; opacity: 0.8;"
+                onerror="this.style.display='none'">
+            <img src="assets/images/logo_tudelft.png" alt="TU Delft" style="height: 30px; opacity: 0.8;"
+                onerror="this.style.display='none'">
+        </div>
+
+        <!-- CTA Buttons -->
+        <a href="contact.html" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reach Us</a>
+        <a href="contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Support Us</a>
+
+        <!-- Language Toggle -->
+        <button
+            onclick="const current = localStorage.getItem('kora_lang') || 'en'; setLang(current === 'en' ? 'tr' : 'en')"
+            class="btn btn-outline" style="padding: 0.5rem 0.8rem; font-size: 0.8rem; min-width: 40px;">
+            TR/EN
+        </button>
+    </div>
+</div>
+
+<script>
+    (async () => {
+        if (!window.siteData && !siteData) {
+            await new Promise(r => setTimeout(r, 100));
+        }
+        const data = window.siteData || siteData;
+        const navContainer = document.getElementById('nav-links-container');
+
+        if (data && data.navigation && navContainer) {
+            const lang = localStorage.getItem('kora_lang') || 'en';
+
+            navContainer.innerHTML = data.navigation.items.map(item => {
+                const label = item.label[lang] || item.label['en'];
+
+                if (item.dropdown) {
+                    const dropdownItems = item.dropdown.map(subItem => {
+                        const subLabel = subItem.label[lang] || subItem.label['en'];
+                        return `<li><a href="${subItem.href}">${subLabel}</a></li>`;
+                    }).join('');
+
+                    return `
+                        <li class="nav-item has-dropdown">
+                            <span class="nav-link" style="cursor: pointer;">${label} ▾</span>
+                            <ul class="dropdown-menu">
+                                ${dropdownItems}
+                            </ul>
+                        </li>
+                    `;
+                } else {
+                    return `<li class="nav-item"><a href="${item.href || '#'}" class="nav-link">${label}</a></li>`;
+                }
+            }).join('');
+
+            // Update buttons text based on lang
+            const btns = document.querySelectorAll('.nav-actions .btn');
+            if (lang === 'tr') {
+                btns[0].textContent = "İletişim"; // Reach Us
+                btns[1].textContent = "Destek Ol"; // Support Us
+            }
+        }
+    })();
+</script>

@@ -1,0 +1,46 @@
+<footer class="footer">
+    <div class="container">
+        <div class="grid grid-cols-3">
+            <div>
+                <h3 style="margin-bottom: 1rem;">Kora Aerospace</h3>
+                <p style="color: var(--kora-gray);" id="footer-desc">
+                    <!-- Description injected via JS -->
+                </p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Links</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="/team.html" class="nav-link">Team</a></li>
+                    <li><a href="/blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Connect</h4>
+                <div class="flex gap-4">
+                    <!-- Socials here -->
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; color: var(--kora-gray); font-size: 0.9rem;">
+            <p id="copyright">© 2024 Kora Aerospace</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (async () => {
+        if (siteData && siteData.footer) {
+            const lang = localStorage.getItem('kora_lang') || 'en';
+            const descEl = document.getElementById('footer-desc');
+            const copyEl = document.getElementById('copyright');
+
+            if (descEl && siteData.site && siteData.site.description) {
+                descEl.textContent = siteData.site.description[lang];
+            }
+            if (copyEl) {
+                copyEl.textContent = siteData.footer.copyright;
+            }
+        }
+    })();
+</script>

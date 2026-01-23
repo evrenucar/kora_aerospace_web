@@ -1,0 +1,241 @@
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--kora-cyan);
+    color: var(--kora-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--kora-cyan-hover);
+}
+
+.btn-outline {
+    border: 2px solid var(--kora-cyan);
+    color: var(--kora-cyan);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: var(--kora-cyan);
+    color: var(--kora-dark);
+}
+
+/* Cards */
+.card {
+    background-color: var(--kora-dark-lighter);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Navbar */
+.navbar {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 2rem;
+    /* Ensure padding on wide screens */
+}
+
+@media (max-width: 1024px) {
+
+    .navbar .nav-links,
+    .navbar .uni-logos,
+    .navbar .btn {
+        display: none !important;
+    }
+
+    .navbar {
+        justify-content: center;
+        /* Center logo on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--kora-gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--kora-white);
+}
+
+/* Navbar Dropdowns */
+.nav-item {
+    position: relative;
+    padding: 1rem 0;
+    /* Increase touch target */
+}
+
+.has-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--kora-dark-lighter);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    list-style: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--kora-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.1s;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--kora-cyan);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--kora-dark-lighter);
+    padding: 4rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Bottom Bar */
+.bottom-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--kora-dark-lighter);
+    height: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 50;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-width: 768px) {
+    .bottom-bar {
+        display: flex;
+    }
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--kora-gray);
+    font-size: 0.7rem;
+}
+
+.bottom-nav-item .icon {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+.bottom-nav-item.active,
+.bottom-nav-item:hover {
+    color: var(--kora-cyan);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--kora-dark);
+    padding: 2rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    z-index: 60;
+    border-top: 1px solid var(--kora-cyan);
+}
+
+.mobile-drawer.open {
+    transform: translateY(0);
+}
+
+.close-drawer {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--kora-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.drawer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-links li {
+    margin-bottom: 1rem;
+}
+
+.drawer-links a {
+    color: var(--kora-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+}
