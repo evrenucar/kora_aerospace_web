@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Vehicle</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: { bg: '#222222', surface: '#2d2d2d', cyan: '#00f0ff', cyanDark: '#008b94', offwhite: '#f5f5f5' },
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
+                <div>
+                    <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite mb-6 uppercase tracking-tighter"
+                        id="page-title">What we're working on</h1>
+                    <p class="text-xl text-slate-100 leading-relaxed font-light mb-8" id="page-subtitle"></p>
+
+                    <!-- Focus Areas -->
+                    <div class="space-y-4" id="focus-areas">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Carousel -->
+                <div id="vehicle-carousel" class="relative">
+                    <div class="relative overflow-hidden sharp-edge border border-slate-800 bg-kora-surface">
+                        <div class="aspect-[4/3] relative" id="carousel-slides">
+                            <!-- Slides loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 gap-4">
+                        <div class="flex gap-2">
+                            <button type="button" data-carousel-prev
+                                class="bg-kora-surface border border-slate-700 text-kora-offwhite px-3 py-2 text-xs uppercase tracking-widest hover:border-kora-cyan sharp-edge"
+                                id="carousel-prev">Prev</button>
+                            <button type="button" data-carousel-next
+                                class="bg-kora-surface border border-slate-700 text-kora-offwhite px-3 py-2 text-xs uppercase tracking-widest hover:border-kora-cyan sharp-edge"
+                                id="carousel-next">Next</button>
+                        </div>
+                        <div class="flex gap-2" id="carousel-dots">
+                            <!-- Dots generated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vehicle Specs (Optional) -->
+            <div class="mt-16 lg:mt-20 pt-12 border-t border-slate-800">
+                <h2 class="text-xs font-mono font-black text-kora-cyan mb-8 tracking-[0.4em] uppercase">//
+                    SPECIFICATIONS</h2>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="specs-grid">
+                    <!-- Specs loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('app-ready', async () => {
+            const content = await contentLoader.loadContent('vehicle');
+            if (!content) return;
+
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            document.getElementById('page-title').textContent = l(content.page?.title) || "What we're working on";
+            document.getElementById('page-subtitle').textContent = l(content.page?.subtitle) || '';
+
+            // Render focus areas
+            const focusAreas = document.getElementById('focus-areas');
+            if (content.focus_areas && focusAreas) {
+                focusAreas.innerHTML = content.focus_areas.map(area => `
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 bg-kora-cyan mt-1.5 sharp-edge shrink-0"></span>
+              <div>
+                <div class="text-sm font-black text-kora-offwhite uppercase tracking-tighter">${l(area.title)}</div>
+                <p class="text-slate-200 text-sm leading-relaxed">${l(area.body)}</p>
+              </div>
+            </div>
+          `).join('');
+            }
+
+            // Render carousel
+            const slidesContainer = document.getElementById('carousel-slides');
+            const dotsContainer = document.getElementById('carousel-dots');
+            if (content.gallery && slidesContainer && dotsContainer) {
+                slidesContainer.innerHTML = content.gallery.map((item, i) => `
+            <div data-carousel-slide class="absolute inset-0 ${i > 0 ? 'hidden' : ''}">
+              <img src="${item.image}" alt="${l(item.alt)}" class="w-full h-full object-cover opacity-90 transition-opacity duration-700" />
+              <div class="absolute top-3 left-3 bg-kora-bg/80 text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-kora-cyan/50 sharp-edge">${l(item.label)}</div>
+            </div>
+          `).join('');
+
+                dotsContainer.innerHTML = content.gallery.map((_, i) => `
+            <button type="button" data-carousel-dot="${i}" class="w-2.5 h-2.5 rounded-full ${i === 0 ? 'bg-kora-cyan' : 'bg-slate-600'} hover:bg-kora-cyan transition-colors"></button>
+          `).join('');
+
+                // Update button text
+                document.getElementById('carousel-prev').textContent = l(content.carousel?.prev) || 'Prev';
+                document.getElementById('carousel-next').textContent = l(content.carousel?.next) || 'Next';
+
+                // Initialize carousel
+                if (window.KoraApp) {
+                    window.KoraApp.initCarousel(document.getElementById('vehicle-carousel'));
+                }
+            }
+
+            // Render specs
+            const specsGrid = document.getElementById('specs-grid');
+            if (content.specs && specsGrid) {
+                specsGrid.innerHTML = Object.entries(content.specs).map(([key, spec]) => `
+            <div class="p-6 bg-kora-surface border border-slate-800 sharp-edge">
+              <div class="text-xs font-mono text-kora-cyan mb-2 uppercase tracking-widest">${l(spec.label)}</div>
+              <div class="text-2xl font-black text-kora-offwhite uppercase tracking-tight">${spec.value}</div>
+            </div>
+          `).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>

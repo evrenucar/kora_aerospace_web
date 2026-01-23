@@ -1,0 +1,184 @@
+<!-- Navbar Component -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-kora-bg py-4 lg:py-6">
+  <div class="max-w-7xl mx-auto px-4 lg:px-6 flex items-center justify-between">
+    <!-- Left: Team Logo -->
+    <a href="/" class="flex items-center group shrink-0">
+      <img src="/media/fulll_logo.svg" alt="" class="w-20 h-20 lg:w-24 lg:h-24 object-contain" data-i18n="alt.logo_kora" data-i18n-attr="alt" />
+    </a>
+
+    <!-- Center: Navigation Links (Desktop) -->
+    <div class="hidden lg:flex items-center space-x-1 xl:space-x-4">
+      <!-- About Dropdown -->
+      <div class="relative group" data-dropdown>
+        <button class="flex items-center gap-1 text-xs font-bold text-slate-100 hover:text-kora-cyan transition-all uppercase tracking-widest px-3 py-2">
+          <span data-i18n="nav.about">About</span>
+          <svg class="w-3 h-3 transition-transform group-hover:rotate-180" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" data-dropdown-menu>
+          <div class="bg-kora-surface border border-slate-700 sharp-edge shadow-xl min-w-[180px]">
+            <a href="/about/team/" class="block px-4 py-3 text-xs font-bold text-slate-100 hover:text-kora-cyan hover:bg-kora-bg/50 uppercase tracking-widest transition-all" data-i18n="nav.team">Team</a>
+            <a href="/about/achievements/" class="block px-4 py-3 text-xs font-bold text-slate-100 hover:text-kora-cyan hover:bg-kora-bg/50 uppercase tracking-widest transition-all" data-i18n="nav.achievements">Achievements</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- This Year Dropdown -->
+      <div class="relative group" data-dropdown>
+        <button class="flex items-center gap-1 text-xs font-bold text-slate-100 hover:text-kora-cyan transition-all uppercase tracking-widest px-3 py-2">
+          <span data-i18n="nav.this_year">This Year</span>
+          <svg class="w-3 h-3 transition-transform group-hover:rotate-180" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" data-dropdown-menu>
+          <div class="bg-kora-surface border border-slate-700 sharp-edge shadow-xl min-w-[180px]">
+            <a href="/this-year/vehicle/" class="block px-4 py-3 text-xs font-bold text-slate-100 hover:text-kora-cyan hover:bg-kora-bg/50 uppercase tracking-widest transition-all" data-i18n="nav.vehicle">Vehicle</a>
+            <a href="/this-year/competitions/" class="block px-4 py-3 text-xs font-bold text-slate-100 hover:text-kora-cyan hover:bg-kora-bg/50 uppercase tracking-widest transition-all" data-i18n="nav.competitions">Competitions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Links -->
+      <a href="/media/" class="text-xs font-bold text-slate-100 hover:text-kora-cyan transition-all uppercase tracking-widest px-3 py-2" data-i18n="nav.media">Media</a>
+      <a href="/blog/" class="text-xs font-bold text-slate-100 hover:text-kora-cyan transition-all uppercase tracking-widest px-3 py-2" data-i18n="nav.blog">Blog</a>
+      <a href="/contact/" class="text-xs font-bold text-slate-100 hover:text-kora-cyan transition-all uppercase tracking-widest px-3 py-2" data-i18n="nav.contact">Contact</a>
+    </div>
+
+    <!-- Right: Actions -->
+    <div class="flex items-center gap-2 lg:gap-4">
+      <!-- Language Toggle -->
+      <div class="relative" id="lang-switcher">
+        <button
+          id="lang-toggle"
+          type="button"
+          class="flex items-center gap-2 border border-slate-700 text-slate-100 px-2 lg:px-3 py-2 text-[10px] uppercase tracking-widest sharp-edge hover:border-kora-cyan transition-colors"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="lang-menu"
+        >
+          <span class="sr-only" data-i18n="lang.selector_label">Language</span>
+          <span class="block w-5 h-3 lg:w-6 lg:h-4" data-lang-flag="en" aria-hidden="true">
+            <svg viewBox="0 0 24 16" class="w-full h-full" aria-hidden="true">
+              <rect width="24" height="16" fill="#FFFFFF"></rect>
+              <rect x="0" y="6.5" width="24" height="3" fill="#C8102E"></rect>
+              <rect x="10.5" y="0" width="3" height="16" fill="#C8102E"></rect>
+            </svg>
+          </span>
+          <span class="block w-5 h-3 lg:w-6 lg:h-4 hidden" data-lang-flag="tr" aria-hidden="true">
+            <svg viewBox="0 0 24 16" class="w-full h-full" aria-hidden="true">
+              <rect width="24" height="16" fill="#E30A17"></rect>
+              <circle cx="9" cy="8" r="4" fill="#FFFFFF"></circle>
+              <circle cx="10.5" cy="8" r="3.2" fill="#E30A17"></circle>
+              <polygon points="14.8,8 16.2,7.2 15.8,8.8 16.9,9.8 15.4,9.7 14.8,11.2 14.2,9.7 12.7,9.8 13.8,8.8 13.4,7.2" fill="#FFFFFF"></polygon>
+            </svg>
+          </span>
+          <svg class="w-3 h-3 text-slate-400 hidden lg:block" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <div
+          id="lang-menu"
+          class="absolute right-0 mt-2 hidden min-w-[140px] bg-kora-surface border border-slate-700 sharp-edge shadow-lg z-50"
+        >
+          <button type="button" class="flex items-center gap-2 px-3 py-2 text-[10px] uppercase tracking-widest text-slate-100 hover:text-kora-cyan w-full text-left" data-lang-option="en">
+            <span class="block w-6 h-4" aria-hidden="true">
+              <svg viewBox="0 0 24 16" class="w-6 h-4" aria-hidden="true">
+                <rect width="24" height="16" fill="#FFFFFF"></rect>
+                <rect x="0" y="6.5" width="24" height="3" fill="#C8102E"></rect>
+                <rect x="10.5" y="0" width="3" height="16" fill="#C8102E"></rect>
+              </svg>
+            </span>
+            <span data-i18n="lang.english">English</span>
+          </button>
+          <button type="button" class="flex items-center gap-2 px-3 py-2 text-[10px] uppercase tracking-widest text-slate-100 hover:text-kora-cyan w-full text-left" data-lang-option="tr">
+            <span class="block w-6 h-4" aria-hidden="true">
+              <svg viewBox="0 0 24 16" class="w-6 h-4" aria-hidden="true">
+                <rect width="24" height="16" fill="#E30A17"></rect>
+                <circle cx="9" cy="8" r="4" fill="#FFFFFF"></circle>
+                <circle cx="10.5" cy="8" r="3.2" fill="#E30A17"></circle>
+                <polygon points="14.8,8 16.2,7.2 15.8,8.8 16.9,9.8 15.4,9.7 14.8,11.2 14.2,9.7 12.7,9.8 13.8,8.8 13.4,7.2" fill="#FFFFFF"></polygon>
+              </svg>
+            </span>
+            <span data-i18n="lang.turkish">Turkish</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA Buttons (Desktop) -->
+      <a
+        href="/contact/"
+        class="hidden xl:block text-xs font-bold text-slate-100 hover:text-kora-cyan transition-colors uppercase tracking-widest px-3 py-2"
+        data-i18n="cta.reach_us"
+      >Reach Us</a>
+      <a
+        href="/#sponsors"
+        class="bg-kora-cyan text-kora-bg px-4 lg:px-6 py-2 lg:py-2.5 sharp-edge text-[10px] lg:text-xs font-black uppercase tracking-widest hover:bg-white transition-all cyan-glow"
+        data-i18n="cta.sponsor_team"
+      >Sponsor</a>
+
+      <!-- University Logos (Desktop) -->
+      <div class="hidden xl:flex items-center gap-3 ml-4 pl-4 border-l border-slate-700">
+        <a href="https://www.metu.edu.tr" target="_blank" rel="noopener noreferrer">
+          <img src="/media/odtu_logo.png" alt="ODTU" class="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
+        </a>
+        <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+          <img src="/media/png_TuDelft_logo_white_rgb.png" alt="TU Delft" class="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="lg:hidden p-2 text-slate-100 hover:text-kora-cyan transition-colors"
+        id="mobile-menu-toggle"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-[88px] bg-kora-bg/98 hidden z-40 overflow-y-auto">
+    <div class="px-6 py-8 space-y-6">
+      <!-- About Section -->
+      <div class="border-b border-slate-800 pb-6">
+        <div class="text-xs font-mono text-kora-cyan mb-4 uppercase tracking-widest" data-i18n="nav.about">About</div>
+        <div class="space-y-3 pl-4">
+          <a href="/about/team/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.team">Team</a>
+          <a href="/about/achievements/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.achievements">Achievements</a>
+        </div>
+      </div>
+
+      <!-- This Year Section -->
+      <div class="border-b border-slate-800 pb-6">
+        <div class="text-xs font-mono text-kora-cyan mb-4 uppercase tracking-widest" data-i18n="nav.this_year">This Year</div>
+        <div class="space-y-3 pl-4">
+          <a href="/this-year/vehicle/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.vehicle">Vehicle</a>
+          <a href="/this-year/competitions/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.competitions">Competitions</a>
+        </div>
+      </div>
+
+      <!-- Direct Links -->
+      <div class="space-y-4">
+        <a href="/media/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.media">Media</a>
+        <a href="/blog/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.blog">Blog</a>
+        <a href="/contact/" class="block text-lg font-bold text-slate-100 hover:text-kora-cyan uppercase tracking-tight" data-i18n="nav.contact">Contact</a>
+      </div>
+
+      <!-- University Logos (Mobile) -->
+      <div class="flex items-center gap-6 pt-6 border-t border-slate-800">
+        <a href="https://www.metu.edu.tr" target="_blank" rel="noopener noreferrer">
+          <img src="/media/odtu_logo.png" alt="ODTU" class="h-10 w-auto object-contain" />
+        </a>
+        <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+          <img src="/media/png_TuDelft_logo_white_rgb.png" alt="TU Delft" class="h-10 w-auto object-contain" />
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -47,3 +47,230 @@ body {
     transform: translateX(300%);
   }
 }
+
+/* ============================================================================
+   MOBILE BOTTOM NAV
+   ============================================================================ */
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+#mobile-bottom-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Add padding to body to prevent content from being hidden behind mobile nav */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 4rem;
+  }
+}
+
+/* ============================================================================
+   DRAWER STYLES
+   ============================================================================ */
+
+[id^="drawer-"] {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#drawer-backdrop {
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================================================
+   DROPDOWN STYLES
+   ============================================================================ */
+
+[data-dropdown-menu] {
+  pointer-events: none;
+}
+
+[data-dropdown]:hover [data-dropdown-menu] {
+  pointer-events: auto;
+}
+
+/* ============================================================================
+   PROSE STYLES FOR BLOG
+   ============================================================================ */
+
+.prose {
+  color: #e2e8f0;
+  line-height: 1.75;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #f5f5f5;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 { font-size: 2.25rem; }
+.prose h2 { font-size: 1.75rem; }
+.prose h3 { font-size: 1.5rem; }
+.prose h4 { font-size: 1.25rem; }
+
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: #00f0ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: #ffffff;
+}
+
+.prose strong {
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose ul li::marker {
+  color: #00f0ff;
+}
+
+.prose blockquote {
+  border-left: 3px solid #00f0ff;
+  padding-left: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.prose code {
+  background-color: #2d2d2d;
+  padding: 0.2em 0.4em;
+  border-radius: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: #00f0ff;
+}
+
+.prose pre {
+  background-color: #2d2d2d;
+  padding: 1em;
+  overflow-x: auto;
+  border: 1px solid #374151;
+  margin: 1.5em 0;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: #e2e8f0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  margin: 2em 0;
+  border: 1px solid #374151;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid #374151;
+  margin: 3em 0;
+}
+
+/* ============================================================================
+   LINE CLAMP
+   ============================================================================ */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   GALLERY LIGHTBOX
+   ============================================================================ */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+/* ============================================================================
+   PAGE TRANSITIONS
+   ============================================================================ */
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* ============================================================================
+   FILTER BUTTONS
+   ============================================================================ */
+
+.filter-btn {
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background-color: #00f0ff;
+  color: #222222;
+}
+
+.filter-btn:not(.active):hover {
+  border-color: #00f0ff;
+  color: #00f0ff;
+}

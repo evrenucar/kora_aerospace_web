@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">KORA Aerospace | Media</title>
+    <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+    <link rel="icon" type="image/svg+xml" href="/media/icon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kora: { bg: '#222222', surface: '#2d2d2d', cyan: '#00f0ff', cyanDark: '#008b94', offwhite: '#f5f5f5' },
+                    },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+
+<body class="bg-kora-bg grid-bg overflow-x-hidden">
+    <div id="navbar-placeholder"></div>
+
+    <main class="min-h-screen bg-kora-bg selection:bg-kora-cyan selection:text-kora-bg pt-32 lg:pt-40 pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Page Header -->
+            <div class="mb-12 lg:mb-16">
+                <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite mb-6 uppercase tracking-tighter"
+                    id="page-title">Media</h1>
+                <p class="text-xl text-slate-100 leading-relaxed font-light max-w-2xl" id="page-subtitle"></p>
+            </div>
+
+            <!-- Type Filters -->
+            <div class="flex flex-wrap gap-2 mb-8" id="type-filters">
+                <button type="button"
+                    class="filter-btn active px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 sharp-edge"
+                    data-type="all" id="filter-all">All</button>
+                <button type="button"
+                    class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                    data-type="photo" id="filter-photos">Photos</button>
+                <button type="button"
+                    class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                    data-type="video" id="filter-videos">Videos</button>
+                <button type="button"
+                    class="filter-btn px-4 py-2 text-xs font-bold uppercase tracking-widest border border-slate-700 text-slate-300 sharp-edge"
+                    data-type="press_kit" id="filter-press">Press Kit</button>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2 mb-12" id="category-filters">
+                <button type="button"
+                    class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest border border-slate-800 text-slate-400 sharp-edge hover:border-kora-cyan hover:text-kora-cyan transition-colors category-btn active"
+                    data-category="all">All</button>
+                <button type="button"
+                    class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest border border-slate-800 text-slate-400 sharp-edge hover:border-kora-cyan hover:text-kora-cyan transition-colors category-btn"
+                    data-category="vehicle" id="cat-vehicle">Vehicle</button>
+                <button type="button"
+                    class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest border border-slate-800 text-slate-400 sharp-edge hover:border-kora-cyan hover:text-kora-cyan transition-colors category-btn"
+                    data-category="testing" id="cat-testing">Testing</button>
+                <button type="button"
+                    class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest border border-slate-800 text-slate-400 sharp-edge hover:border-kora-cyan hover:text-kora-cyan transition-colors category-btn"
+                    data-category="competition" id="cat-competition">Competition</button>
+                <button type="button"
+                    class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest border border-slate-800 text-slate-400 sharp-edge hover:border-kora-cyan hover:text-kora-cyan transition-colors category-btn"
+                    data-category="team" id="cat-team">Team</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+                <!-- Items loaded dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <button type="button" class="absolute top-6 right-6 text-white hover:text-kora-cyan transition-colors z-10"
+            onclick="closeLightbox()">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="" onclick="event.stopPropagation()" />
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+
+    <script src="/js/content-loader.js"></script>
+    <script src="/js/component-loader.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        let allItems = [];
+        let currentType = 'all';
+        let currentCategory = 'all';
+
+        const openLightbox = (src, alt) => {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            img.alt = alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeLightbox = () => {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        const renderGallery = () => {
+            const grid = document.getElementById('gallery-grid');
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            let filtered = allItems;
+
+            if (currentType !== 'all') {
+                filtered = filtered.filter(item => item.type === currentType);
+            }
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(item => item.category === currentCategory);
+            }
+
+            grid.innerHTML = filtered.map(item => `
+          <div class="aspect-square bg-kora-surface sharp-edge border border-slate-800 overflow-hidden relative group cursor-pointer" onclick="openLightbox('${item.src}', '${l(item.title)}')">
+            <img
+              src="${item.thumbnail || item.src}"
+              alt="${l(item.title)}"
+              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <div>
+                <div class="text-xs font-mono text-kora-cyan uppercase tracking-widest mb-1">${l(item.title)}</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wider">${item.category}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        };
+
+        document.addEventListener('app-ready', async () => {
+            const content = await contentLoader.loadContent('media-gallery');
+            if (!content) return;
+
+            const l = (obj) => contentLoader.getLocalizedValue(obj);
+
+            document.getElementById('page-title').textContent = l(content.page?.title) || 'Media';
+            document.getElementById('page-subtitle').textContent = l(content.page?.subtitle) || '';
+
+            // Update filter labels
+            if (content.filters) {
+                document.getElementById('filter-all').textContent = l(content.filters.all);
+                document.getElementById('filter-photos').textContent = l(content.filters.photos);
+                document.getElementById('filter-videos').textContent = l(content.filters.videos);
+                document.getElementById('filter-press').textContent = l(content.filters.press_kit);
+            }
+
+            if (content.categories) {
+                document.getElementById('cat-vehicle').textContent = l(content.categories.vehicle);
+                document.getElementById('cat-testing').textContent = l(content.categories.testing);
+                document.getElementById('cat-competition').textContent = l(content.categories.competition);
+                document.getElementById('cat-team').textContent = l(content.categories.team);
+            }
+
+            allItems = content.items || [];
+            renderGallery();
+
+            // Type filter handlers
+            document.querySelectorAll('[data-type]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentType = btn.dataset.type;
+                    document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderGallery();
+                });
+            });
+
+            // Category filter handlers
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentCategory = btn.dataset.category;
+                    document.querySelectorAll('.category-btn').forEach(b => {
+                        b.classList.remove('active', 'text-kora-cyan', 'border-kora-cyan');
+                        b.classList.add('text-slate-400', 'border-slate-800');
+                    });
+                    btn.classList.add('active', 'text-kora-cyan', 'border-kora-cyan');
+                    btn.classList.remove('text-slate-400', 'border-slate-800');
+                    renderGallery();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
