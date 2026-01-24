@@ -103,3 +103,19 @@ locations:
       address:
         en: "Faculty of Aerospace Engineering"
         tr: "Havacılık ve Uzay Mühendisliği Fakültesi"
+
+location:
+  title:
+    en: "// Our Location"
+    tr: "// Konumumuz"
+
+sponsor:
+  title:
+    en: "// Become a Sponsor"
+    tr: "// Sponsor Olun"
+  description:
+    en: "Interested in supporting our mission to build the world's smallest AI-enabled UAV?"
+    tr: "Dünyanın en küçük yapay zekalı İHA'sını inşa etme misyonumuzu desteklemek ister misiniz?"
+  button:
+    en: "Sponsor Form"
+    tr: "Sponsor Formu"

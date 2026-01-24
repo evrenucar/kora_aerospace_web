@@ -42,52 +42,39 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-                <!-- Contact Form -->
+                <!-- Location Map -->
                 <div>
                     <h2 class="text-2xl font-black text-kora-offwhite mb-8 uppercase tracking-tight" id="form-title">
-                        Send us a message</h2>
-                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/your-form-id"
-                        method="POST">
-                        <div>
-                            <label for="name"
-                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
-                                id="label-name">Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors"
-                                placeholder="Your name" />
+                        // Our Location</h2>
+                    <div class="sharp-edge overflow-hidden border border-slate-700">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.5726447438287!2d32.78619157602669!3d39.89282927152972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347c64c024c57%3A0x5a2d8b30fcc1c7f4!2sODT%C3%9C%20Havac%C4%B1l%C4%B1k%20ve%20Uzay%20M%C3%BChendisli%C4%9Fi%20B%C3%B6l%C3%BCm%C3%BC!5e0!3m2!1str!2str!4v1706103600000!5m2!1str!2str"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="text-sm text-slate-400 mt-4 font-mono">
+                        ODTÜ Havacılık ve Uzay Mühendisliği Bölümü<br>
+                        Middle East Technical University, Ankara, Turkey
+                    </p>
+
+                    <!-- Sponsor CTA -->
+                    <div class="mt-10 pt-8 border-t border-slate-800">
+                        <div class="text-xs font-mono text-kora-cyan mb-4 uppercase tracking-widest" id="sponsor-title">
+                            // Become a Sponsor
                         </div>
-                        <div>
-                            <label for="email"
-                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
-                                id="label-email">Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors"
-                                placeholder="your@email.com" />
-                        </div>
-                        <div>
-                            <label for="subject"
-                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
-                                id="label-subject">Subject</label>
-                            <select id="subject" name="subject"
-                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors">
-                                <option value="sponsorship" id="opt-sponsorship">Sponsorship Inquiry</option>
-                                <option value="collaboration" id="opt-collaboration">Collaboration</option>
-                                <option value="media" id="opt-media">Media/Press</option>
-                                <option value="general" id="opt-general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message"
-                                class="block text-xs font-mono text-slate-300 mb-2 uppercase tracking-widest"
-                                id="label-message">Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                class="w-full bg-kora-surface border border-slate-700 text-kora-offwhite px-4 py-3 sharp-edge focus:border-kora-cyan focus:outline-none transition-colors resize-none"
-                                placeholder="Tell us more..."></textarea>
-                        </div>
-                        <button type="submit"
-                            class="bg-kora-cyan text-kora-bg px-8 py-4 sharp-edge font-black text-lg hover:bg-white transition-all uppercase tracking-tighter w-full lg:w-auto"
-                            id="btn-submit">Send Message</button>
-                    </form>
+                        <p class="text-slate-300 mb-6" id="sponsor-description">Interested in supporting our mission to
+                            build the world's
+                            smallest AI-enabled UAV?</p>
+                        <a href="https://forms.gle/SHqMc7veWDYyEdcb9" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 bg-kora-cyan text-kora-bg px-6 py-3 sharp-edge font-black text-lg hover:bg-white transition-all uppercase tracking-tighter">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            <span id="sponsor-button">Sponsor Form</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Contact Info -->
@@ -166,31 +153,20 @@
 
             document.getElementById('page-title').textContent = l(contactContent.page?.title) || 'Contact Us';
             document.getElementById('page-subtitle').textContent = l(contactContent.page?.subtitle) || '';
-            document.getElementById('form-title').textContent = l(contactContent.form?.title) || 'Send us a message';
+            document.getElementById('form-title').textContent = l(contactContent.location?.title) || '// Our Location';
             document.getElementById('info-title').textContent = l(contactContent.contact_info?.title) || 'Contact Information';
 
             // Locations Title
             const locTitle = document.getElementById('locations-title');
             if (locTitle) locTitle.textContent = l(contactContent.locations?.title) || '// Our Locations';
 
-            // Form labels and placeholders
-            if (contactContent.form) {
-                document.getElementById('label-name').textContent = l(contactContent.form.name?.label);
-                document.getElementById('name').placeholder = l(contactContent.form.name?.placeholder);
-                document.getElementById('label-email').textContent = l(contactContent.form.email?.label);
-                document.getElementById('email').placeholder = l(contactContent.form.email?.placeholder);
-                document.getElementById('label-subject').textContent = l(contactContent.form.subject?.label);
-                document.getElementById('label-message').textContent = l(contactContent.form.message?.label);
-                document.getElementById('message').placeholder = l(contactContent.form.message?.placeholder);
-                document.getElementById('btn-submit').textContent = l(contactContent.form.submit);
-
-                if (contactContent.form.subject?.options) {
-                    document.getElementById('opt-sponsorship').textContent = l(contactContent.form.subject.options.sponsorship);
-                    document.getElementById('opt-collaboration').textContent = l(contactContent.form.subject.options.collaboration);
-                    document.getElementById('opt-media').textContent = l(contactContent.form.subject.options.media);
-                    document.getElementById('opt-general').textContent = l(contactContent.form.subject.options.general);
-                }
-            }
+            // Sponsor Section
+            const sponsorTitle = document.getElementById('sponsor-title');
+            if (sponsorTitle) sponsorTitle.textContent = l(contactContent.sponsor?.title) || '// Become a Sponsor';
+            const sponsorDesc = document.getElementById('sponsor-description');
+            if (sponsorDesc) sponsorDesc.textContent = l(contactContent.sponsor?.description) || '';
+            const sponsorBtn = document.getElementById('sponsor-button');
+            if (sponsorBtn) sponsorBtn.textContent = l(contactContent.sponsor?.button) || 'Sponsor Form';
 
             // Locations
             const locationsList = document.getElementById('locations-list');

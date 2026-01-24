@@ -116,3 +116,102 @@ items:
       en: "Team Member - Yiğit"
       tr: "Takım Üyesi - Yiğit"
     date: "2025-01-01"
+
+  - type: "photo"
+    category: "team"
+    src: "/media/evren.jpg"
+    thumbnail: "/media/evren.jpg"
+    title:
+      en: "Team Member - Evren"
+      tr: "Takım Üyesi - Evren"
+    date: "2025-01-01"
+
+  - type: "photo"
+    category: "team"
+    src: "/media/ceren.jpeg"
+    thumbnail: "/media/ceren.jpeg"
+    title:
+      en: "Team Member - Ceren"
+      tr: "Takım Üyesi - Ceren"
+    date: "2025-01-01"
+
+  - type: "photo"
+    category: "team"
+    src: "/media/nursena.png"
+    thumbnail: "/media/nursena.png"
+    title:
+      en: "Team Member - Nursena"
+      tr: "Takım Üyesi - Nursena"
+    date: "2025-01-01"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PCB_final_image(1).png"
+    thumbnail: "/media/PCB_final_image(1).png"
+    title:
+      en: "PCB 3D Realistic Render"
+      tr: "PCB 3D Gerçekçi Render"
+    date: "2025-08-22"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/pcb_routing.png"
+    thumbnail: "/media/pcb_routing.png"
+    title:
+      en: "PCB Routing"
+      tr: "PCB Routing"
+    date: "2025-08-22"
+
+  - type: "photo"
+    category: "testing"
+    src: "/media/before_launch.png"
+    thumbnail: "/media/before_launch.png"
+    title:
+      en: "Pre-Launch Preparation"
+      tr: "Fırlatma Öncesi Hazırlık"
+    date: "2025-09-10"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PHOTO-2025-08-12-20-37-19.jpg"
+    thumbnail: "/media/PHOTO-2025-08-12-20-37-19.jpg"
+    title:
+      en: "Aero Simulation"
+      tr: "Aero Simülasyon"
+    date: "2025-08-12"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PHOTO-2025-08-16-12-42-05.jpg"
+    thumbnail: "/media/PHOTO-2025-08-16-12-42-05.jpg"
+    title:
+      en: "Aero Simulation"
+      tr: "Aero Simülasyon"
+    date: "2025-08-16"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PHOTO-2025-08-22-11-43-52.jpg"
+    thumbnail: "/media/PHOTO-2025-08-22-11-43-52.jpg"
+    title:
+      en: "Cad Render"
+      tr: "Cad Render"
+    date: "2025-08-22"
+
+  - type: "photo"
+    category: "testing"
+    src: "/media/PHOTO-2025-09-10-13-23-40.jpg"
+    thumbnail: "/media/PHOTO-2025-09-10-13-23-40.jpg"
+    title:
+      en: "Cad Render"
+      tr: "Cad Render"
+    date: "2025-09-10"
+
+  - type: "photo"
+    category: "vehicle"
+    src: "/media/PHOTO-2025-10-17-13-08-44.jpg"
+    thumbnail: "/media/PHOTO-2025-10-17-13-08-44.jpg"
+    title:
+      en: "Alpha Build"
+      tr: "Alpha Build"
+    date: "2025-10-17"
