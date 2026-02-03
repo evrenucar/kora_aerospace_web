@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.kora-aerospace.org/sitemap.xml

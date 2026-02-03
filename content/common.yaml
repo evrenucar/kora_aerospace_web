@@ -9,6 +9,63 @@ meta:
     en: "Competition team from METU and TU Delft building the smallest AI-enabled fixed-wing UAV with an onboard Jetson. Sponsor us to help us win."
     tr: "METU ve TU Delft öğrencilerinin işbirliğiyle kurulan yarışma takımı olarak, üzerinde Jetson bulunan en küçük otonom sabit kanat İHA'yı geliştiriyoruz."
 
+  pages:
+    home:
+      title:
+        en: "KORA Aerospace | Smallest AI-Enabled Fixed-Wing UAV"
+        tr: "KORA Aerospace | Otonom Sabit Kanat İHA"
+      description:
+        en: "Competition team from METU and TU Delft building the smallest AI-enabled fixed-wing UAV with an onboard Jetson. Sponsor us to help us win."
+        tr: "METU ve TU Delft öğrencilerinden oluşan yarışma takımı olarak, üzerinde Jetson bulunan en küçük otonom sabit kanat İHA'yı geliştiriyoruz."
+    team:
+      title:
+        en: "KORA Aerospace | Team"
+        tr: "KORA Aerospace | Takım"
+      description:
+        en: "Meet the METU and TU Delft student team developing the smallest AI-enabled fixed-wing UAV."
+        tr: "METU ve TU Delft öğrencilerinden oluşan, en küçük yapay zekâ destekli sabit kanat İHA'yı geliştiren ekibi tanıyın."
+    achievements:
+      title:
+        en: "KORA Aerospace | Achievements"
+        tr: "KORA Aerospace | Başarılar"
+      description:
+        en: "Track record from competitions, hackathons, and field demonstrations."
+        tr: "Yarışmalar, hackathonlar ve saha gösterimlerinden elde edilen başarı özeti."
+    competitions:
+      title:
+        en: "KORA Aerospace | Competitions"
+        tr: "KORA Aerospace | Yarışmalar"
+      description:
+        en: "Competitions we are entering this year and the goals we are targeting."
+        tr: "Bu yıl katıldığımız yarışmalar ve hedeflediğimiz görevler."
+    vehicle:
+      title:
+        en: "KORA Aerospace | Vehicle"
+        tr: "KORA Aerospace | Araç"
+      description:
+        en: "Overview of our fixed-wing UAV, avionics stack, and autonomy work."
+        tr: "Sabit kanat İHA, aviyonik altyapı ve otonomi çalışmalarımızın özeti."
+    media:
+      title:
+        en: "KORA Aerospace | Media"
+        tr: "KORA Aerospace | Medya"
+      description:
+        en: "Photos and media from tests, competitions, and development builds."
+        tr: "Testler, yarışmalar ve geliştirme süreçlerinden fotoğraf ve medya."
+    blog:
+      title:
+        en: "KORA Aerospace | Dev Blog"
+        tr: "KORA Aerospace | Blog"
+      description:
+        en: "Development logs and technical updates from the KORA Aerospace team."
+        tr: "KORA Aerospace ekibinden geliştirme günlüğü ve teknik güncellemeler."
+    contact:
+      title:
+        en: "KORA Aerospace | Contact"
+        tr: "KORA Aerospace | İletişim"
+      description:
+        en: "Contact the team, sponsor our mission, and find our locations."
+        tr: "Takım ile iletişime geçin, sponsorluk sağlayın ve lokasyonlarımızı görün."
 nav:
   about:
     en: "About"
@@ -151,3 +208,4 @@ footer:
   last_update:
     en: "LAST UPDATE 23-01-2026"
     tr: "SON GÜNCELLEME 23-01-2026"
+

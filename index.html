@@ -5,8 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- HTML Meta Tags -->
-  <title data-i18n="meta.title">KORA Aerospace | Smallest AI-Enabled Fixed-Wing UAV</title>
-  <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
+  <title data-i18n="meta.pages.home.title">KORA Aerospace | Smallest AI-Enabled Fixed-Wing UAV</title>
+  <meta name="description"
+    content="Competition team from METU and TU Delft building the smallest AI-enabled fixed-wing UAV with an onboard Jetson. Sponsor us to help us win."
+    data-i18n="meta.pages.home.description" data-i18n-attr="content">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.kora-aerospace.org/">
+  <link rel="sitemap" type="application/xml" href="https://www.kora-aerospace.org/sitemap.xml">
+  <meta name="theme-color" content="#222222">
   <!-- Favicon things -->
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
@@ -18,16 +24,42 @@
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://www.kora-aerospace.org/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="" data-i18n="meta.title" data-i18n-attr="content">
-  <meta property="og:description" content="" data-i18n="meta.description" data-i18n-attr="content">
-  <meta property="og:image" content="/media/fulll_logo.png">
+  <meta property="og:site_name" content="KORA Aerospace">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="" data-i18n="meta.pages.home.title" data-i18n-attr="content">
+  <meta property="og:description" content="" data-i18n="meta.pages.home.description" data-i18n-attr="content">
+  <meta property="og:image" content="https://www.kora-aerospace.org/media/fulll_logo.png">
+  <meta property="og:image:alt" content="KORA Aerospace logo">
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="kora-aerospace.org">
-  <meta property="twitter:url" content="https://www.kora-aerospace.org/">
-  <meta name="twitter:title" content="" data-i18n="meta.title" data-i18n-attr="content">
-  <meta name="twitter:description" content="" data-i18n="meta.description" data-i18n-attr="content">
-  <meta name="twitter:image" content="/media/fulll_logo.png">
+  <meta name="twitter:domain" content="kora-aerospace.org">
+  <meta name="twitter:url" content="https://www.kora-aerospace.org/">
+  <meta name="twitter:title" content="" data-i18n="meta.pages.home.title" data-i18n-attr="content">
+  <meta name="twitter:description" content="" data-i18n="meta.pages.home.description" data-i18n-attr="content">
+  <meta name="twitter:image" content="https://www.kora-aerospace.org/media/fulll_logo.png">
+  <meta name="twitter:image:alt" content="KORA Aerospace logo">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "KORA Aerospace",
+          "url": "https://www.kora-aerospace.org/",
+          "logo": "https://www.kora-aerospace.org/media/fulll_logo.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/kora-aerospace",
+            "https://www.instagram.com/kora.aerospace"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "KORA Aerospace",
+          "url": "https://www.kora-aerospace.org/"
+        }
+      ]
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,19 +119,19 @@
           <div class="relative">
             <div class="grid grid-cols-2 gap-4">
               <div class="aspect-square bg-kora-surface sharp-edge overflow-hidden border border-slate-800">
-                <img src="/media/PHOTO-2025-08-22-11-43-52.jpg" alt=""
+                <img src="/media/PHOTO-2025-08-22-11-43-52.jpg" alt="Drone flight"
                   class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all"
                   data-i18n="alt.hero_drone_flight" data-i18n-attr="alt" />
               </div>
               <div
                 class="aspect-square bg-kora-surface sharp-edge overflow-hidden border border-slate-800 translate-y-8">
-                <img src="/media/pcb_front.png" alt=""
+                <img src="/media/pcb_front.png" alt="PCB engineering"
                   class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all"
                   data-i18n="alt.hero_pcb_engineering" data-i18n-attr="alt" />
               </div>
               <div
                 class="col-span-2 aspect-[2/1] bg-kora-surface sharp-edge overflow-hidden border border-slate-800 mt-4">
-                <img src="/media/PHOTO-2025-08-12-20-37-19.jpg" alt=""
+                <img src="/media/PHOTO-2025-08-12-20-37-19.jpg" alt="Flight still"
                   class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all"
                   data-i18n="alt.hero_flight_still" data-i18n-attr="alt" />
               </div>
@@ -246,7 +278,7 @@
             <div class="relative overflow-hidden sharp-edge border border-slate-800 bg-kora-surface">
               <div class="aspect-[4/3] relative">
                 <div data-carousel-slide class="absolute inset-0">
-                  <img src="/media/PHOTO-2025-10-14-23-58-30.jpg" alt=""
+                  <img src="/media/PHOTO-2025-10-14-23-58-30.jpg" alt="Alpha Flight Model"
                     class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
                     data-i18n="alt.work_slide_01" data-i18n-attr="alt" />
                   <div
@@ -254,7 +286,7 @@
                     data-i18n="work.slide_01.label"></div>
                 </div>
                 <div data-carousel-slide class="absolute inset-0 hidden">
-                  <img src="/media/pcb_back.png" alt=""
+                  <img src="/media/pcb_back.png" alt="PCB design"
                     class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
                     data-i18n="alt.work_slide_02" data-i18n-attr="alt" />
                   <div
@@ -262,7 +294,7 @@
                     data-i18n="work.slide_02.label"></div>
                 </div>
                 <div data-carousel-slide class="absolute inset-0 hidden">
-                  <img src="/media/PHOTO-2025-09-10-13-23-40.jpg" alt=""
+                  <img src="/media/PHOTO-2025-09-10-13-23-40.jpg" alt="Competition day"
                     class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
                     data-i18n="alt.work_slide_03" data-i18n-attr="alt" />
                   <div
@@ -270,7 +302,7 @@
                     data-i18n="work.slide_03.label"></div>
                 </div>
                 <div data-carousel-slide class="absolute inset-0 hidden">
-                  <img src="/media/pcb_routing.png" alt=""
+                  <img src="/media/pcb_routing.png" alt="VTOL test"
                     class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
                     data-i18n="alt.work_slide_04" data-i18n-attr="alt" />
                   <div
@@ -278,7 +310,7 @@
                     data-i18n="work.slide_04.label"></div>
                 </div>
                 <div data-carousel-slide class="absolute inset-0 hidden">
-                  <img src="/media/launch.png" alt=""
+                  <img src="/media/launch.png" alt="Field prep"
                     class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
                     data-i18n="alt.work_slide_05" data-i18n-attr="alt" />
                   <div
@@ -396,7 +428,7 @@
           <div
             class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
             <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
-              <img src="/media/yigit.png" alt=""
+              <img src="/media/yigit.png" alt="Yigit Kilicarslan"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 data-i18n="alt.team_yigit" data-i18n-attr="alt" />
             </div>
@@ -415,7 +447,7 @@
           <div
             class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
             <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
-              <img src="/media/ceren.jpeg" alt=""
+              <img src="/media/ceren.jpeg" alt="Ceren Eren"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 data-i18n="alt.team_ceren" data-i18n-attr="alt" />
             </div>
@@ -434,7 +466,7 @@
           <div
             class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
             <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
-              <img src="/media/evren.jpg" alt=""
+              <img src="/media/evren.jpg" alt="Evren Ucar"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 data-i18n="alt.team_evren" data-i18n-attr="alt" />
             </div>
@@ -453,7 +485,7 @@
           <div
             class="bg-kora-surface sharp-edge group overflow-hidden border border-slate-800 hover:border-kora-cyan transition-all">
             <div class="aspect-[3/4] overflow-hidden transition-all duration-500">
-              <img src="/media/nursena.png" alt=""
+              <img src="/media/nursena.png" alt="Nursena Gurlek"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 data-i18n="alt.team_nursena" data-i18n-attr="alt" />
             </div>
@@ -534,7 +566,7 @@
             <div class="grid grid-cols-2 gap-4">
               <div
                 class="col-span-2 aspect-video bg-kora-surface sharp-edge border border-slate-800 overflow-hidden relative group">
-                <img src="/media/teknofest_karabag.jpg" alt=""
+                <img src="/media/teknofest_karabag.jpg" alt="TEKNOFEST 2021"
                   class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
                   data-i18n="alt.track_record_teknofest" data-i18n-attr="alt" />
                 <div
@@ -543,7 +575,7 @@
               </div>
               <div
                 class="aspect-square bg-kora-surface sharp-edge border border-slate-800 overflow-hidden relative group">
-                <img src="/media/sina_drone.png" alt=""
+                <img src="/media/sina_drone.png" alt="Sina VTOL system"
                   class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
                   data-i18n="alt.track_record_sina" data-i18n-attr="alt" />
                 <div
@@ -552,7 +584,7 @@
               </div>
               <div
                 class="aspect-square bg-kora-surface sharp-edge border border-slate-800 overflow-hidden relative group">
-                <img src="/media/ozoner.png" alt=""
+                <img src="/media/ozoner.png" alt="BEKO Hackathon & startup accelerator"
                   class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
                   data-i18n="alt.track_record_beko" data-i18n-attr="alt" />
                 <div
@@ -718,7 +750,7 @@
               <div class="text-kora-cyan font-mono text-[10px] uppercase tracking-[0.5em] mb-6 lg:mb-8 font-bold"
                 data-i18n="get_involved.support_label"></div>
               <div class="aspect-video mb-6 overflow-hidden sharp-edge border border-slate-800">
-                <img src="/media/launch.png" alt="" class="w-full h-full object-cover"
+                <img src="/media/launch.png" alt="Launch prep" class="w-full h-full object-cover"
                   data-i18n="alt.get_involved_launch" data-i18n-attr="alt" />
               </div>
               <p class="text-kora-offwhite text-base lg:text-lg font-light leading-relaxed mb-6 italic"
