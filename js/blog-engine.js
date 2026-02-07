@@ -193,12 +193,52 @@ class BlogEngine {
     }
 
     /**
+     * Render author card for blog post
+     * @param {Object} author - Author data from team
+     * @param {string} lang - Current language
+     * @returns {string} HTML for author card
+     */
+    renderAuthorCard(author, lang = 'en') {
+        if (!author) return '';
+
+        const role = author.role ? (lang === 'tr' && author.role.tr ? author.role.tr : author.role.en || author.role) : '';
+        const bio = author.bio ? (lang === 'tr' && author.bio.tr ? author.bio.tr : author.bio.en || author.bio) : '';
+        const writtenByLabel = lang === 'tr' ? 'Yazan' : 'Written by';
+
+        return `
+      <div class="author-card mt-16 pt-8 border-t border-slate-700">
+        <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">${writtenByLabel}</p>
+        <div class="flex items-start gap-5">
+          ${author.image ? `
+            <img src="${author.image}" alt="${author.name}" class="w-16 h-16 rounded-full object-cover border-2 border-slate-700 flex-shrink-0" />
+          ` : ''}
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <h4 class="text-lg font-bold text-kora-offwhite">${author.name}</h4>
+              ${author.linkedin ? `
+                <a href="${author.linkedin}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-kora-cyan transition-colors" title="LinkedIn">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+              ` : ''}
+            </div>
+            <p class="text-sm text-kora-cyan mb-2">${role}</p>
+            <p class="text-sm text-slate-400 leading-relaxed">${bio}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    }
+
+    /**
      * Render a full blog post
      * @param {Object} post - Full post data
      * @param {string} lang - Current language
+     * @param {Object} author - Optional author data from team
      * @returns {string} HTML for full post
      */
-    renderBlogPost(post, lang = 'en') {
+    renderBlogPost(post, lang = 'en', author = null) {
         const title = this.getLocalizedMeta(post.frontmatter, 'title', lang);
 
         // Safely parse date
@@ -224,15 +264,11 @@ class BlogEngine {
             <span class="text-xs text-slate-400">${dateStr}</span>
           </div>
           <h1 class="text-4xl lg:text-5xl font-black text-kora-offwhite uppercase tracking-tight mb-6">${title}</h1>
-          ${post.frontmatter.featured_image ? `
-            <div class="aspect-video overflow-hidden sharp-edge border border-slate-800">
-              <img src="${post.frontmatter.featured_image}" alt="${title}" class="w-full h-full object-cover" />
-            </div>
-          ` : ''}
         </header>
         <div class="prose prose-invert prose-lg max-w-none">
           ${post.content}
         </div>
+        ${this.renderAuthorCard(author, lang)}
       </article>
     `;
     }

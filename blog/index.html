@@ -144,8 +144,19 @@
     <script src="/js/main.js"></script>
     <script>
         let blogContent = null;
+        let teamData = null;
         let allPosts = [];
         let currentFilter = 'all';
+
+        const findAuthor = (authorName) => {
+            if (!teamData || !teamData.members || !authorName) return null;
+            // Match by first name or full name
+            return teamData.members.find(m =>
+                m.name === authorName ||
+                m.name.toLowerCase().includes(authorName.toLowerCase()) ||
+                authorName.toLowerCase().includes(m.name.split(' ')[0].toLowerCase())
+            );
+        };
 
         const renderPosts = (posts) => {
             const grid = document.getElementById('blog-grid');
@@ -177,7 +188,8 @@
             }
 
             const lang = contentLoader.currentLang;
-            document.getElementById('post-content').innerHTML = blogEngine.renderBlogPost(post, lang);
+            const author = findAuthor(post.frontmatter.author);
+            document.getElementById('post-content').innerHTML = blogEngine.renderBlogPost(post, lang, author);
         };
 
         const showListing = () => {
@@ -222,6 +234,7 @@
 
         document.addEventListener('app-ready', async () => {
             blogContent = await contentLoader.loadContent('blog');
+            teamData = await contentLoader.loadContent('team');
 
             // Filter button handlers
             document.querySelectorAll('[data-category]').forEach(btn => {

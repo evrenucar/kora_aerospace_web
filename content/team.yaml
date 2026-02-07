@@ -20,6 +20,7 @@ members:
       en: "Specializes in PCB and firmware development. Freelances as a full-stack hardware dev."
       tr: "Odtü AEE 4. Sınıf Öğrencisi. PCB ve gömülü yazılım geliştirmede uzman. Aynı zamanda full-stack donanım geliştiricisi olarak çalışıyor."
     image: "/media/yigit.png"
+    linkedin: "https://www.linkedin.com/in/yi%C4%9Fit-k%C4%B1l%C4%B1%C3%A7arslan-70409218b/"
     alt:
       en: "Yiğit Kılıçarslan"
       tr: "Yiğit Kılıçarslan"
@@ -32,6 +33,7 @@ members:
       en: "Specializes in aerodynamic structural design and rapid physical prototyping. Leads the end-to-end assembly process."
       tr: "Odtü AEE 4. Sınıf Öğrencisi. Aerodinamik yapısal tasarım ve hızlı fiziksel prototiplemede uzman. Uçtan uca montaj sürecini yönetiyor. Tusaş'ta aday mühendis."
     image: "/media/ceren.jpeg"
+    linkedin: "https://www.linkedin.com/in/ceren-eren-bb4aa32b5/"
     alt:
       en: "Ceren"
       tr: "Ceren"
@@ -44,6 +46,7 @@ members:
       en: "Focused on integration of airframe, electrical and software. Works as a design engineer offering full-stack product development."
       tr: "Odtü Mezunu, TU Delft'te yüksek lisans öğrencisi. Gövde, elektrik ve yazılım entegrasyonuna odaklı. Full-stack ürün geliştirme sunan bir tasarım mühendisi olarak çalışıyor."
     image: "/media/evren.jpg"
+    linkedin: "https://www.linkedin.com/in/evrenucar/"
     alt:
       en: "Evren Uçar"
       tr: "Evren Uçar"
@@ -56,6 +59,7 @@ members:
       en: "Experienced in computational aerodynamic analysis and flight control software."
       tr: "Odtü AEE 4. Sınıf Öğrencisi. Hesaplamalı aerodinamik analiz ve uçuş kontrol yazılımında deneyimli. Tusaş'ta aday mühendis."
     image: "/media/nursena.png"
+    linkedin: "https://www.linkedin.com/in/nursena-g%C3%BCrlek-385815371/"
     alt:
       en: "Nursena"
       tr: "Nursena"
