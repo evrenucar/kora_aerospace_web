@@ -106,84 +106,125 @@ sponsors:
         en: "Platinum"
         tr: "Platin"
       subtitle:
-        en: "€12k+ <br> Fund most of our development and event access"
-        tr: "€12k+ <br> Geliştirmenin ve etkinlik erişiminin çoğunu finanse edin"
+        en: "€10K+ <br> Main Sponsor"
+        tr: "€10K+ <br> Ana Sponsor"
     gold:
       title:
         en: "Gold"
         tr: "Altın"
       subtitle:
-        en: "€6k+ <br> Support our development and event access"
-        tr: "€6k+ <br> Geliştirme ve etkinlik erişimini destekleyin"
+        en: "€3k–10k <br> Fund our development and event access"
+        tr: "€3k–10k <br> Geliştirme ve etkinlik erişimini finanse edin"
     silver:
       title:
         en: "Silver"
         tr: "Gümüş"
       subtitle:
-        en: "€3k+ <br> Enable our access to equipment and manufacture"
-        tr: "€3k+ <br> Ekipman ve üretime erişimimizi mümkün kılın"
+        en: "€1k–3k <br> Support our development and manufacturing"
+        tr: "€1k–3k <br> Geliştirme ve üretimimizi destekleyin"
     bronze:
       title:
         en: "Bronze"
         tr: "Bronz"
       subtitle:
-        en: "€1k+ <br> Support us and become a part of our journey"
-        tr: "€1k+ <br> Bizi destekleyin ve yolculuğumuzun parçası olun"
-    copper:
-      title:
-        en: "Copper"
-        tr: "Bakır"
-      subtitle:
-        en: "€10+ <br> Buy us a coffee to fuel our journey"
-        tr: "€10+ <br> Bir kahve ısmarlayarak destek olun"
+        en: "<€1K <br> Support us and become a part of our journey"
+        tr: "<€1K <br> Bizi destekleyin ve yolculuğumuzun parçası olun"
   benefits:
     title:
-      en: "What our sponsors get"
-      tr: "Sponsorlarımız ne kazanır"
+      en: "Sponsorship Packages"
+      tr: "Sponsorluk Paketleri"
     label:
-      en: "// SUPPORT OUR PROGRESS"
-      tr: "// İLERLEMEMİZİ DESTEKLEYİN"
-    items:
-      - title:
-          en: "Visibility"
-          tr: "Görünürlük"
-        body:
-          en: "Logo on vehicle, website, posters, and demo content."
-          tr: "Araçta, web sitesinde, posterlerde ve demo içeriklerinde logo."
-      - title:
-          en: "Technical Consulting"
-          tr: "Teknik Danışmanlık"
-        body:
-          en: "We'd love to chat about your projects. You can reach us anytime."
-          tr: "Projeleriniz hakkında sohbet etmeyi isteriz. İstediğiniz zaman bize ulaşabilirsiniz."
-      - title:
-          en: "R&D TRANSPARENCY"
-          tr: "Ar-Ge Şeffaflığı"
-        body:
-          en: "Periodic progress updates, test results summary of hardware developed."
-          tr: "Düzenli ilerleme güncellemeleri, geliştirilen donanımın test sonuçları özeti."
-      - title:
-          en: "Demos"
-          tr: "Demo"
-        body:
-          en: "Sponsor showcase flight/test session when feasible."
-          tr: "Mümkün olduğunda sponsor gösterim uçuşu/test oturumu."
+      en: "// WHAT OUR SPONSORS GET"
+      tr: "// SPONSORLARIMIZ NE KAZANIR"
+    rows:
+      - label:
+          en: "Logo"
+          tr: "Logo"
+        bronze:
+          en: "Small — pit banner + web"
+          tr: "Küçük — pit banner + web"
+        silver:
+          en: "Small — UAV + clothing + pit + web"
+          tr: "Küçük — İHA + kıyafet + pit + web"
+        gold:
+          en: "Medium — UAV + clothing + pit + web"
+          tr: "Orta — İHA + kıyafet + pit + web"
+        platinum:
+          en: "Large — UAV + clothing + pit + web"
+          tr: "Büyük — İHA + kıyafet + pit + web"
+      - label:
+          en: "Web & Social Media"
+          tr: "Web Sitesi & Sosyal Medya"
+        bronze:
+          en: "Website mention"
+          tr: "Web sitesinde atıf"
+        silver:
+          en: "Website, blog, social media"
+          tr: "Web sitesi, blog, sosyal medya"
+        gold:
+          en: "Website, blog, social media"
+          tr: "Web sitesi, blog, sosyal medya"
+        platinum:
+          en: "Website, all blog posts, all social media posts"
+          tr: "Web sitesi, tüm bloglarda teşekkür, tüm sosyal medya postlarında teşekkür"
+      - label:
+          en: "Event Visibility"
+          tr: "Etkinliklerde Görünürlük"
+        bronze:
+          en: "SUAS + TEKNOFEST"
+          tr: "SUAS + TEKNOFEST"
+        silver:
+          en: "SUAS + TEKNOFEST"
+          tr: "SUAS + TEKNOFEST"
+        gold:
+          en: "SUAS + TEKNOFEST"
+          tr: "SUAS + TEKNOFEST"
+        platinum:
+          en: "SUAS + TEKNOFEST"
+          tr: "SUAS + TEKNOFEST"
+      - label:
+          en: "Reporting"
+          tr: "Raporlama"
+        bronze:
+          en: "Season summary"
+          tr: "Sezonluk özet"
+        silver:
+          en: "Season summary, flight videos"
+          tr: "Sezonluk özet, uçuş videoları"
+        gold:
+          en: "Season summary, flight videos, weekly updates"
+          tr: "Sezonluk özet, uçuş videoları, haftalık güncelleme"
+        platinum:
+          en: "Season summary, flight videos, weekly updates"
+          tr: "Sezonluk özet, uçuş videoları, haftalık güncelleme"
+      - label:
+          en: "Extras"
+          tr: "Ekstra"
+        bronze:
+          en: "—"
+          tr: "—"
+        silver:
+          en: "—"
+          tr: "—"
+        gold:
+          en: "Demo Day invitation"
+          tr: "Demo Günü daveti"
+        platinum:
+          en: "Demo Day invitation"
+          tr: "Demo Günü daveti"
   current:
     title:
-      en: "Current Sponsors"
-      tr: "Mevcut Sponsorlar"
-    platinum:
-      en: "Platinum: (Open)"
-      tr: "Platin: (Boş)"
-    gold:
-      en: "Gold: (Open)"
-      tr: "Altın: (Boş)"
-    silver:
-      en: "Silver: (Open)"
-      tr: "Gümüş: (Boş)"
-    bronze:
-      en: "Bronze: (Open)"
-      tr: "Bronz: (Boş)"
+      en: "Our Sponsors"
+      tr: "Sponsorlarımız"
+    subtitle:
+      en: "We're grateful to the sponsors who make our work possible."
+      tr: "Çalışmalarımızı mümkün kılan sponsorlarımıza minnettarız."
+    items:
+      - name: "Çorbacı Veysel"
+      - name: "KARDOST GIDA"
+      - name: "UPC Uzay"
+      - name: "Pınar Beton Yapı"
+      - name: "ALPAŞ MÜHENDİSLİK"
 
 get_involved:
   title:

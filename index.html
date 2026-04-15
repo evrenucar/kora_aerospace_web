@@ -619,7 +619,7 @@
             </a>
           </div>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16 lg:mb-24">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 lg:mb-24">
           <div
             class="p-6 lg:p-8 sharp-edge border transition-all flex flex-col group bg-kora-cyan text-kora-bg border-kora-cyan">
             <h3 class="text-xl lg:text-2xl font-black mb-4 lg:mb-6 uppercase tracking-tighter"
@@ -648,60 +648,39 @@
             <p class="text-[11px] font-mono font-semibold opacity-70 mb-6 lg:mb-8 uppercase tracking-widest h-12 leading-tight"
               data-i18n="sponsors.tiers.bronze.subtitle"></p>
           </div>
-          <div
-            class="p-6 lg:p-8 sharp-edge border transition-all flex flex-col group bg-transparent border-slate-800 text-slate-200 hover:border-slate-600">
-            <h3 class="text-xl lg:text-2xl font-black mb-4 lg:mb-6 uppercase tracking-tighter"
-              data-i18n="sponsors.tiers.copper.title"></h3>
-            <p class="text-[11px] font-mono font-semibold opacity-70 mb-6 lg:mb-8 uppercase tracking-widest h-12 leading-tight"
-              data-i18n="sponsors.tiers.copper.subtitle"></p>
-          </div>
         </div>
-        <div class="bg-kora-surface p-8 lg:p-12 sharp-edge border border-slate-800 mb-16 lg:mb-20">
-          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between mb-12 lg:mb-16">
+        <div class="bg-kora-surface p-6 lg:p-12 sharp-edge border border-slate-800 mb-16 lg:mb-20">
+          <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between mb-10 lg:mb-14">
             <h3 class="text-xl lg:text-2xl font-black text-kora-offwhite uppercase tracking-tight"
               data-i18n="sponsors.benefits.title"></h3>
             <div class="text-kora-cyan font-mono text-xs uppercase tracking-[0.3em] font-bold"
               data-i18n="sponsors.benefits.label"></div>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            <div>
-              <h4 class="text-kora-offwhite font-black uppercase text-sm mb-3 tracking-widest"
-                data-i18n="sponsors.benefits.item_01.title"></h4>
-              <p class="text-slate-100 text-sm font-light leading-relaxed" data-i18n="sponsors.benefits.item_01.body">
-              </p>
-            </div>
-            <div>
-              <h4 class="text-kora-offwhite font-black uppercase text-sm mb-3 tracking-widest"
-                data-i18n="sponsors.benefits.item_02.title"></h4>
-              <p class="text-slate-100 text-sm font-light leading-relaxed" data-i18n="sponsors.benefits.item_02.body">
-              </p>
-            </div>
-            <div>
-              <h4 class="text-kora-offwhite font-black uppercase text-sm mb-3 tracking-widest"
-                data-i18n="sponsors.benefits.item_03.title"></h4>
-              <p class="text-slate-100 text-sm font-light leading-relaxed" data-i18n="sponsors.benefits.item_03.body">
-              </p>
-            </div>
-            <div>
-              <h4 class="text-kora-offwhite font-black uppercase text-sm mb-3 tracking-widest"
-                data-i18n="sponsors.benefits.item_04.title"></h4>
-              <p class="text-slate-100 text-sm font-light leading-relaxed" data-i18n="sponsors.benefits.item_04.body">
-              </p>
-            </div>
+          <div class="overflow-x-auto -mx-2">
+            <table class="w-full min-w-[600px] text-sm" id="benefits-table">
+              <thead>
+                <tr class="border-b border-slate-700">
+                  <th class="text-left py-4 px-3 text-slate-400 font-mono text-xs uppercase tracking-widest w-[20%]"></th>
+                  <th class="text-left py-4 px-3 text-slate-400 font-mono text-xs uppercase tracking-widest w-[20%]"
+                    data-i18n="sponsors.tiers.bronze.title"></th>
+                  <th class="text-left py-4 px-3 text-slate-400 font-mono text-xs uppercase tracking-widest w-[20%]"
+                    data-i18n="sponsors.tiers.silver.title"></th>
+                  <th class="text-left py-4 px-3 text-slate-400 font-mono text-xs uppercase tracking-widest w-[20%]"
+                    data-i18n="sponsors.tiers.gold.title"></th>
+                  <th class="text-left py-4 px-3 text-kora-cyan font-mono text-xs uppercase tracking-widest w-[20%]"
+                    data-i18n="sponsors.tiers.platinum.title"></th>
+                </tr>
+              </thead>
+              <tbody id="benefits-table-body">
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="text-center pt-12 lg:pt-16 border-t border-slate-900">
-          <h4 class="text-slate-100 font-black uppercase tracking-[0.6em] text-sm mb-8 lg:mb-12"
+          <h4 class="text-slate-100 font-black uppercase tracking-[0.6em] text-sm mb-4"
             data-i18n="sponsors.current.title"></h4>
-          <div class="flex flex-col gap-px bg-slate-900 border border-slate-900 max-w-md mx-auto">
-            <div class="bg-kora-bg py-8 lg:py-10 text-slate-200 font-mono text-xs uppercase tracking-widest"
-              data-i18n="sponsors.current.platinum"></div>
-            <div class="bg-kora-bg py-8 lg:py-10 text-slate-200 font-mono text-xs uppercase tracking-widest"
-              data-i18n="sponsors.current.gold"></div>
-            <div class="bg-kora-bg py-8 lg:py-10 text-slate-200 font-mono text-xs uppercase tracking-widest"
-              data-i18n="sponsors.current.silver"></div>
-            <div class="bg-kora-bg py-8 lg:py-10 text-slate-200 font-mono text-xs uppercase tracking-widest"
-              data-i18n="sponsors.current.bronze"></div>
+          <p class="text-slate-400 text-sm font-light mb-10 lg:mb-14" data-i18n="sponsors.current.subtitle"></p>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="sponsors-grid">
           </div>
         </div>
       </div>
@@ -822,13 +801,12 @@
           title: homeContent.sponsorship_enables.title,
           ...arrayToIndexedObject(homeContent.sponsorship_enables.items, 'item')
         },
-        // Transform sponsor benefits items array
+        // Sponsors section (benefits table + sponsor list built dynamically)
         sponsors: {
           ...homeContent.sponsors,
           benefits: {
             title: homeContent.sponsors.benefits.title,
-            label: homeContent.sponsors.benefits.label,
-            ...arrayToIndexedObject(homeContent.sponsors.benefits.items, 'item')
+            label: homeContent.sponsors.benefits.label
           }
         },
         // Transform get_involved options array
@@ -873,6 +851,39 @@
         }
       };
 
+      // Build benefits comparison table from YAML rows
+      const buildBenefitsTable = () => {
+        const tbody = document.getElementById('benefits-table-body');
+        if (!tbody || !homeContent.sponsors.benefits.rows) return;
+        const lang = contentLoader.currentLang;
+        tbody.innerHTML = '';
+        homeContent.sponsors.benefits.rows.forEach((row) => {
+          const tr = document.createElement('tr');
+          tr.className = 'border-b border-slate-800';
+          tr.innerHTML = `
+            <td class="py-4 px-3 text-kora-offwhite font-black uppercase text-xs tracking-widest align-top">${row.label[lang] || row.label.en}</td>
+            <td class="py-4 px-3 text-slate-300 text-sm font-light">${row.bronze[lang] || row.bronze.en}</td>
+            <td class="py-4 px-3 text-slate-300 text-sm font-light">${row.silver[lang] || row.silver.en}</td>
+            <td class="py-4 px-3 text-slate-300 text-sm font-light">${row.gold[lang] || row.gold.en}</td>
+            <td class="py-4 px-3 text-kora-cyan text-sm font-medium">${row.platinum[lang] || row.platinum.en}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      };
+
+      // Build sponsors grid from YAML items
+      const buildSponsorsGrid = () => {
+        const grid = document.getElementById('sponsors-grid');
+        if (!grid || !homeContent.sponsors.current.items) return;
+        grid.innerHTML = '';
+        homeContent.sponsors.current.items.forEach((sponsor) => {
+          const div = document.createElement('div');
+          div.className = 'sharp-edge border border-slate-800 bg-kora-surface p-6 flex items-center justify-center min-h-[100px] hover:border-slate-600 transition-all';
+          div.innerHTML = `<span class="text-slate-200 font-bold text-sm text-center leading-tight">${sponsor.name}</span>`;
+          grid.appendChild(div);
+        });
+      };
+
       // Apply all data-i18n attributes
       const applyPageContent = (content) => {
         document.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -900,10 +911,14 @@
 
       // Apply content initially
       applyPageContent(mergedContent);
+      buildBenefitsTable();
+      buildSponsorsGrid();
 
       // Re-apply content when language changes
       document.addEventListener('language-changed', () => {
         applyPageContent(mergedContent);
+        buildBenefitsTable();
+        buildSponsorsGrid();
       });
     });
   </script>
