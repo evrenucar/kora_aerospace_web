@@ -39,7 +39,7 @@ fontFamily: {
 
 ## Architecture Changes
 
-### Multi-Page Structure (from [layout.md](file:///Users/yigit/Documents/GitHub/kora_aerospace_web/docs/layout.md))
+### Multi-Page Structure (from [layout.md](layout.md))
 
 ```
 /                     → Home (index.html)
